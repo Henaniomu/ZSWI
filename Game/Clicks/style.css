@@ -1,0 +1,14 @@
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #CCC;
+  border: 1px solid #000;
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+}
+.selected {
+  background-color: #FFA;
+}
