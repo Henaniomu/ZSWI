@@ -1,11 +1,11 @@
-let cells = ['Horse', 'Cat', 'Dog', 'Monkey', 'Crocodile', 'Bear', 'Dolphine', 'Hippopotamos', 'Parrot'];
+let cells = ['cat', 'duck', 'frog'];
 
 let cell1 = cells.slice();
 let cell2 = cells.slice();
 
 let selectedCellName;
-let left = document.getElementById('left');
-let right = document.getElementById('right');
+let select_section = document.getElementById('select_section');
+let main_section = document.getElementById('main_section');
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -22,30 +22,43 @@ function createCells() {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.textContent = cellName;
+        addImage(cell, 2);
+
         cell.draggable = true;
         cell.addEventListener('dragstart', dragStart);
-        left.appendChild(cell);
+        select_section.appendChild(cell);
     });
 
     cell2.forEach((cellName) => {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.textContent = cellName;
-        right.appendChild(cell);
+        addImage(cell, 1);
+
+        main_section.appendChild(cell);
     });
+}
+
+function addImage(div, side){
+    let img = document.createElement("img");
+    img.src = "../png/" + div.textContent + side + ".png" ;
+    div.appendChild(img);
 }
 
 
 
 function dragStart(event) {
-    event.dataTransfer.setData('text/plain', event.target.textContent);
-    selectedCellName = event.target.textContent;
+    const cellDiv = event.target.closest('.cell');
+    if (cellDiv) {
+        event.dataTransfer.setData('text/plain', cellDiv.textContent.trim());
+        selectedCellName = cellDiv.textContent.trim();
+    }
 }
 
-right.addEventListener('dragover', dragOver);
-right.addEventListener('dragenter', dragEnter);
-right.addEventListener('dragleave', dragLeave);
-right.addEventListener('drop', drop);
+main_section.addEventListener('dragover', dragOver);
+main_section.addEventListener('dragenter', dragEnter);
+main_section.addEventListener('dragleave', dragLeave);
+main_section.addEventListener('drop', drop);
 
 function dragOver(event) {
     event.preventDefault();
@@ -60,13 +73,39 @@ function dragLeave() {
 
 function drop(event) {
     event.preventDefault();
-    const dropData = event.target.innerHTML;
+    const dropTarget = event.target.closest('.cell'); 
+    if (!dropTarget) return; 
+
+    const dropData = dropTarget.textContent.trim();
 
     if (dropData === selectedCellName) {
-        alert('Success');
+        showOverlay("Success");
     } else {
-        alert('Failure');
+        showOverlay("Failure");
     }
 }
 
+
 createCells();
+
+
+
+const overlay = document.getElementById('overlay');
+const closeButton = document.createElement('span');
+closeButton.textContent = '×'; 
+closeButton.classList.add('close-button');
+overlay.appendChild(closeButton);
+const contentDiv = document.createElement('div');
+contentDiv.classList.add('message');
+overlay.appendChild(contentDiv);
+
+function showOverlay(text) {
+    overlay.style.display = 'block';
+    contentDiv.innerHTML = text;
+}
+
+function hideOverlay() {
+  overlay.style.display = 'none';
+}
+
+closeButton.addEventListener('click', hideOverlay);
