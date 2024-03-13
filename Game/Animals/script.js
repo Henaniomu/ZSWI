@@ -147,7 +147,6 @@ function getValidIndex(array) {
       }
     }
 }
-
 function setHighlight(index){
     
     if (index >= 0 && index < cell_highlight.length) {
