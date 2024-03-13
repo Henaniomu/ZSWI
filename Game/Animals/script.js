@@ -1,11 +1,47 @@
 let cells = ['cat', 'duck', 'frog'];
 
-let cell1 = cells.slice();
-let cell2 = cells.slice();
+let numberOfimages = 3;
+let total_attemps = 0;
+let success_attemps=0;
+
+
+let cell_selection =[]; //select
+let cell_highlight =[]; //main
+let cell1 = cells.slice(0, numberOfimages);
+let cell2 = cells.slice(0, numberOfimages);
+
+let highlightCell;// = document.createElement('div');
 
 let selectedCellName;
 let select_section = document.getElementById('select_section');
 let main_section = document.getElementById('main_section');
+
+
+class cellClass{
+    constructor(name, side, image){
+        this.name = name;
+        this.side = side;
+        this.displayed = false;
+        this.image = image;
+    }
+
+    setDisplayed(flag){
+        this.displayed = flag;
+    }
+    getDisplayed(){
+        return this.displayed;
+    }
+    getName(){
+        return this.name;
+    }
+    getSide(){
+        return this.side;
+    }
+    getImage(){
+        return this.image;
+    }
+}
+
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -15,36 +51,32 @@ function shuffleArray(array) {
 }
 
 function createCells() {
-    shuffleArray(cell1);
-    shuffleArray(cell2);
-    
+
+    i = 0;
     cell1.forEach((cellName) => {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.textContent = cellName;
-        addImage(cell, 2);
-
-        cell.draggable = true;
-        cell.addEventListener('dragstart', dragStart);
-        select_section.appendChild(cell);
+        const image = addImage(cellName, 1);
+        const instance = new cellClass(cellName, 1, image);
+        cell_highlight[i] = instance;
+        i++;
     });
 
+    i = 0;
     cell2.forEach((cellName) => {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.textContent = cellName;
-        addImage(cell, 1);
-
-        main_section.appendChild(cell);
+        const image = addImage(cellName, 2);
+        const instance = new cellClass(cellName, 2, image);
+        cell_selection[i] = instance;
+        i++;
     });
+
+    shuffleArray(cell_selection);
+    shuffleArray(cell_highlight);
 }
 
-function addImage(div, side){
+function  addImage(name, side){
     let img = document.createElement("img");
-    img.src = "../png/" + div.textContent + side + ".png" ;
-    div.appendChild(img);
+    img.src = "../png/" + name + side + ".png" ;
+    return img;
 }
-
 
 
 function dragStart(event) {
@@ -78,15 +110,88 @@ function drop(event) {
 
     const dropData = dropTarget.textContent.trim();
 
-    if (dropData === selectedCellName) {
-        showOverlay("Success");
-    } else {
-        showOverlay("Failure");
+    control(dropData === selectedCellName);
+
+}
+
+function control(result){
+
+    if(result){
+        success_attemps++;
+        index = getValidIndex(cell_highlight);
+        setHighlight(index);   
+    }
+    else{
+        showOverlay("Try again");
+    }
+
+    total_attemps++;
+    if(total_attemps == numberOfimages){
+        if(success_attemps == numberOfimages){
+            showOverlay("Success");
+            reset();
+        }
+        else{
+            showOverlay("Failure");
+            reset();
+        }
+    }
+
+
+}
+
+function getValidIndex(array) {
+    for (let i = 0; i < array.length; i++) {
+      if (!array[i].getDisplayed()) {
+        return i;
+      }
     }
 }
 
+function setHighlight(index){
+    
+    if (index >= 0 && index < cell_highlight.length) {
+        highlightCell.textContent = cell_highlight[index].getName();
+        highlightCell.appendChild(cell_highlight[index].getImage());
+        cell_highlight[index].setDisplayed(true);
+    }
+}
+function setFirstRound(){
+    
+    highlightCell = document.createElement('div');
+    highlightCell.classList.add('cell');
+    highlightCell.textContent = cell_highlight[0].getName();
+    highlightCell.appendChild(cell_highlight[0].getImage());
+    highlightCell.addEventListener('dragstart', dragStart);
+    main_section.appendChild(highlightCell);
+    cell_highlight[0].setDisplayed(true);
+    
+    for(i = 0; i < numberOfimages; i++){
+        
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.textContent = cell_selection[i].getName();
+        cell.appendChild(cell_selection[i].getImage());
+        cell.addEventListener('dragstart', dragStart);
+        select_section.appendChild(cell);
+        cell_selection[i].setDisplayed(true);
+        
+    }
+}
+function reset(){
+    total_attemps = 0;
+    success_attemps = 0;
 
-createCells();
+    cell_highlight.forEach(variable=>{
+        variable.setDisplayed(false);
+    });
+    cell_selection.forEach(variable=>{
+        variable.setDisplayed(false);
+    });
+
+    shuffleArray(cell_selection);
+    shuffleArray(cell_highlight);
+}
 
 
 
@@ -109,3 +214,7 @@ function hideOverlay() {
 }
 
 closeButton.addEventListener('click', hideOverlay);
+
+
+createCells();
+setFirstRound();
