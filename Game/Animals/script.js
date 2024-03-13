@@ -136,8 +136,6 @@ function control(result){
             reset();
         }
     }
-
-
 }
 
 function getValidIndex(array) {
