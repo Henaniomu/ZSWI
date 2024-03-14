@@ -1,14 +1,25 @@
-.cell {
-  width: 100px;
-  height: 100px;
+.game-container {
+  text-align: center;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
   background-color: #CCC;
   border: 1px solid #000;
   display: inline-block;
   margin: 5px;
   text-align: center;
-  line-height: 100px;
+  line-height: 80px;
   cursor: pointer;
 }
-.selected {
-  background-color: #FFA;
+
+.icon-bottom {
+  width: 80px;
+  height: 80px;
+  background-color: #CCC;
+  border: 1px solid #000;
+  margin: 20px auto; /* Центрируем по горизонтали */
+  text-align: center;
+  line-height: 80px;
 }
