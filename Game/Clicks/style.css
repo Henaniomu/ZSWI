@@ -1,25 +1,19 @@
-.game-container {
+.icon-bottom {
   text-align: center;
 }
 
-.icon {
-  width: 80px;
-  height: 80px;
-  background-color: #CCC;
-  border: 1px solid #000;
-  display: inline-block;
+.icon-bottom img {
+  width: 100px; /* Размеры можно настроить под ваши изображения */
+  height: 100px;
   margin: 5px;
-  text-align: center;
-  line-height: 80px;
   cursor: pointer;
 }
-
-.icon-bottom {
-  width: 80px;
-  height: 80px;
-  background-color: #CCC;
-  border: 1px solid #000;
-  margin: 20px auto; /* Центрируем по горизонтали */
+.icon-top {
   text-align: center;
-  line-height: 80px;
+  margin-top: 50px; /* Добавляем отступ сверху, чтобы изображение было ближе к верху */
+}
+
+.icon-top img {
+  width: 100px; /* Размеры можно настроить под ваши изображения */
+  height: 100px;
 }
