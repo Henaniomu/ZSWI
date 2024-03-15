@@ -3,9 +3,9 @@
 }
 
 .icon-bottom img {
-  width: 100px; /* Размеры можно настроить под ваши изображения */
-  height: 100px;
-  margin: 5px;
+  width: auto; /* Размеры можно настроить под ваши изображения */
+  height: auto;
+  margin: 10%;
   cursor: pointer;
 }
 .icon-top {
@@ -14,6 +14,11 @@
 }
 
 .icon-top img {
-  width: 100px; /* Размеры можно настроить под ваши изображения */
-  height: 100px;
+  width: auto; /* Размеры можно настроить под ваши изображения */
+  height: auto;
+}
+body {
+  background-image: url('../background/bgFullHD.png');
+  background-size: cover; /* Подстройка размера, чтобы охватить всю область */
+  background-repeat: no-repeat; /* Отключение повтора изображения */
 }
