@@ -10,7 +10,11 @@ let cell_highlight =[]; //main
 let cell1 = cells.slice(0, numberOfimages);
 let cell2 = cells.slice(0, numberOfimages);
 
-let highlightCell;// = document.createElement('div');
+let highlightCell = document.createElement('div');
+let rightInnerDiv;
+let leftInnerDiv;
+let newDiv;
+let tempName;
 
 let selectedCellName;
 let select_section = document.getElementById('select_section');
@@ -72,12 +76,11 @@ function createCells() {
     shuffleArray(cell_highlight);
 }
 
-function  addImage(name, side){
+function addImage(name, side){
     let img = document.createElement("img");
     img.src = "../png/" + name + side + ".png" ;
     return img;
 }
-
 
 function dragStart(event) {
     const cellDiv = event.target.closest('.cell');
@@ -87,30 +90,77 @@ function dragStart(event) {
     }
 }
 
-main_section.addEventListener('dragover', dragOver);
-main_section.addEventListener('dragenter', dragEnter);
-main_section.addEventListener('dragleave', dragLeave);
-main_section.addEventListener('drop', drop);
-
 function dragOver(event) {
     event.preventDefault();
 }
 
+leftInnerDiv = document.createElement('div');
+leftInnerDiv.classList.add('cell');
+
+leftInnerDiv.addEventListener('dragover', dragOver);
+leftInnerDiv.addEventListener('dragenter', dragEnter);
+leftInnerDiv.addEventListener('drop', drop);
+
+rightInnerDiv = document.createElement('div');
+rightInnerDiv.classList.add('cell');
+
+rightInnerDiv.addEventListener('dragover', dragOver);
+rightInnerDiv.addEventListener('dragenter', dragEnter);
+rightInnerDiv.addEventListener('drop', drop);
+
+newDiv = document.createElement('div');
+
+added = false;
+
 function dragEnter(event) {
     event.preventDefault();
-}
 
-function dragLeave() {
+     if (!added) {
+        tempName = highlightCell.textContent; 
+        leftInnerDiv.textContent = tempName;
+        leftInnerDiv.appendChild(addImage(tempName, 1));
+
+        rightInnerDiv.textContent = tempName;
+        rightInnerDiv.appendChild(addImage(selectedCellName, 2));
+
+        rightInnerDiv.style.margin = "0px" ;
+        leftInnerDiv.style.margin = "0px" ;
+        rightInnerDiv.style.marginBottom = "10px" ;
+        leftInnerDiv.style.marginBottom = "10px" ;
+
+        newDiv.appendChild(leftInnerDiv);
+        newDiv.appendChild(rightInnerDiv);
+
+        main_section.removeChild(highlightCell);
+        main_section.appendChild(newDiv);
+        added = true;
+     }
 }
+  
+newDiv.addEventListener('dragleave', (event) => {
+    if (event.target !== newDiv) return;
+        main_section.removeChild(newDiv);
+        highlightCell.textContent = tempName;
+        highlightCell.appendChild(addImage(tempName, 1));
+        highlightCell.addEventListener('drop', drop);
+        main_section.appendChild(highlightCell);
+        added = false;
+});
 
 function drop(event) {
     event.preventDefault();
-    const dropTarget = event.target.closest('.cell'); 
+
+        main_section.removeChild(newDiv);
+        highlightCell.textContent = tempName;
+        highlightCell.appendChild(addImage(tempName, 1));
+        highlightCell.addEventListener('drop', drop);
+        main_section.appendChild(highlightCell);
+        added = false;
+
+    const dropTarget = tempName; 
     if (!dropTarget) return; 
 
-    const dropData = dropTarget.textContent.trim();
-
-    control(dropData === selectedCellName);
+    control(dropTarget === selectedCellName);
 
 }
 
@@ -120,6 +170,7 @@ function control(result){
         success_attemps++;
         index = getValidIndex(cell_highlight);
         setHighlight(index);   
+        updateSelectSection();
     }
     else{
         showOverlay("Try again");
@@ -138,9 +189,22 @@ function control(result){
     }
 }
 
+function updateSelectSection() {
+    for (let i = 0; i < numberOfimages; i++) {
+        if(cell_selection[i].getName() == selectedCellName){
+            cell_selection[i].selected = true;
+        }
+        if (cell_selection[i].selected) {
+            cell_selection[i].element.style.display = "none"; 
+        } else {
+            cell_selection[i].element.style.display = "inline-block"; 
+        }
+    }
+}
+
 function getValidIndex(array) {
     for (let i = 0; i < array.length; i++) {
-      if (!array[i].getDisplayed()) {
+      if (!array[i].displayed) {
         return i;
       }
     }
@@ -151,6 +215,7 @@ function setHighlight(index){
         highlightCell.textContent = cell_highlight[index].getName();
         highlightCell.appendChild(cell_highlight[index].getImage());
         cell_highlight[index].setDisplayed(true);
+        cell_highlight[index].displayed = true;
     }
 }
 function setFirstRound(){
@@ -159,12 +224,12 @@ function setFirstRound(){
     highlightCell.classList.add('cell');
     highlightCell.textContent = cell_highlight[0].getName();
     highlightCell.appendChild(cell_highlight[0].getImage());
-    highlightCell.addEventListener('dragstart', dragStart);
     main_section.appendChild(highlightCell);
     cell_highlight[0].setDisplayed(true);
+
+    highlightCell.addEventListener('dragenter', dragEnter);
     
     for(i = 0; i < numberOfimages; i++){
-        
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.textContent = cell_selection[i].getName();
@@ -172,22 +237,29 @@ function setFirstRound(){
         cell.addEventListener('dragstart', dragStart);
         select_section.appendChild(cell);
         cell_selection[i].setDisplayed(true);
-        
+        cell_selection[i].selected = false;
+        cell_selection[i].element = cell;
+
     }
 }
-function reset(){
+function reset() {
     total_attemps = 0;
     success_attemps = 0;
-
-    cell_highlight.forEach(variable=>{
-        variable.setDisplayed(false);
+    cell_highlight.forEach(variable => {
+        variable.setDisplayed(false)
+        variable.displayed = false;
     });
-    cell_selection.forEach(variable=>{
+    cell_selection.forEach((variable, index) => {
         variable.setDisplayed(false);
+        variable.selected = false;
+        const cellElement = document.querySelectorAll('#select_section .cell')[index];
+        cellElement.style.display = "inline-block";
     });
 
     shuffleArray(cell_selection);
     shuffleArray(cell_highlight);
+    setHighlight(0);
+    cell_highlight[0].displayed = true;
 }
 
 
