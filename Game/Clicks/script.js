@@ -1,67 +1,74 @@
-let cells = ['Apple', 'Banana', 'Orange', 'Grapes', 'Watermelon', 'Pineapple', 'Strawberry', 'Blueberry', 'Cherry'];
-let selectedCellName;
+let leftAnimalImages = ['../PNG/cat1.png', '../PNG/duck1.png', '../PNG/frog1.png'];
+let rightAnimalImages = ['../PNG/cat2.png', '../PNG/duck2.png', '../PNG/frog2.png'];
+let selectedLeftAnimal;
 let gameContainer = document.getElementById('gameContainer');
 
-function shuffleCells() {
-    let duplicatedCells = cells.slice();
-    cells = cells.concat(duplicatedCells);
+function shuffleAnimals() {
+    let currentIndex = leftAnimalImages.length;
+    let temporaryValue, randomIndex;
 
-    for (let i = cells.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [cells[i], cells[j]] = [cells[j], cells[i]];
-    }
+    // Пока остаются элементы для перетасовки...
+    while (currentIndex !== 0) {
+        // Выбираем случайный оставшийся элемент...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
 
-    let firstRow = cells.slice(0, cells.length / 2);
-    let secondRow = cells.slice(cells.length / 2);
+        // Меняем текущий элемент с элементом на случайной позиции...
+        temporaryValue = leftAnimalImages[currentIndex];
+        leftAnimalImages[currentIndex] = leftAnimalImages[randomIndex];
+        leftAnimalImages[randomIndex] = temporaryValue;
 
-    shuffleArray(firstRow);
-    shuffleArray(secondRow);
-
-    cells = firstRow.concat(secondRow);
-}
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        temporaryValue = rightAnimalImages[currentIndex];
+        rightAnimalImages[currentIndex] = rightAnimalImages[randomIndex];
+        rightAnimalImages[randomIndex] = temporaryValue;
     }
 }
 
-function createCells() {
-    shuffleCells();
-    cells.forEach((cellName) => {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.textContent = cellName;
-        cell.addEventListener('click', () => {
-            checkMatch(cell);
+function createAnimals() {
+    shuffleAnimals();
+
+    // Генерируем изображение левой половины в верхней части экрана
+    let iconTopContainer = document.getElementById('iconTop');
+    selectedLeftAnimal = leftAnimalImages[Math.floor(Math.random() * leftAnimalImages.length)];
+    iconTopContainer.innerHTML = `<img src="${selectedLeftAnimal}" alt="Left Animal Image">`;
+
+    // Генерируем уникальные изображения правых половинок в нижней части экрана
+    let iconBottomContainer = document.getElementById('iconBottom');
+    rightAnimalImages.forEach(animal => {
+        const iconElement = document.createElement('img');
+        iconElement.src = animal;
+        iconElement.alt = 'Right Animal Image';
+        iconElement.classList.add('icon');
+        iconElement.addEventListener('click', () => {
+            checkMatch(animal);
         });
-        gameContainer.appendChild(cell);
+        iconBottomContainer.appendChild(iconElement);
     });
 }
 
-function checkMatch(cell) {
-    if (cell.textContent === selectedCellName) {
-        alert('Success');
+function checkMatch(rightAnimal) {
+    if (rightAnimal === getCorrespondingRightAnimal(selectedLeftAnimal)) {
+        alert('Поздравляем! Вы нашли совпадение!');
         resetGame();
     } else {
-        alert('Failure');
+        alert('Увы, это не совпадает. Попробуйте еще раз.');
     }
 }
 
+function getCorrespondingRightAnimal(leftAnimal) {
+    // Ищем соответствующую правую половину изображения по имени левого изображения
+    let index = leftAnimalImages.indexOf(leftAnimal);
+    return rightAnimalImages[index];
+}
+
 function resetGame() {
-    gameContainer.innerHTML = '';
-    cells = ['Apple', 'Banana', 'Orange', 'Grapes', 'Watermelon', 'Pineapple', 'Strawberry', 'Blueberry', 'Cherry'];
-    createCells();
-    selectRandomCell();
+    // Очищаем содержимое контейнеров
+    let iconBottomContainer = document.getElementById('iconBottom');
+    iconBottomContainer.innerHTML = '';
+    let iconTopContainer = document.getElementById('iconTop');
+    iconTopContainer.innerHTML = '';
+    // Создаем игру заново
+    createAnimals();
 }
 
-function selectRandomCell() {
-    let randomIndex = Math.floor(Math.random() * cells.length);
-    let allCells = document.querySelectorAll('.cell');
-    selectedCellName = allCells[randomIndex].textContent;
-    allCells[randomIndex].classList.add('selected');
-}
-
-createCells();
-selectRandomCell();
+createAnimals();
