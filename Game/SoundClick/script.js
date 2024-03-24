@@ -9,10 +9,6 @@ let success_attemps=0;
 let cell_selection =[]; //select
 let cell_highlight; // main
 
-//TODO: remove cell1/2 and after getting whole pictures
-let cell1 = cells.slice(0, numberOfimages);
-let cell2 = cells.slice(0, numberOfimages);
-
 let highlightCell = document.createElement('div');
 let rightInnerDiv;
 let leftInnerDiv;
@@ -22,11 +18,9 @@ let select_section = document.getElementById('select_section');
 let main_section = document.getElementById('main_section');
 
 //class representing animal cell
-//TODO: remove side after providing whole animal pictures
 class cellClass{
-    constructor(name, side, image, sound){
+    constructor(name, image, sound){
         this.name = name;
-        this.side = side;
         this.displayed = false;
         this.image = image;
         this.sound = sound;
@@ -62,16 +56,16 @@ function shuffleArray(array) {
 
 function createHighlight(){
     cell_highlight = null;
-    shuffleArray(cell1);
-    let randomIndex = Math.floor(Math.random() * cell1.length);
-    const image = addImage(cell1[randomIndex], 1);
-    cell_highlight = new cellClass(cell1[randomIndex], 1, image, "../sounds/" + cell1[randomIndex] + ".mp3");
+    shuffleArray(cells);
+    let randomIndex = Math.floor(Math.random() * cells.length);
+    const image = addImage(cells[randomIndex]);
+    cell_highlight = new cellClass(cells[randomIndex],  image, "../sounds/" + cells[randomIndex] + ".mp3");
 }
 
 function createSelection(){
-    cell_selection = cell2.map((cellName) => {
-        const image = addImage(cellName, 2);
-        return new cellClass(cellName, 2, image);
+    cell_selection = cells.map((cellName) => {
+        const image = addImage(cellName);
+        return new cellClass(cellName, image);
     });
 
     shuffleArray(cell_selection);
@@ -83,9 +77,9 @@ function createCells() {
     createSelection();
 }
 
-function addImage(name, side){
+function addImage(name){
     let img = document.createElement("img");
-    img.src = "../png/" + name + side + ".png" ;
+    img.src = "../png/" + name + ".png" ;
     return img;
 }
 
