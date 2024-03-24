@@ -59,19 +59,28 @@ function shuffleArray(array) {
     }
 }
 
-function createCells() {
+
+function createHighlight(){
     cell_highlight = null;
     shuffleArray(cell1);
     let randomIndex = Math.floor(Math.random() * cell1.length);
     const image = addImage(cell1[randomIndex], 1);
     cell_highlight = new cellClass(cell1[randomIndex], 1, image, "../sounds/" + cell1[randomIndex] + ".mp3");
+}
 
+function createSelection(){
     cell_selection = cell2.map((cellName) => {
         const image = addImage(cellName, 2);
         return new cellClass(cellName, 2, image);
     });
 
     shuffleArray(cell_selection);
+}
+
+function createCells() {
+    createHighlight();
+
+    createSelection();
 }
 
 function addImage(name, side){
@@ -144,6 +153,7 @@ function reset() {
 
     // shuffle arr cells
     shuffleArray(cell_selection);
+    createHighlight();
 
     // new round representing
     setFirstRound();
