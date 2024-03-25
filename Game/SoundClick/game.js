@@ -1,8 +1,7 @@
 //GLOBAL section
 
-
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
-let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
+let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 
 
 const overlay = document.getElementById('overlay');
@@ -18,13 +17,10 @@ function createOverlay(){
     overlay.appendChild(contentDiv);
     closeButton.addEventListener('click', hideOverlay);
 }
-
-
 function showOverlay(text) {
     overlay.style.display = 'block';
     contentDiv.innerHTML = text;
 }
-
 function hideOverlay() {
     overlay.style.display = 'none';
 }
@@ -40,9 +36,6 @@ let cell_highlight; // main
 let highlightCell = document.createElement('div');
 let select_section = document.getElementById('select_section');
 let main_section = document.getElementById('main_section');
-
-
-
 
 
 //class representing animal cell

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let select1 = document.getElementById('selectGame1');
     button1.addEventListener('click', () => {
         localStorage.setItem( 'MAX_ANIMALS', select1.value);
-        startGame(1);
+        startGame();
     });
 
     let button2 = document.getElementById('button2');
