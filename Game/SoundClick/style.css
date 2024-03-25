@@ -1,3 +1,9 @@
+/*TEST*/
+.game {
+    margin-bottom: 20px;
+}
+/*TEST*/
+
 .container{
     width: auto; 
     height:auto;
@@ -13,6 +19,11 @@
 .blackout {
     filter: brightness(0);
 }
+
+.anim_img{
+    width: 200px;
+}
+
 .cell {
   
     display: inline-block;
