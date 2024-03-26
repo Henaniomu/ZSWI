@@ -1,18 +1,40 @@
-let cells = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'dachshund']; //Default array with all the animals
+//      GLOBAL 
+let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'dachshund']; //Default array with all the animals
+let numberOfAnimals = localStorage.getItem('numberOfAnimals')  ?? 3;
 
-let numberOfimages = 9; //amount of images the game will used
+//show result on screen
+const overlay = document.getElementById('overlay');
+const closeButton = document.createElement('span');
+const contentDiv = document.createElement('div');
 
-let sizeOfSelect = 4; //size of the select section
+function createOverlay(){
+    closeButton.textContent = '×';
+    closeButton.classList.add('close-button');
+    overlay.appendChild(closeButton);
 
+    contentDiv.classList.add('message');
+    overlay.appendChild(contentDiv);
+    closeButton.addEventListener('click', hideOverlay);
+}
+function showOverlay(text) {
+    overlay.style.display = 'block';
+    contentDiv.innerHTML = text;
+}
+function hideOverlay() {
+    overlay.style.display = 'none';
+}
+
+
+//      LOCAL
 let total_attemps = 0 ;
 let success_attemps=0;
 
 
-let cell_selection =[]; //cells that exists in the select section
-let cell_highlight =[]; //cells that exists in the highlight section
-shuffleArray(cells);
-let cell1 = cells.slice(0, numberOfimages); //cell_selection
-let cell2 = cells.slice(0, numberOfimages); //cell_highlight
+let cell_selection =[]; //animals that exists in the select section
+let cell_highlight =[]; //animals that exists in the highlight section
+shuffleArray(animals);
+let cell1 = animals.slice(0, numberOfAnimals); //cell_selection
+let cell2 = animals.slice(0, numberOfAnimals); //cell_highlight
 
 let highlightCell = document.createElement('div'); //this variable is used to display the highlight image and as a parent
 let rightInnerDiv; //displays the image from the dragged cell
@@ -23,12 +45,6 @@ let tempName; //stores the name of the highlightCell
 let selectedCellName; //stores the name of selected cell
 let select_section = document.getElementById('select_section');
 let main_section = document.getElementById('main_section');
-
-let increaseButton = document.getElementById("increase")
-let decreaseButton = document.getElementById("decrease")
-
-increaseButton.addEventListener("click", slideRight);
-decreaseButton.addEventListener("click", slideLeft);
 
 leftInnerDiv = document.createElement('div'); // leftInnerDiv contains the image of the highlightCell
 leftInnerDiv.classList.add('cell');
@@ -46,6 +62,10 @@ rightInnerDiv.addEventListener('drop', drop);
 
 newDiv = document.createElement('div'); // newDiv contains the leftInnerDiv and the RightInnerDiv
 
+rightInnerDiv.style.margin = "0px" ;
+leftInnerDiv.style.margin = "0px" ;
+rightInnerDiv.style.marginBottom = "10px" ;
+leftInnerDiv.style.marginBottom = "10px" ;
 
 class cellClass{
     constructor(name, side, image){
@@ -74,216 +94,6 @@ class cellClass{
         return this.image;
     }
 }
-
-class Node {
-    constructor(data, next = null) {
-        this.data = data;
-        this.next = next;
-    }
-}
-
-class LinkedList {
-    constructor() {
-        this.head = null;
-    }
-    //slides the select section to the right
-    slideR(){
-        let current = this.head;
-        let count = 0;
-        let countDis = 0;
-        let firstDisplayed = false;
-        let ableToSlide = false;
-        let specialCase = false;
-
-        if(this.head == null)
-            return;
-
-        while(current){
-            if(current.data.getDisplayed())
-                countDis++;
-            if(countDis === sizeOfSelect)
-                if(current.next !== null) {
-                    ableToSlide = true;
-                    break;
-                }
-            if(current.next)
-                if(!current.next.data.getDisplayed() && countDis === sizeOfSelect - 1){
-                    specialCase = true;
-                    break;
-                }
-            current = current.next;
-        }
-        if(!ableToSlide && !specialCase)
-            return false;
-        current = this.head;
-        if(specialCase){
-            while(current){
-                if(current.data.getDisplayed() && !firstDisplayed){
-                    firstDisplayed = true;
-                    count = 0;
-                }
-                if(count === sizeOfSelect - 1 && firstDisplayed){
-                    current.data.setDisplayed(true);
-                    list.updateDisplay();
-                    return true;
-                }
-                count++;
-                current = current.next;
-            }
-        }
-        while (current){
-            if(current.data.displayed && !firstDisplayed){
-                current.data.setDisplayed(false);
-                count = 0;
-                firstDisplayed = true;
-            }
-            if(count === sizeOfSelect && firstDisplayed){
-                current.data.setDisplayed(true);
-                list.updateDisplay();
-
-                return true;
-            }
-            count++;
-            current = current.next;
-        }
-        list.updateDisplay();
-    }
-    //slides the select section to the left
-    slideL() {
-        let current = this.head;
-        let count = 0;
-        let found = false;
-        if(this.head == null)
-            return;
-        while (current) {
-            if (this.head.data.displayed && !count)
-                return;
-            if(current.data.getDisplayed() && !found){ // find the first cell that is displayed
-                count = 0;
-                found = true;
-            }
-
-            if (count === sizeOfSelect - 1 && found) {
-                current.data.setDisplayed(false);
-                break;
-            }
-            count++;
-            current = current.next;
-        }
-
-        current = this.head;
-        while(!current.data.getDisplayed()){
-            if(current.next.data.getDisplayed())
-                current.data.setDisplayed(true);
-            current = current.next;
-        }
-
-        list.updateDisplay();
-    }
-    //displays the another cell if exists after the removal
-    getMaxOfAvailable(){
-        if(list.slideR()) {
-        }
-        else {
-            list.slideL();
-        }
-    }
-    //updates the display according to displayed variable
-    updateDisplay(){
-
-        let current = this.head;
-        while (current) {
-            if (current.data.displayed) {
-                current.data.element.style.display = "inline-block";
-            } else {
-                current.data.element.style.display = "none";
-            }
-            current = current.next;
-        }
-    }
-
-    insertFirst(data) {
-        this.head = new Node(data, this.head);
-    }
-
-    insertLast(data) {
-        const newNode = new Node(data);
-        if (!this.head) {
-            this.head = newNode;
-            return;
-        }
-
-        let current = this.head;
-        while (current.next) {
-            current = current.next;
-        }
-        current.next = newNode;
-    }
-
-    // Remove the first node
-    removeFirst() {
-        if (!this.head) {
-            return;
-        }
-        this.head = this.head.next;
-    }
-
-    // Remove node at a specific index
-    removeAt(name) {
-
-        // list.printList()
-
-        if(this.head == null)
-            return;
-
-        if (this.head.data.getName() === name) {
-            this.removeFirst();
-            list.updateDisplay();
-            return;
-        }
-
-        let current = this.head;
-        let previous = null;
-
-        while(current){
-            previous = current;
-            current = current.next;
-            if(name === current.data.getName())
-                break;
-        }
-
-        if (current) {
-            previous.next = current.next;
-        }
-        // list.updateDisplay();
-    }
-
-    //Fills the list
-    fillTheList(array){
-        list.insertFirst(array[0]);
-        for(let i = 1; i < numberOfimages; i++){
-            list.insertLast(array[i]);
-        }
-        list.updateDisplay();
-        // list.printList();
-    }
-
-    //resets the list
-    reset(){
-        this.head = null;
-    }
-
-    // Print the list
-    printList() {
-        let current = this.head;
-        while (current) {
-            console.log(current.data);
-            current = current.next;
-        }
-    }
-}
-
-const list = new LinkedList(); // list is used to dynamically display and remove images from the select section
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -326,8 +136,6 @@ function addImage(name, side){
     let img = document.createElement("img");
     img.src = "../png/" + name + side + ".png" ;
 
-    // img.style.width = 200 + "px";
-    // img.style.height = 300 + "px";
     img = imageResize(name, side, img);
     return img;
 }
@@ -424,11 +232,6 @@ function dragEnter(event) {
         rightInnerDiv.textContent = tempName;
         rightInnerDiv.appendChild(addImage(selectedCellName, 2));
 
-        rightInnerDiv.style.margin = "0px" ;
-        leftInnerDiv.style.margin = "0px" ;
-        rightInnerDiv.style.marginBottom = "10px" ;
-        leftInnerDiv.style.marginBottom = "10px" ;
-
         newDiv.appendChild(leftInnerDiv);
         newDiv.appendChild(rightInnerDiv);
 
@@ -490,8 +293,8 @@ function control(result){
     }
 
     total_attemps++;
-    if(total_attemps === numberOfimages){
-        if(success_attemps === numberOfimages){
+    if(total_attemps === numberOfAnimals){
+        if(success_attemps === numberOfAnimals){
             showOverlay("Success");
             reset();
         }
@@ -509,22 +312,16 @@ function control(result){
  * calls getMaxOfAvailable to see if there are available images to displayed in places of the removed
  */
 function updateSelectSection() {
-    for (let i = 0; i < numberOfimages; i++) {
-        if(cell_selection[i].getName() === selectedCellName){
+    for (let i = 0; i < numberOfAnimals; i++) {
+        if(cell_selection[i].getName() === selectedCellName) {
             cell_selection[i].selected = true;
+        }
+        if (cell_selection[i].selected) {
             cell_selection[i].element.style.display = "none";
-            list.removeAt(cell_selection[i].name);
-            list.getMaxOfAvailable();
-            break;
+        } else {
+            cell_selection[i].element.style.display = "inline-block";
         }
     }
-}
-
-function slideRight(){
-    list.slideR();
-}
-function slideLeft(){
-    list.slideL();
 }
 
 /**
@@ -545,7 +342,6 @@ function getValidIndex(array) {
  * new cell for highlightCell
  */
 function setHighlight(index){
-
     if (index >= 0 && index < cell_highlight.length) {
         highlightCell.textContent = cell_highlight[index].getName();
         highlightCell.appendChild(cell_highlight[index].getImage());
@@ -555,7 +351,7 @@ function setHighlight(index){
 }
 
 /**
- * used (only) for the beginning
+ * used to set the round
  * initializes highlightCell
  * initializes select section
  */
@@ -569,7 +365,7 @@ function setFirstRound(){
 
     highlightCell.addEventListener('dragenter', dragEnter);
 
-    for(let i = 0; i < numberOfimages; i++){
+    for(let i = 0; i < numberOfAnimals; i++){
 
         const cell = document.createElement('div');
         cell.classList.add('cell');
@@ -579,19 +375,7 @@ function setFirstRound(){
         select_section.appendChild(cell);
         cell_selection[i].selected = false; //selected indicates if the cell has been dragged and dropped
         cell_selection[i].element = cell;
-        if(i < sizeOfSelect){
-            cell_selection[i].setDisplayed(true);
-        }
-        //fills the list
-        if(!i){
-            list.insertFirst(cell_selection[i]);
-        }
-        else{
-            list.insertLast(cell_selection[i]);
-        }
-
     }
-    list.updateDisplay();
 }
 
 /**
@@ -600,57 +384,15 @@ function setFirstRound(){
 function reset() {
     total_attemps = 0;
     success_attemps = 0;
-    let setTheFirst = 0; // used as flag for the first images to be displayed in the select section
-    shuffleArray(cell_selection);
-    shuffleArray(cell_highlight);
-    cell_highlight.forEach(variable => {
-        variable.setDisplayed(false)
-        variable.displayed = false;
-    });
-    cell_selection.forEach((variable, index) => {
-        variable.selected = false;
-        // const cellElement = document.querySelectorAll('#select_section .cell')[index];
-        // cellElement.style.display = "inline-block";
-        if(setTheFirst < sizeOfSelect){
-            variable.setDisplayed(true);
-        }
-        else
-            variable.setDisplayed(false);
+    main_section.innerHTML = '';
+    select_section.innerHTML = '';
+    shuffleArray(animals);
+    cell1 = animals.slice(0, numberOfAnimals);
+    cell2 = animals.slice(0, numberOfAnimals);
 
-        setTheFirst++;
-    });
-
-
-    // setHighlight(0);
-    // cell_highlight[0].displayed = true;
-    list.reset();
-    // list.fillTheList(cell_selection);
-
-    setFirstRound(); //is called to synchronize the list !
-
+    createCells();
+    setFirstRound();
 }
-
-//show result on screen
-const overlay = document.getElementById('overlay');
-const closeButton = document.createElement('span');
-closeButton.textContent = '×';
-closeButton.classList.add('close-button');
-overlay.appendChild(closeButton);
-const contentDiv = document.createElement('div');
-contentDiv.classList.add('message');
-overlay.appendChild(contentDiv);
-
-function showOverlay(text) {
-    overlay.style.display = 'block';
-    contentDiv.innerHTML = text;
-}
-
-function hideOverlay() {
-  overlay.style.display = 'none';
-}
-
-closeButton.addEventListener('click', hideOverlay);
-
-
+createOverlay();
 createCells();
 setFirstRound();
