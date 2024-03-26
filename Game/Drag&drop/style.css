@@ -28,3 +28,9 @@
   .box.over {
     border: 3px dotted #666;
   }
+
+  body {
+    background-image: url('../background/bgFullHD.png');
+    background-size: cover; /* Подстройка размера, чтобы охватить всю область */
+    background-repeat: no-repeat; /* Отключение повтора изображения */
+}

@@ -1,5 +1,11 @@
+/*TEST*/
+.game {
+    margin-bottom: 20px;
+}
+/*TEST*/
+
 .container{
-    width: auto;
+    width: auto; 
     height:auto;
     margin-left: auto;
     display: flex;
@@ -7,9 +13,19 @@
     /* background-color: rgb(182, 102, 16); */
 
 }
+.grayscale {
+    filter: grayscale(100%); /* Превращает изображение в черно-белое */
+}
+.blackout {
+    filter: brightness(0);
+}
+
+.anim_img{
+    width: 200px;
+}
 
 .cell {
-
+  
     display: inline-block;
     margin: 10px;
     text-align: center;
@@ -18,28 +34,27 @@
     cursor: pointer;
     color: transparent;
     line-height: auto;
-    /* height: auto;
+    /* height: auto; 
     width: auto;  */
     overflow: hidden;
-    position: relative;
-
+    position: relative; 
+  
 }
 
 
 .select_section{
     text-align: center;
     grid-gap: 10px;
-    /*min-height: auto;*/
-    /*max-height: auto;*/
-    height: 325px;
-    position: relative;
+    min-height: auto;
+    max-height: auto;   
+    position: relative; 
 
 }
 
 .main_section{
   /* background-color: rgb(161, 87, 7); */
-    min-height: 332px;
-    max-height: 332px;
+    min-height: auto;
+    max-height: auto;  
     text-align: center;
     flex:1;
     padding-top: 40px;
@@ -57,12 +72,12 @@
     background-image: url('../background/bgFullHD.png');
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: -1; 
 }
 
 
 .overlay {
-    display: none;
+    display: none; 
     position: fixed;
     margin-top: 15%;
     margin-left: 35%;
@@ -70,18 +85,18 @@
     left: 0;
     width: 400px;
     height: 300px;
-    background-color: #ccc;
+    background-color: #ccc; 
     box-shadow: 0px 20px 20px 40px #ccc;
-    z-index: 999;
+    z-index: 999; 
   }
-
+  
   .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
     color: rgb(0, 0, 0);
-    z-index: 1000;
+    z-index: 1000; 
     font-size: 40px;
   }
 
