@@ -1,23 +1,23 @@
 .container{
-  width: 800px;
+  width: auto;
   height:auto;
-  margin-left: 20%;
+  margin-left: auto;
   display: flex;
   flex-direction: column;
-  background-color: rgb(182, 102, 16);
+  /* background-color: rgb(182, 102, 16); */
 
 }
 
 .cell {
 
   display: inline-block;
-  margin: 5px;
+  margin: 10px;
   text-align: center;
-  max-height: 300px;
-  max-width: 200px;
+  max-height: auto;
+  max-width: auto;
   cursor: pointer;
   color: transparent;
-  line-height: 100px;
+  line-height: auto;
   /* height: auto;
   width: auto;  */
   overflow: hidden;
@@ -29,22 +29,35 @@
 .select_section{
   text-align: center;
   grid-gap: 10px;
-  min-height: 330px;
-  max-height: 350px;
+  /*min-height: auto;*/
+  /*max-height: auto;*/
+  height: 325px;
   position: relative;
 
 }
 
 .main_section{
-  background-color: rgb(161, 87, 7);
-  min-height: 330px;
-  max-height: 350px;
+  /* background-color: rgb(161, 87, 7); */
+  min-height: 332px;
+  max-height: 332px;
   text-align: center;
   flex:1;
   padding-top: 40px;
   grid-gap: 10px;
   position: relative;
   border-radius: 200px;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../background/bgFullHD.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 
