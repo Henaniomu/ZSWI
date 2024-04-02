@@ -2,11 +2,17 @@
 
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
-
+let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
 
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
+
+const overlayEnd = document.getElementById('overlayEnd');
+const buttonContainer = document.createElement('div');
+const restartButton = document.createElement('button');
+const menuButton = document.createElement('button');
+const contentDivEnd = document.createElement('div');
 
 function createOverlay(){
     closeButton.textContent = '×';
@@ -17,6 +23,31 @@ function createOverlay(){
     overlay.appendChild(contentDiv);
     closeButton.addEventListener('click', hideOverlay);
 }
+function createEndGameOverlay(){
+    buttonContainer.classList.add('button-container');
+    menuButton.textContent = 'Return to Menu';
+    restartButton.textContent = 'Play Again!'
+    buttonContainer.appendChild(menuButton);
+    buttonContainer.appendChild(restartButton);
+
+    contentDivEnd.classList.add('message');
+    overlayEnd.appendChild(contentDivEnd)
+
+    overlayEnd.appendChild(buttonContainer);
+
+    //listeners
+    menuButton.addEventListener('click', returnMenu);
+    restartButton.addEventListener("click", restartGame)
+}
+function endGame(){
+    overlayEnd.style.display = 'block';
+}
+function closeEndGame(){
+    overlayEnd.style.display = 'none';
+}
+function returnMenu(){
+    location.reload();
+}
 function showOverlay(text) {
     overlay.style.display = 'block';
     contentDiv.innerHTML = text;
@@ -24,19 +55,6 @@ function showOverlay(text) {
 function hideOverlay() {
     overlay.style.display = 'none';
 }
-
-
-//LOCAL section
-let play_animals = animals.slice(0,MAX_ANIMALS);
-let total_attemps = 0;
-let success_attemps=0;
-let cell_selection =[]; //select
-let cell_highlight; // main
-
-let highlightCell = document.createElement('div');
-let select_section = document.getElementById('select_section');
-let main_section = document.getElementById('main_section');
-
 
 //class representing animal cell
 class cellClass{
@@ -66,6 +84,19 @@ class cellClass{
     }
 }
 
+//LOCAL section
+let ROUNDS_PLAYED = 0;
+let WIN_STREAK = 0;
+let play_animals = animals.slice(0,MAX_ANIMALS);
+let total_attempts = 0;
+let success_attempts= 0;
+let cell_selection =[]; //select
+let cell_highlight; // main
+
+let highlightCell = document.createElement('div');
+let select_section = document.getElementById('select_section');
+let main_section = document.getElementById('main_section');
+
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -73,7 +104,6 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
 function createHighlight(){
     cell_highlight = null;
     shuffleArray(play_animals);
@@ -81,7 +111,6 @@ function createHighlight(){
     const image = addImage(play_animals[randomIndex]);
     cell_highlight = new cellClass(play_animals[randomIndex],  image, "../sounds/" + play_animals[randomIndex] + ".mp3");
 }
-
 function createSelection(){
     cell_selection = play_animals.map((cellName) => {
         const image = addImage(cellName);
@@ -91,19 +120,16 @@ function createSelection(){
 
     shuffleArray(cell_selection);
 }
-
 function createCells() {
     createHighlight();
 
     createSelection();
 }
-
 function addImage(name){
     let img = document.createElement("img");
     img.src = "../png/" + name + ".png" ;
     return img;
 }
-
 function playSoundGame() {
     highlightCell = document.createElement('div');
     highlightCell.classList.add('cell');
@@ -115,9 +141,6 @@ function playSoundGame() {
     highlightCell.appendChild(image); // getting an image of guessing animal
     main_section.appendChild(highlightCell);
     cell_highlight.setDisplayed(true);
-
-
-
 
     //click = sound
     highlightCell.addEventListener('click', function() {
@@ -137,19 +160,67 @@ function playSoundGame() {
 
         // choose listener then true/false logic, reset only for correct answer
         cell.addEventListener('click', function() {
+            total_attempts++;
             if(cell_selection[i].getName() === cell_highlight.getName()){
+                success_attempts++;
+                WIN_STREAK++
                 showOverlay("Success! That was " + cell_selection[i].getName() + "!");
-                success_attemps++;
-                resetSoundGame();
+                endGameValidator();
             } else {
+                WIN_STREAK = 0;
+                MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
                 showOverlay("Missed, let's try again.");
             }
-            total_attemps++;
-
         });
     }
 }
-function resetSoundGame() {
+function winStreakValidator(){
+    if (WIN_STREAK % 3 == 0){
+        MAX_ANIMALS++;
+    }
+    play_animals = animals.slice(0,MAX_ANIMALS);
+}
+function endGameValidator(){
+    ROUNDS_PLAYED++;
+    if(ROUNDS_PLAYED == MAX_ROUNDS){
+        hideOverlay();
+        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        endGame();
+        ROUNDS_PLAYED = 0;
+        WIN_STREAK = 0;
+    }else{
+        continueGame();
+    }
+
+}
+function restartGame(){
+    //close end overlay
+    closeEndGame();
+
+    //returning styles of guessing animal
+    const image = cell_highlight.getImage();
+    image.classList.toggle('blackout');
+
+    //local game stats to zero
+    total_attempts = 0;
+    success_attempts = 0;
+    WIN_STREAK = 0;
+    ROUNDS_PLAYED = 0;
+    MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
+    play_animals = animals.slice(0,MAX_ANIMALS);
+    cell_selection = [];
+    cell_highlight = null;
+
+    // clearing sections
+    main_section.innerHTML = '';
+    select_section.innerHTML = '';
+
+    createCells();
+
+    // new round representing
+    playSoundGame();
+}
+function continueGame(){
     //returning styles of guessing animal
     const image = cell_highlight.getImage();
     image.classList.toggle('blackout');
@@ -158,18 +229,22 @@ function resetSoundGame() {
     main_section.innerHTML = '';
     select_section.innerHTML = '';
 
+    //check player's win streak
+    winStreakValidator();
+
     // shuffle arr cells
     shuffleArray(cell_selection);
-    createHighlight();
+    createCells();
 
     // new round representing
     playSoundGame();
 }
 
 
-
+//starting game
+createEndGameOverlay();
 createOverlay();
 createCells();
 playSoundGame();
 
-//starting game
+

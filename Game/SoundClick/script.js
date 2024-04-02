@@ -1,4 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
+
+    let slider = document.getElementById('mySlider');
+    let output = document.getElementById('sliderValue');
+
+    slider.value = localStorage.getItem('MAX_ROUNDS') ?? 4;
+    output.textContent = slider.value;
+
+    slider.addEventListener('input', function() {
+        output.textContent = slider.value;
+        localStorage.setItem('MAX_ROUNDS', slider.value);
+    });
+
     let button1 = document.getElementById('button1');
     let select1 = document.getElementById('selectGame1');
     button1.addEventListener('click', () => {
@@ -27,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="main_section" id="main_section"></div>
                 <div class="select_section" id="select_section"></div>
                 <div class="overlay" id="overlay"></div>
+                <div class="overlay" id="overlayEnd"></div>
             </div>
             <div class="background-image">
                 <img src="../background/bgFullHD.png" alt="">
@@ -38,4 +51,4 @@ document.addEventListener("DOMContentLoaded", () => {
         scriptElement.src = "game.js";
         document.body.appendChild(scriptElement);
     }
-});
+ });
