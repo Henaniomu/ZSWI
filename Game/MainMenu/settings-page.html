@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 height=device-height">
+    <link rel="stylesheet" href="css/settings-css.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Настройки</title>
+</head>
+<body>
+<div class="menu">
+    <div class="container">
+        <form class="settings-form" action="#">
+
+            <div class="settings-group class-hover2">
+                <label>Rozměr obrázků:</label>
+                <label class="container">One
+                    <input type="radio" checked="checked" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Two
+                    <input type="radio" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Three
+                    <input type="radio" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Four
+                    <input type="radio" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <div class="settings-group class-hover2">
+                <label>Počet kol:</label>
+                <label class="container">One
+                    <input type="radio" checked="checked" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Two
+                    <input type="radio" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Three
+                    <input type="radio" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Four
+                    <input type="radio" name="radio2">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <div class="settings-group class-hover2">
+                <label>pokrok v obtížnosti:</label>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+<!--            <div class="settings-group class-hover1">-->
+<!--                <label id="3450d">Počet kol:</label>-->
+<!--                <button class="animalCountButton"> 1 </button>-->
+<!--                <button class="animalCountButton"> 2 </button>-->
+<!--                <button class="animalCountButton"> 3 </button>-->
+<!--                <button class="animalCountButton"> 4 </button>-->
+<!--            </div>-->
+
+            <button type="submit" id="submit_button">Apply</button>
+
+        </form>
+    </div>
+
+    <div class="game">
+        <div class="games">
+<!--            <img src="icon1.png" name="game1">-->
+            <select id="selectGame1">
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <img src="pictures/icon2.2.png" name="game1" id="button1">
+        </div>
+        <div class="games" id="button2" >
+            <img src="pictures/icon1.1.png" name="game2">
+        </div>
+        <div class="games" id="button3">
+            <img src="pictures/icon3.3.png" name="game3">
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
