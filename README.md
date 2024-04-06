@@ -11,5 +11,5 @@
 + Faiz: added slider which represents max rounds for play, 
 		added logic for ending game when max rounds reached,
 		added win streak logic, every 3rd success guess adding animal for selection,
-		added end game results with button for choose (return menu or play again)
-		
+		added end game results with button for choose (return menu or play again).
++ Faiz: added prompt button and return menu button. Added outline for animals.

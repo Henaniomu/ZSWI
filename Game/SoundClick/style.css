@@ -1,4 +1,28 @@
 /*TEST*/
+
+
+/* Мерцание белым цветом */
+@keyframes sizing {
+    0% {
+        scale: 1; /* Прозрачный фон */
+    }
+    50% {
+        scale: 1.25; /* Белый фон */
+    }
+    100% {
+        scale: 1; /* Снова прозрачный фон */
+    }
+}
+
+/* Применяем анимации к изображению */
+.cheat {
+    animation: sizing 2s infinite; /* Применяем обе анимации */
+}
+
+.in_game_button{
+
+}
+
 .game {
     margin-bottom: 20px;
 }
@@ -21,7 +45,26 @@
 }
 
 .anim_img{
-    width: 200px;
+    width: 210px;
+    padding: 10px;
+}
+
+.select_img{
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+}
+
+.in_game_button{
+    position: absolute;
+}
+
+.guess_button{
+    right: 20px;
+    top: 20px;
+}
+
+.menu_button{
+    left: 20px;
+    top: 20px;
 }
 
 .cell {

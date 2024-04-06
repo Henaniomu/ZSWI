@@ -40,6 +40,8 @@
                 <div class="select_section" id="select_section"></div>
                 <div class="overlay" id="overlay"></div>
                 <div class="overlay" id="overlayEnd"></div>
+                <button class="in_game_button menu_button" onclick="returnMenu()"> <- Menu</button>
+                <button class="in_game_button guess_button" onclick="guess_helper()">Need Help!</button>
             </div>
             <div class="background-image">
                 <img src="../background/bgFullHD.png" alt="">

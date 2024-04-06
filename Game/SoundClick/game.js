@@ -11,8 +11,9 @@ const contentDiv = document.createElement('div');
 const overlayEnd = document.getElementById('overlayEnd');
 const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
-const menuButton = document.createElement('button');
+const menuButtonOv = document.createElement('button');
 const contentDivEnd = document.createElement('div');
+
 
 function createOverlay(){
     closeButton.textContent = '×';
@@ -25,9 +26,9 @@ function createOverlay(){
 }
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container');
-    menuButton.textContent = 'Return to Menu';
+    menuButtonOv.textContent = 'Return to Menu';
     restartButton.textContent = 'Play Again!'
-    buttonContainer.appendChild(menuButton);
+    buttonContainer.appendChild(menuButtonOv);
     buttonContainer.appendChild(restartButton);
 
     contentDivEnd.classList.add('message');
@@ -36,7 +37,7 @@ function createEndGameOverlay(){
     overlayEnd.appendChild(buttonContainer);
 
     //listeners
-    menuButton.addEventListener('click', returnMenu);
+    menuButtonOv.addEventListener('click', returnMenu);
     restartButton.addEventListener("click", restartGame)
 }
 function endGame(){
@@ -151,6 +152,7 @@ function playSoundGame() {
     for(let i = 0; i < MAX_ANIMALS; i++){
         const cell = document.createElement('div');
         cell.classList.add('cell');
+        cell.classList.add('select_img');
         cell.textContent = cell_selection[i].getName();
         cell.appendChild(cell_selection[i].getImage());
         select_section.appendChild(cell);
@@ -179,6 +181,28 @@ function winStreakValidator(){
         MAX_ANIMALS++;
     }
     play_animals = animals.slice(0,MAX_ANIMALS);
+}
+
+function getCellElements() {
+    const selectSection = document.getElementById('select_section');
+    const cellElements = selectSection.querySelectorAll('.cell');
+    return Array.from(cellElements);
+}
+
+
+function activateCheatClass(el) {
+    el.classList.toggle('cheat');
+}
+ function guess_helper(){
+    let cells = getCellElements();
+    cells.forEach(el => {
+        if (el.textContent === cell_highlight.getName()){
+            setTimeout(function() {
+                activateCheatClass(el);
+            }, 4000)
+            activateCheatClass(el);
+        }
+    });
 }
 function endGameValidator(){
     ROUNDS_PLAYED++;
