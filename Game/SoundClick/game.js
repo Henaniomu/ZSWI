@@ -3,6 +3,8 @@
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
+//pokrok obtiznosti/win streak complexity [true/false]
+let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC') ?? false;
 
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
@@ -177,7 +179,7 @@ function playSoundGame() {
     }
 }
 function winStreakValidator(){
-    if (WIN_STREAK % 3 == 0){
+    if (WIN_STREAK % 3 == 0 && COMPLEXITY_INC){
         MAX_ANIMALS++;
     }
     play_animals = animals.slice(0,MAX_ANIMALS);
