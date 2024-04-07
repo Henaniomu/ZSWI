@@ -14,3 +14,4 @@
 		added end game results with button for choose (return menu or play again).
 + Faiz: added prompt button and return menu button. Added outline for animals.
 + Oleh: Added and fixed backgound in all games
++ Faiz: Added a variable for complexity progression after winstreak if that option was chosen.
