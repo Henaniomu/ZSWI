@@ -8,6 +8,10 @@
 
 }
 
+body{
+  background-image: url("../background/bgFullHD.png");
+}
+
 .cell {
 
   display: inline-block;
