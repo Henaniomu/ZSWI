@@ -13,3 +13,4 @@
 		added win streak logic, every 3rd success guess adding animal for selection,
 		added end game results with button for choose (return menu or play again).
 + Faiz: added prompt button and return menu button. Added outline for animals.
++ Oleh: Added and fixed backgound in all games
