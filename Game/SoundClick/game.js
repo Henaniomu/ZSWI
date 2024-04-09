@@ -3,8 +3,10 @@
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
+let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? true;
 //pokrok obtiznosti/win streak complexity [true/false]
 let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC') ?? false;
+
 
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
@@ -29,7 +31,11 @@ function createOverlay(){
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container');
     menuButtonOv.textContent = 'Return to Menu';
-    restartButton.textContent = 'Play Again!'
+    restartButton.textContent = 'Play Again!';
+
+    menuButtonOv.classList.add('end_button');
+    restartButton.classList.add('end_button');
+
     buttonContainer.appendChild(menuButtonOv);
     buttonContainer.appendChild(restartButton);
 
@@ -208,7 +214,7 @@ function activateCheatClass(el) {
 }
 function endGameValidator(){
     ROUNDS_PLAYED++;
-    if(ROUNDS_PLAYED == MAX_ROUNDS){
+    if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
         hideOverlay();
         contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
         endGame();

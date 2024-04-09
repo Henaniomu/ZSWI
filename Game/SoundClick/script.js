@@ -1,4 +1,4 @@
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     let slider = document.getElementById('mySlider');
     let output = document.getElementById('sliderValue');
@@ -6,7 +6,7 @@
     slider.value = localStorage.getItem('MAX_ROUNDS') ?? 4;
     output.textContent = slider.value;
 
-    slider.addEventListener('input', function() {
+    slider.addEventListener('input', function () {
         output.textContent = slider.value;
         localStorage.setItem('MAX_ROUNDS', slider.value);
     });
@@ -14,7 +14,7 @@
     let button1 = document.getElementById('button1');
     let select1 = document.getElementById('selectGame1');
     button1.addEventListener('click', () => {
-        localStorage.setItem( 'MAX_ANIMALS', select1.value);
+        localStorage.setItem('MAX_ANIMALS', select1.value);
         startGame();
     });
 
@@ -53,4 +53,7 @@
         scriptElement.src = "game.js";
         document.body.appendChild(scriptElement);
     }
- });
+});
+
+
+
