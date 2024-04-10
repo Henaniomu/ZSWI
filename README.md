@@ -17,3 +17,4 @@
 + Faiz: Added a variable for complexity progression after winstreak if that option was chosen.
 + Faiz: Styled in-game and end-game buttons. Added boolean var for future developing Infinity-game setting. 
 		by default - true.
++ Faiz: Fixed background image in SoundClick
