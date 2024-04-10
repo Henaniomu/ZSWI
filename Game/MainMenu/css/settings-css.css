@@ -12,6 +12,12 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+
+    flex-direction: row;
+    align-items: center;
+
+    border: 10px #007bff;
 }
 
 /* Hide the browser's default radio button */
@@ -103,14 +109,7 @@ body {
     background-color: #f0f0f0; /* замените на цвет, который вы хотите использовать */
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 
-    border: 10px #007bff;
-
-}
 
 .settings-form {
     display: flex;
@@ -122,7 +121,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 10%;
-    margin-left: -10%;
+    /*margin-left: -10%;*/
     margin-right: 20%;
 }
 .settings-group label {
@@ -150,6 +149,7 @@ button {
 }
 
 #submit_button{
+
     /*margin-left: 50px;*/
     /*margin-top: -80px;*/
 
@@ -158,16 +158,17 @@ button {
     height: 200px;
     font-size: 45px;
 
-    margin-bottom: 10%;
+    /*margin-bottom: 10%;*/
 }
 
 button[id="submit_button"]{
-    /*display: flex;*/
-    /*justify-content: center; !* Выравнивание по центру по горизонтали *!*/
-    /*align-items: center;*/
+    display: flex;
+    justify-content: center; /* Выравнивание по центру по горизонтали */
+    align-items: center;
 }
 
 #submit_button{
+    margin-bottom: 100px;
     background-color: #57cb33;
     margin-top: 80px;
 }
@@ -178,6 +179,10 @@ button[id="submit_button"]{
 
 #submit_button:active{
     background-color: #3f8c26;
+}
+
+#swtch{
+    margin-bottom: 50px;
 }
 
 #colorScheme {
@@ -360,4 +365,18 @@ input:checked + .slider:before {
     -ms-transform: translateY(-50px);
     transform: translateY(-85px);
     border-radius: 15px;
+}
+
+/* --------------------------- icons ----------------------------*/
+#icons {
+    position: fixed; /* Позиционирование фиксированное */
+    top: 0; /* Отступ от верхнего края */
+    left: 0; /* Отступ от левого края */
+    z-index: 9999; /* Перемещаем элементы вперед, чтобы они отображались поверх остального контента */
+    margin: 10px; /* Добавим небольшие отступы */
+}
+
+#icons img {
+    width: 120px;
+    margin-right: 20px;
 }

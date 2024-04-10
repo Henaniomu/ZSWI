@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление подсветки к картинке</title>
+    <style>
+        /* Стили для картинки */
+        #myImage {
+            transition: box-shadow 0.5s ease; /* Анимация для подсветки */
+        }
+
+        /* Ключевые кадры анимации */
+        @keyframes highlight {
+            0% { box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.7); } /* Начальные значения подсветки */
+            100% { box-shadow: none; } /* Подсветка отключена */
+        }
+
+        /* Анимация при добавлении класса */
+        .highlighted {
+            animation: highlight 2s ease 1;
+        }
+    </style>
+</head>
+<body>
+
+<img id="myImage" src="pictures/icons/home.png" alt="Your Image">
+
+<button onclick="highlightImage()">Добавить подсветку</button>
+
+<script>
+    function highlightImage() {
+        var image = document.getElementById('myImage');
+        image.classList.add('highlighted');
+        setTimeout(function() {
+            image.classList.remove('highlighted');
+        }, 500); // Удалить класс через 0.5 секунды
+    }
+</script>
+
+</body>
+</html>
