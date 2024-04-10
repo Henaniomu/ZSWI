@@ -3,10 +3,9 @@
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
-let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? true;
+let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? false;
 //pokrok obtiznosti/win streak complexity [true/false]
 let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC') ?? false;
-
 
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
@@ -190,18 +189,15 @@ function winStreakValidator(){
     }
     play_animals = animals.slice(0,MAX_ANIMALS);
 }
-
 function getCellElements() {
     const selectSection = document.getElementById('select_section');
     const cellElements = selectSection.querySelectorAll('.cell');
     return Array.from(cellElements);
 }
-
-
 function activateCheatClass(el) {
     el.classList.toggle('cheat');
 }
- function guess_helper(){
+function guess_helper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight.getName()){

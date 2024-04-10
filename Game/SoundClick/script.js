@@ -42,9 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="overlay" id="overlayEnd"></div>
                 <button class="in_game_button menu_button" onclick="returnMenu()"> <- Menu</button>
                 <button class="in_game_button guess_button" onclick="guess_helper()">Need Help!</button>
-            </div>
-            <div class="background-image">
-                <img src="../background/bgFullHD.png" alt="">
             </div>`;
     }
 

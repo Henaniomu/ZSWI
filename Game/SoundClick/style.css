@@ -1,7 +1,8 @@
 /*TEST*/
+body{
+    background-image: url('../background/bgFullHD.png');
+}
 
-
-/* Мерцание белым цветом */
 @keyframes sizing {
     0% {
         scale: 1; /* Прозрачный фон */
