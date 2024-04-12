@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
         checkbox.addEventListener('change', function() {
             let switchId = this.id;
             let switchValue = this.checked;
-            if(switchId == 1){
-                localStorage.setItem('COMPLEXITY_INC', switchValue);
-            }else if(switchId == 2){
-                localStorage.setItem('INFINITY_GAME', switchValue);
-            }
-            // localStorage.setItem(switchId, switchValue);
+            // if(switchId == 1){
+            //     localStorage.setItem('COMPLEXITY_INC', switchValue);
+            // }else if(switchId == 2){
+            //     localStorage.setItem('INFINITY_GAME', switchValue);
+            // }
+            localStorage.setItem(switchId, switchValue);
         });
     });
 
@@ -97,17 +97,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function startGame3() {
         overrideMenu();
-        loadGameScript3();
+        loadGameScript("../../Animals/script.js");
     }
 
     function startGame2() {
         overrideMenu();
-        loadGameScript2();
+        loadGameScript("../../Animals/script.js");
     }
 
     function startGame1() {
         overrideMenu();
-        loadGameScript1();
+        loadGameScript("../../Clicks/game.js");
     }
 
 
@@ -129,24 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
     }
 
-    function loadGameScript3() {
+    function loadGameScript(path) {
         let scriptElement = document.createElement('script');
         // scriptElement.src = "../js/game.js";
-        scriptElement.src = "../../SoundClick/game.js";
+        scriptElement.src = path;
         document.body.appendChild(scriptElement);
     }
 
-    function loadGameScript2() {
-        let scriptElement = document.createElement('script');
-        // scriptElement.src = "../js/script_game2.js";
-        scriptElement.src = "../../Animals/script.js";
-        document.body.appendChild(scriptElement);
-    }
-
-    function loadGameScript1() {
-        let scriptElement = document.createElement('script');
-        // scriptElement.src = "../js/script_game1.js";
-        scriptElement.src = "../../Clicks/game.js";
-        document.body.appendChild(scriptElement);
-    }
 });
