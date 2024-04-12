@@ -7,8 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     switchElements.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
             let switchId = this.id;
-            let switchValue = this.checked ? '1' : '0';
-            localStorage.setItem(switchId, switchValue);
+            let switchValue = this.checked;
+            if(switchId == 1){
+                localStorage.setItem('COMPLEXITY_INC', switchValue);
+            }else if(switchId == 2){
+                localStorage.setItem('INFINITY_GAME', switchValue);
+            }
+            // localStorage.setItem(switchId, switchValue);
         });
     });
 
@@ -46,16 +51,26 @@ document.addEventListener("DOMContentLoaded", () => {
         // Сохранение состояния переключателей при загрузке страницы
         switchElements.forEach(function(checkbox) {
             let switchId = checkbox.id;
-            let switchValue = checkbox.checked ? '1' : '0';
-            localStorage.setItem(switchId, switchValue);
+            let switchValue = checkbox.checked;
+            if(switchId == 1){
+                localStorage.setItem('COMPLEXITY_INC', switchValue);
+            }else if(switchId == 2){
+                localStorage.setItem('INFINITY_GAME', switchValue);
+            }
+            // localStorage.setItem(switchId, switchValue);
         });
 
         // Обработчик события изменения состояния переключателей
         switchElements.forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
                 let switchId = this.id;
-                let switchValue = this.checked ? '1' : '0';
-                localStorage.setItem(switchId, switchValue);
+                let switchValue = this.checked;
+                if(switchId == 1){
+                    localStorage.setItem('COMPLEXITY_INC', switchValue);
+                }else if(switchId == 2){
+                    localStorage.setItem('INFINITY_GAME', switchValue);
+                }
+                // localStorage.setItem(switchId, switchValue);
             });
         });
     });
