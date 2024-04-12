@@ -2,7 +2,7 @@
 
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
 let IMG_PATH = "../../png/";
-let SOUND_PATH = "../../sounds";
+let SOUND_PATH = "../../sounds/";
 
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
