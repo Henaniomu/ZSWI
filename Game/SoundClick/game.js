@@ -2,6 +2,7 @@
 
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
 let IMG_PATH = "../../png/";
+let SOUND_PATH = "../../sounds";
 
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
@@ -119,7 +120,7 @@ function createHighlight(){
     shuffleArray(animals);
     let randomIndex = Math.floor(Math.random() * play_animals.length);
     const image = addImage(play_animals[randomIndex]);
-    cell_highlight = new cellClass(play_animals[randomIndex],  image, "../sounds/" + play_animals[randomIndex] + ".mp3");
+    cell_highlight = new cellClass(play_animals[randomIndex],  image, SOUND_PATH + play_animals[randomIndex] + ".mp3");
 }
 function createSelection(){
     cell_selection = play_animals.map((cellName) => {
