@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +47,16 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="settings-page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/Game/MainMenu/html/settings-page.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.settings-page.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -54,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712946133700</updated>
       <workItem from="1712946135192" duration="795000" />
-      <workItem from="1712946952077" duration="2380000" />
+      <workItem from="1712946952077" duration="8316000" />
     </task>
     <servers />
   </component>

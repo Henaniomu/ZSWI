@@ -349,6 +349,49 @@ label[id="3450d"]{
     height: 0;
 }
 
+/*.slider {*/
+/*    position: absolute;*/
+/*    cursor: pointer;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: #ccc;*/
+/*    -webkit-transition: .4s;*/
+/*    transition: .4s;*/
+/*    border-radius: 20px; !* Удаляем скругление углов *!*/
+
+/*}*/
+
+/*.slider:before {*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    height: 50px;*/
+/*    width: 85px;*/
+/*    left: 7px;*/
+/*    bottom: 7px;*/
+/*    background-color: white;*/
+/*    -webkit-transition: .4s;*/
+/*    transition: .4s;*/
+/*    border-radius: 15px; !* Удаляем скругление углов *!*/
+
+/*}*/
+
+/*input:checked + .slider {*/
+/*    background-color: #2196F3;*/
+/*}*/
+
+/*input:focus + .slider {*/
+/*    box-shadow: 0 0 1px #2196F3;*/
+/*}*/
+
+/*input:checked + .slider:before {*/
+/*    -webkit-transform: translateY(-50px);*/
+/*    -ms-transform: translateY(-50px);*/
+/*    transform: translateY(-85px);*/
+/*    border-radius: 15px;*/
+/*}*/
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -357,13 +400,12 @@ label[id="3450d"]{
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
     border-radius: 20px; /* Удаляем скругление углов */
-
 }
 
 .slider:before {
+
     position: absolute;
     content: "";
     height: 50px;
@@ -371,25 +413,21 @@ label[id="3450d"]{
     left: 7px;
     bottom: 7px;
     background-color: white;
-    -webkit-transition: .4s;
     transition: .4s;
     border-radius: 15px; /* Удаляем скругление углов */
-
 }
 
-input:checked + .slider {
+.slider.checked {
     background-color: #2196F3;
+}
+
+.slider.checked:before {
+    transform: translateY(-85px);
+    border-radius: 15px;
 }
 
 input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateY(-50px);
-    -ms-transform: translateY(-50px);
-    transform: translateY(-85px);
-    border-radius: 15px;
 }
 
 /* --------------------------- icons ----------------------------*/
