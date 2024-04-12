@@ -1,9 +1,5 @@
-// const radioButtons = document.querySelectorAll('input[type="radio"][name="radio2"]');
 document.addEventListener("DOMContentLoaded", () => {
     parseSettings();
-
-
-
 
     document.querySelector('.settings-group.horizontal').addEventListener('change', function(event) {
         if (event.target.matches('input[type="checkbox"]')) {
@@ -21,57 +17,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     radioButtons.forEach(radioButton => {
         radioButton.addEventListener('change', () => {
-            const maxAnimals = document.querySelector('input[name="radio1"]:checked').value;
-            const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
-            localStorage.setItem('MAX_ANIMALS', maxAnimals);
-            localStorage.setItem('MAX_ROUNDS', max_rounds);
-
+            if (radioButton.checked) {
+                const maxAnimals = document.querySelector('input[name="radio1"]:checked').value;
+                const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
+                localStorage.setItem('MAX_ANIMALS', maxAnimals);
+                localStorage.setItem('MAX_ROUNDS', max_rounds);
+            }
         });
     });
 
-    radioButtons.forEach(radioButton => {
-        if (radioButton.checked) {
-            const maxAnimals = document.querySelector('input[name="radio1"]:checked').value;
-            const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
-            localStorage.setItem('MAX_ANIMALS', maxAnimals);
-            localStorage.setItem('MAX_ROUNDS', max_rounds);
 
+
+    // Обработчик нажатия кнопок старта игры
+    document.querySelectorAll('img').forEach(button => {
+        button.addEventListener('click', () => {
+            const gameId = button.id;
+            startGame(gameId);
+        });
+    });
+
+// Функция запуска игры
+    function startGame(gameId) {
+        overrideMenu();
+        const gamePath = gameId === 'button3' ? "../../SoundClick/game.js" :
+                gameId === 'button2' ? "../../Animals/script.js" :
+                gameId === 'button1' ? "../../Clicks/game.js" :
+                null; // Обработка неизвестного ID кнопки
+        if (gamePath) {
+            loadGameScript(gamePath);
+        } else {
+            console.error("Неизвестный ID кнопки:", gameId);
         }
-    });
-
-
-    let button3 = document.getElementById('button3');
-    button3.addEventListener('click', () => {
-        startGame3();
-    });
-
-
-    let button2 = document.getElementById('button2');
-    button2.addEventListener('click', () => {
-        startGame2();
-    });
-
-    let button1 = document.getElementById('button1');
-    button1.addEventListener('click', () => {
-        startGame1();
-    });
-
-
-    function startGame3() {
-        overrideMenu();
-        loadGameScript("../../SoundClick/game.js");
-
     }
 
-    function startGame2() {
-        overrideMenu();
-        loadGameScript("../../Animals/script.js");
-    }
-
-    function startGame1() {
-        overrideMenu();
-        loadGameScript("../../Clicks/game.js");
-    }
 
 
     function overrideMenu() {
@@ -87,14 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="overlay" id="overlay"></div>
                 <div class="overlay" id="overlayEnd"></div>
             </div>
-            <div class="background-image">
-<!--                <img src="../pictures/bgFullHD.png" alt="">-->
+<!--            <div class="background-image">-->
             </div>`;
     }
 
     function loadGameScript(path) {
         let scriptElement = document.createElement('script');
-        // scriptElement.src = "../js/game.js";
         scriptElement.src = path;
         document.body.appendChild(scriptElement);
     }
