@@ -1,31 +1,20 @@
 // const radioButtons = document.querySelectorAll('input[type="radio"][name="radio2"]');
 document.addEventListener("DOMContentLoaded", () => {
     parseSettings();
-    var switches = document.querySelectorAll('.switch input[type="checkbox"]');
 
-    switches.forEach(function(switchInput) {
-        switchInput.addEventListener('change', function() {
-            var slider = this.parentNode.querySelector('.slider');
-            if (this.checked) {
-                slider.classList.add('checked');
-            } else {
-                slider.classList.remove('checked');
+
+
+
+    document.querySelector('.settings-group.horizontal').addEventListener('change', function(event) {
+        if (event.target.matches('input[type="checkbox"]')) {
+            const switchId = event.target.id;
+            const switchValue = event.target.checked;
+            if (switchId === 'switch1' || switchId === 'switch2') {
+                localStorage.setItem(switchId.toUpperCase(), switchValue);
+                const slider = event.target.parentNode.querySelector('.slider');
+                slider.classList.toggle('checked', switchValue);
             }
-        });
-    });
-
-    let switchElements = document.querySelectorAll(".settings-group.horizontal input[type='checkbox']");
-
-    switchElements.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            let switchId = this.id;
-            let switchValue = this.checked;
-            if(switchId == 'switch1'){
-                localStorage.setItem('COMPLEXITY_INC', switchValue);
-            }else if(switchId == 'switch2'){
-                localStorage.setItem('INFINITY_GAME', switchValue);
-            }
-        });
+        }
     });
 
     let radioButtons = document.querySelectorAll('.settings-group input[type="radio"]');
@@ -49,34 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     });
-
-    // window.addEventListener('load', function() {
-    //     let switchElements = document.querySelectorAll('.horizontal-switches input[type="checkbox"]');
-    //
-    //     // Сохранение состояния переключателей при загрузке страницы
-    //     switchElements.forEach(function(checkbox) {
-    //         let switchId = checkbox.id;
-    //         let switchValue = checkbox.checked;
-    //         if(switchId == 'switch1'){
-    //             localStorage.setItem('COMPLEXITY_INC', switchValue);
-    //         }else if(switchId == 'switch2'){
-    //             localStorage.setItem('INFINITY_GAME', switchValue);
-    //         }
-    //     });
-    //
-    //     // Обработчик события изменения состояния переключателей
-    //     switchElements.forEach(function(checkbox) {
-    //         checkbox.addEventListener('change', function() {
-    //             let switchId = this.id;
-    //             let switchValue = this.checked;
-    //             if(switchId == 'switch1'){
-    //                 localStorage.setItem('COMPLEXITY_INC', switchValue);
-    //             }else if(switchId == 'switch2'){
-    //                 localStorage.setItem('INFINITY_GAME', switchValue);
-    //             }
-    //         });
-    //     });
-    // });
 
 
     let button3 = document.getElementById('button3');
@@ -170,14 +131,6 @@ function parseSettings(){
     localStorage.setItem('MAX_ROUNDS',max_rounds);
     localStorage.setItem('INFINITY_GAME',infinity_game);
     localStorage.setItem('COMPLEXITY_INC',complexity_game);
-
-
-        // document.getElementById('slider1').classList.toggle('checked');
-
-        // document.getElementById('slider2').classList.toggle('checked');
-
-
-    // document.getElementById('slider2').classList.toggle('checked');
 
 }
 
