@@ -134,7 +134,7 @@ function createCells() {
  */
 function addImage(name, side){
     let img = document.createElement("img");
-    img.src = "../png/" + name + side + ".png" ;
+    img.src = "../../png/" + name + side + ".png" ;
 
     img = imageResize(name, side, img);
     return img;

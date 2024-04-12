@@ -4,11 +4,11 @@ let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
 let IMG_PATH = "../../png/";
 let SOUND_PATH = "../../sounds/";
 
-let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
-let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
-let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? false;
+let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
+let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
+let INFINITY_GAME = localStorage.getItem('INFINITY_GAME');
 //pokrok obtiznosti/win streak complexity [true/false]
-let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC') ?? false;
+let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC');
 
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
