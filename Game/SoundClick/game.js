@@ -248,6 +248,8 @@ function restartGame(){
     // new round representing
     playSoundGame();
 }
+
+
 function continueGame(){
     //returning styles of guessing animal
     const image = cell_highlight.getImage();
