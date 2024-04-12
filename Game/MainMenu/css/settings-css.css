@@ -138,6 +138,31 @@ body {
 .settings-group:last-child {
     margin-bottom: 0;
 }
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+}
+
+/*.settings-group[id ="swtch"]{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*}*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
 button {
     padding: 10px 20px;
     color: #fff;
