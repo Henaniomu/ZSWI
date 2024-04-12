@@ -1,7 +1,7 @@
 //GLOBAL section
 
 let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
-let IMG_PATH = "../../png/" + name + ".png";
+let IMG_PATH = "../../png/";
 
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
@@ -137,7 +137,7 @@ function createCells() {
 }
 function addImage(name){
     let img = document.createElement("img");
-    img.src = IMG_PATH;
+    img.src = IMG_PATH + name + ".png";
     return img;
 }
 function playSoundGame() {
