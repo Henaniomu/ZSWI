@@ -116,7 +116,7 @@ function shuffleArray(array) {
 }
 function createHighlight(){
     cell_highlight = null;
-    shuffleArray(play_animals);
+    shuffleArray(animals);
     let randomIndex = Math.floor(Math.random() * play_animals.length);
     const image = addImage(play_animals[randomIndex]);
     cell_highlight = new cellClass(play_animals[randomIndex],  image, "../sounds/" + play_animals[randomIndex] + ".mp3");
