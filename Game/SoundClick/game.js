@@ -6,9 +6,9 @@ let SOUND_PATH = "../../sounds/";
 
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
-let INFINITY_GAME = localStorage.getItem('INFINITY_GAME');
+let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
 //pokrok obtiznosti/win streak complexity [true/false]
-let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC');
+let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
@@ -192,6 +192,7 @@ function winStreakValidator(){
     }
     play_animals = animals.slice(0,MAX_ANIMALS);
 }
+
 function getCellElements() {
     const selectSection = document.getElementById('select_section');
     const cellElements = selectSection.querySelectorAll('.cell');
