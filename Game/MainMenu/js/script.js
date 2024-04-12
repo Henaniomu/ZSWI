@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
         checkbox.addEventListener('change', function() {
             let switchId = this.id;
             let switchValue = this.checked;
-            // if(switchId == 1){
-            //     localStorage.setItem('COMPLEXITY_INC', switchValue);
-            // }else if(switchId == 2){
-            //     localStorage.setItem('INFINITY_GAME', switchValue);
-            // }
-            localStorage.setItem(switchId, switchValue);
+            if(switchId == 'switch1'){
+                localStorage.setItem('COMPLEXITY_INC', switchValue);
+            }else if(switchId == 'switch2'){
+                localStorage.setItem('INFINITY_GAME', switchValue);
+            }
+            // localStorage.setItem(switchId, switchValue);
         });
     });
 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
             localStorage.setItem('MAX_ANIMALS', maxAnimals);
             localStorage.setItem('MAX_ROUNDS', max_rounds);
-            localStorage.setItem('numberOfAnimals', maxAnimals); //!!!!!!!!
+            // localStorage.setItem('numberOfAnimals', maxAnimals); //!!!!!!!!
             // startGame();
         });
     });
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
             localStorage.setItem('MAX_ANIMALS', maxAnimals);
             localStorage.setItem('MAX_ROUNDS', max_rounds);
-            localStorage.setItem('numberOfAnimals', maxAnimals);
+
         }
     });
 
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function startGame3() {
         overrideMenu();
-        loadGameScript("../../Animals/script.js");
+        loadGameScript("../../SoundClick/game.js");
     }
 
     function startGame2() {
