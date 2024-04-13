@@ -40,7 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function startGame(gameId) {
         overrideMenu();
         const gamePath = gameId === 'button3' ? "../../SoundClick/game.js" :
-                gameId === 'button2' ? "../../Animals/script.js" :
+                // gameId === 'button2' ? "../../Animals/script.js" :
+                gameId === 'button2' ? "../js/script_game2.js" :
                 gameId === 'button1' ? "../../Clicks/game.js" :
                 null; // Обработка неизвестного ID кнопки
         if (gamePath) {
@@ -74,6 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
         scriptElement.src = path;
         document.body.appendChild(scriptElement);
     }
+
+    function restoreRadioState() {
+        const maxAnimals = localStorage.getItem('MAX_ANIMALS');
+        const maxRounds = localStorage.getItem('MAX_ROUNDS');
+        if (maxAnimals && maxRounds) {
+            document.querySelector(`input[name="radio1"][value="${maxAnimals}"]`).checked = true;
+            document.querySelector(`input[name="radio2"][value="${maxRounds}"]`).checked = true;
+        }
+    }
+
+    // Вызов функции восстановления состояния радиокнопок при загрузке страницы
+    restoreRadioState();
 
 });
 

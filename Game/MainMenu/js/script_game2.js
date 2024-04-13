@@ -1,6 +1,6 @@
 //      GLOBAL 
 let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'dachshund']; //Default array with all the animals
-let numberOfAnimals = localStorage.getItem('numberOfAnimals')  ?? 3;
+let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 
 //show result on screen
 const overlay = document.getElementById('overlay');
@@ -33,8 +33,8 @@ let success_attemps=0;
 let cell_selection =[]; //animals that exists in the select section
 let cell_highlight =[]; //animals that exists in the highlight section
 shuffleArray(animals);
-let cell1 = animals.slice(0, numberOfAnimals); //cell_selection
-let cell2 = animals.slice(0, numberOfAnimals); //cell_highlight
+let cell1 = animals.slice(0, MAX_ANIMALS); //cell_selection
+let cell2 = animals.slice(0, MAX_ANIMALS); //cell_highlight
 
 let highlightCell = document.createElement('div'); //this variable is used to display the highlight image and as a parent
 let rightInnerDiv; //displays the image from the dragged cell
@@ -294,8 +294,8 @@ function control(result){
     }
 
     total_attemps++;
-    if(total_attemps === numberOfAnimals){
-        if(success_attemps === numberOfAnimals){
+    if(total_attemps === MAX_ANIMALS){
+        if(success_attemps === MAX_ANIMALS){
             showOverlay("Success");
             reset();
         }
@@ -313,7 +313,7 @@ function control(result){
  * calls getMaxOfAvailable to see if there are available images to displayed in places of the removed
  */
 function updateSelectSection() {
-    for (let i = 0; i < numberOfAnimals; i++) {
+    for (let i = 0; i < MAX_ANIMALS; i++) {
         if(cell_selection[i].getName() === selectedCellName) {
             cell_selection[i].selected = true;
         }
@@ -366,7 +366,7 @@ function setFirstRound(){
 
     highlightCell.addEventListener('dragenter', dragEnter);
 
-    for(let i = 0; i < numberOfAnimals; i++){
+    for(let i = 0; i < MAX_ANIMALS; i++){
 
         const cell = document.createElement('div');
         cell.classList.add('cell');
@@ -388,8 +388,8 @@ function reset() {
     main_section.innerHTML = '';
     select_section.innerHTML = '';
     shuffleArray(animals);
-    cell1 = animals.slice(0, numberOfAnimals);
-    cell2 = animals.slice(0, numberOfAnimals);
+    cell1 = animals.slice(0, MAX_ANIMALS);
+    cell2 = animals.slice(0, MAX_ANIMALS);
 
     createCells();
     setFirstRound();
