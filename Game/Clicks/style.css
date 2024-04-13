@@ -40,9 +40,10 @@
   filter: brightness(0);
 }
 
-.anim_img{
-  width: 210px;
+.anim_img1{
+  width: 70%;
   padding: 10px;
+  max-height: 250px;
 }
 
 .select_img{
@@ -106,6 +107,7 @@
   min-height: auto;
   max-height: auto;
   position: relative;
+  align-items: center;
 
 }
 

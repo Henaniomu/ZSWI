@@ -1,6 +1,9 @@
 //      GLOBAL 
-let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'dachshund']; //Default array with all the animals
-let numberOfAnimals = localStorage.getItem('numberOfAnimals')  ?? 3;
+let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey']; //Default array with all the animals
+let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
+let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
+let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? true;
+let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC') ?? false;
 
 //show result on screen
 const overlay = document.getElementById('overlay');
@@ -16,6 +19,9 @@ function createOverlay(){
     overlay.appendChild(contentDiv);
     closeButton.addEventListener('click', hideOverlay);
 }
+function returnMenu(){
+    location.reload();
+}
 function showOverlay(text) {
     overlay.style.display = 'block';
     contentDiv.innerHTML = text;
@@ -24,17 +30,44 @@ function hideOverlay() {
     overlay.style.display = 'none';
 }
 
+class cellClass{
+    constructor(name, side, image){
+        this.name = name;
+        this.side = side;
+        this.displayed = false;
+        this.image = image;
+    }
+
+    // displayed variable for
+    // cell_highlight is used to declare if the cell is displayed at least once
+    // cell_selection is used to declare if the cell should be displayed on the screen
+    setDisplayed(flag){
+        this.displayed = flag;
+    }
+    getDisplayed(){
+        return this.displayed;
+    }
+    getName(){
+        return this.name;
+    }
+    getSide(){
+        return this.side;
+    }
+    getImage(){
+        return this.image;
+    }
+}
 
 //      LOCAL
-let total_attemps = 0 ;
-let success_attemps=0;
+let total_attempts = 0 ;
+let success_attempts= 0;
 
 
 let cell_selection =[]; //animals that exists in the select section
 let cell_highlight =[]; //animals that exists in the highlight section
 shuffleArray(animals);
-let cell1 = animals.slice(0, numberOfAnimals); //cell_selection
-let cell2 = animals.slice(0, numberOfAnimals); //cell_highlight
+let cell1 = animals.slice(0, MAX_ANIMALS); //cell_selection
+let cell2 = animals.slice(0, MAX_ANIMALS); //cell_highlight
 
 let highlightCell = document.createElement('div'); //this variable is used to display the highlight image and as a parent
 let rightInnerDiv; //displays the image from the dragged cell
@@ -67,33 +100,7 @@ leftInnerDiv.style.margin = "0px" ;
 rightInnerDiv.style.marginBottom = "10px" ;
 leftInnerDiv.style.marginBottom = "10px" ;
 
-class cellClass{
-    constructor(name, side, image){
-        this.name = name;
-        this.side = side;
-        this.displayed = false;
-        this.image = image;
-    }
 
-    // displayed variable for
-    // cell_highlight is used to declare if the cell is displayed at least once
-    // cell_selection is used to declare if the cell should be displayed on the screen
-    setDisplayed(flag){
-        this.displayed = flag;
-    }
-    getDisplayed(){
-        return this.displayed;
-    }
-    getName(){
-        return this.name;
-    }
-    getSide(){
-        return this.side;
-    }
-    getImage(){
-        return this.image;
-    }
-}
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -110,16 +117,14 @@ function createCells() {
     i = 0;
     cell1.forEach((cellName) => {
         const image = addImage(cellName, 1);
-        const instance = new cellClass(cellName, 1, image);
-        cell_highlight[i] = instance;
+        cell_highlight[i] = new cellClass(cellName, 1, image);
         i++;
     });
 
     i = 0;
     cell2.forEach((cellName) => {
         const image = addImage(cellName, 2);
-        const instance = new cellClass(cellName, 2, image);
-        cell_selection[i] = instance;
+        cell_selection[i] = new cellClass(cellName, 2, image);
         i++;
     });
 
@@ -135,8 +140,9 @@ function createCells() {
 function addImage(name, side){
     let img = document.createElement("img");
     img.src = "../../png/" + name + side + ".png" ;
+    img.classList.add('anim_img1')
 
-    img = imageResize(name, side, img);
+    // img = imageResize(name, side, img);
     return img;
 }
 
@@ -209,6 +215,7 @@ function dragStart(event) {
         event.dataTransfer.setData('text/plain', cellDiv.textContent.trim());
         selectedCellName = cellDiv.textContent.trim();
     }
+
 }
 
 function dragOver(event) {
@@ -271,10 +278,45 @@ function drop(event) {
 
     const dropTarget = tempName;
     if (!dropTarget) return;
-
     control(dropTarget === selectedCellName);
 
 }
+function getCellElements() {
+    const selectSection = document.getElementById('select_section');
+    const cellElements = selectSection.querySelectorAll('.cell');
+    console.log(Array.from(cellElements))
+    return Array.from(cellElements);
+}
+function activateCheatClass(el) {
+    el.classList.toggle('cheat');
+}
+function guess_helper(){
+    let cells = getCellElements();
+    cells.forEach(el => {
+        if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
+            console.log("found")
+            setTimeout(function() {
+                activateCheatClass(el);
+            }, 4000)
+            activateCheatClass(el);
+        }
+    });
+}
+
+function findHighlightIndex(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (!array[i].displayed) {
+            console.log(i)
+            if (i >= 1) {
+                return i - 1;
+
+            } else
+                return 0;
+        }
+    }
+    console.log("didnt find")
+}
+
 
 /**
  * decides if there will be a new highlight cell or the end of the round
@@ -282,19 +324,19 @@ function drop(event) {
  */
 function control(result){
 
-    if(result){
-        success_attemps++;
+    let index;
+    if (result) {
+        success_attempts++;
         index = getValidIndex(cell_highlight);
         setHighlight(index);
         updateSelectSection();
-    }
-    else{
+    } else {
         showOverlay("Try again");
     }
+    total_attempts++;
+    if(total_attempts == MAX_ANIMALS){
+        if(success_attempts == MAX_ANIMALS){
 
-    total_attemps++;
-    if(total_attemps === numberOfAnimals){
-        if(success_attemps === numberOfAnimals){
             showOverlay("Success");
             reset();
         }
@@ -312,7 +354,7 @@ function control(result){
  * calls getMaxOfAvailable to see if there are available images to displayed in places of the removed
  */
 function updateSelectSection() {
-    for (let i = 0; i < numberOfAnimals; i++) {
+    for (let i = 0; i < MAX_ANIMALS; i++) {
         if(cell_selection[i].getName() === selectedCellName) {
             cell_selection[i].selected = true;
         }
@@ -365,7 +407,7 @@ function setFirstRound(){
 
     highlightCell.addEventListener('dragenter', dragEnter);
 
-    for(let i = 0; i < numberOfAnimals; i++){
+    for(let i = 0; i < MAX_ANIMALS; i++){
 
         const cell = document.createElement('div');
         cell.classList.add('cell');
@@ -382,13 +424,13 @@ function setFirstRound(){
  * reset is used after each round
  */
 function reset() {
-    total_attemps = 0;
-    success_attemps = 0;
+    total_attempts = 0;
+    success_attempts = 0;
     main_section.innerHTML = '';
     select_section.innerHTML = '';
     shuffleArray(animals);
-    cell1 = animals.slice(0, numberOfAnimals);
-    cell2 = animals.slice(0, numberOfAnimals);
+    cell1 = animals.slice(0, MAX_ANIMALS);
+    cell2 = animals.slice(0, MAX_ANIMALS);
 
     createCells();
     setFirstRound();

@@ -1,5 +1,5 @@
 //      GLOBAL
-let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'dachshund']; //Default array with all the animals
+let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey']; //Default array with all the animals
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
 let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? true;
@@ -115,7 +115,9 @@ function addImage(name, side){
     let img = document.createElement("img");
     img.src = "../../png/" + name + side + ".png" ;
 
-    img = imageResize(name, side, img);
+    // img = imageResize(name, side, img);
+    img.classList.add('anim_img1')
+
     return img;
 }
 
@@ -145,7 +147,7 @@ function activateCheatClass(el) {
 function guess_helper(){
     let cells = getCellElements();
     cells.forEach(el => {
-        if (el.textContent === cell_highlight[0].getName()){
+        if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
             console.log("found")
             setTimeout(function() {
                 activateCheatClass(el);
@@ -154,16 +156,32 @@ function guess_helper(){
         }
     });
 }
+function findHighlightIndex(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (!array[i].displayed) {
+            console.log(i)
+            if (i >= 1) {
+                return i - 1;
+
+            } else
+                return 0;
+        }
+    }
+    console.log("didnt find")
+}
+
 
 /**
  * decides if there will be a new highlight cell or the end of the round
  * @param result is the compare of the highlighted and the selected after the drop
  */
 function control(result){
+    console.log("control")
 
     let index;
     if (result) {
         success_attempts++;
+        cell_highlight
         index = getValidIndex(cell_highlight);
         setHighlight(index);
         updateSelectSection();

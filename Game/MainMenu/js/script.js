@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function startGame(gameId) {
         overrideMenu();
         const gamePath = gameId === 'button3' ? "../../SoundClick/game.js" :
-                // gameId === 'button2' ? "../../Animals/script.js" :
-                gameId === 'button2' ? "../js/script_game2.js" :
+                gameId === 'button2' ? "../../Animals/script.js" :
+                // gameId === 'button2' ? "../js/script_game2.js" :
                 gameId === 'button1' ? "../../Clicks/game.js" :
                 null; // Обработка неизвестного ID кнопки
         if (gamePath) {
