@@ -1,6 +1,6 @@
 /*TEST*/
 body{
-    background-image: url('../background/bgFullHD.png');
+    /*background-image: url('../background/bgFullHD.png');*/
 }
 
 @keyframes sizing {

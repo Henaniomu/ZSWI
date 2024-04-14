@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="icons">
                 <img src="../pictures/icons/home.png" name="home" onclick="location.reload();">
                 <img src="../pictures/icons/tip.png" name="tip" onclick="guessHelper()">
-                <img src="../pictures/icons/warn.png" name="warn">
+                <img src="../pictures/icons/warn.png" name="warn" onclick="showInfo()">
             </div>
             <div class="contain">
                 <div class="main_section" id="main_section"></div>
@@ -66,7 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="overlay" id="overlay"></div>
                 <div class="overlay" id="overlayEnd"></div>
             </div>
-<!--            <div class="background-image">-->
+                <style>
+                    body{
+                        background-image: url('../../background/bgFullHD.png');
+                    }
+                </style>
             </div>`;
     }
 
