@@ -335,6 +335,7 @@ function reset() {
         console.log(cell_highlight[i])
     }
 }
+
 createEndGameOverlay();
 createOverlay();
 createCells();
