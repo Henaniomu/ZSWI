@@ -60,6 +60,8 @@ function returnMenu(){
 function showOverlay(text) {
     overlay.style.display = 'block';
     contentDiv.innerHTML = text;
+    setTimeout(hideOverlay,2000)
+
 }
 function hideOverlay() {
     overlay.style.display = 'none';
@@ -146,7 +148,7 @@ function createCells() {
  */
 function addImage(name, side){
     let img = document.createElement("img");
-    img.src = "../../png/" + name + side + ".png" ;
+    img.src = IMG_PATH + name + side + ".png" ;
 
     // img = imageResize(name, side, img);
     img.classList.add('anim_img1')
@@ -225,27 +227,17 @@ function control(result){
         showOverlay("Missed, let's try again.");
     }
     total_attempts++;
-    winStreakValidator();
+    if (COMPLEXITY_INC && MAX_ROUNDS > 3) {
+        winStreakValidator();
+
+    }
 
     endGameValidator()
-
-    // if(total_attempts == MAX_ANIMALS){
-    //     console.log(total_attempts)
-    //     if(success_attempts == MAX_ANIMALS){
-    //         console.log(success_attempts)
-    //         reset();
-    //     }
-    //     else{
-    //         showOverlay("Failure");
-    //         reset();
-    //     }
-    // }
 }
 function winStreakValidator(){
     console.log("Win streak: " + WIN_STREAK)
     console.log("Complexity_inc: " + COMPLEXITY_INC)
     if (WIN_STREAK > 0 && WIN_STREAK % 3 == 0 && COMPLEXITY_INC){
-
         MAX_ANIMALS++;
         reset()
     }
@@ -345,7 +337,6 @@ function endGameValidator(){
 function reset() {
     closeEndGame();
     total_attempts = 0;
-    success_attempts = 0;
     main_section.innerHTML = '';
     select_section.innerHTML = '';
     shuffleArray(animals);

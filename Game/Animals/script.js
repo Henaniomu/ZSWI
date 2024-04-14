@@ -1,14 +1,21 @@
 //      GLOBAL 
 let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey']; //Default array with all the animals
-let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
-let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
-let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? true;
-let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC') ?? false;
+let IMG_PATH = "../../png/";
+let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
+let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
+let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
+let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
+
+const overlayEnd = document.getElementById('overlayEnd');
+const buttonContainer = document.createElement('div');
+const restartButton = document.createElement('button');
+const menuButtonOv = document.createElement('button');
+const contentDivEnd = document.createElement('div');
 
 function createOverlay(){
     closeButton.textContent = '×';
@@ -19,12 +26,39 @@ function createOverlay(){
     overlay.appendChild(contentDiv);
     closeButton.addEventListener('click', hideOverlay);
 }
+function createEndGameOverlay(){
+    buttonContainer.classList.add('button-container');
+    menuButtonOv.textContent = 'Return to Menu';
+    restartButton.textContent = 'Play Again!';
+
+    menuButtonOv.classList.add('end_button');
+    restartButton.classList.add('end_button');
+
+    buttonContainer.appendChild(menuButtonOv);
+    buttonContainer.appendChild(restartButton);
+
+    contentDivEnd.classList.add('message');
+    overlayEnd.appendChild(contentDivEnd)
+
+    overlayEnd.appendChild(buttonContainer);
+
+    //listeners
+    menuButtonOv.addEventListener('click', returnMenu);
+    restartButton.addEventListener("click", reset)
+}
+function endGame(){
+    overlayEnd.style.display = 'block';
+}
+function closeEndGame(){
+    overlayEnd.style.display = 'none';
+}
 function returnMenu(){
     location.reload();
 }
 function showOverlay(text) {
     overlay.style.display = 'block';
     contentDiv.innerHTML = text;
+    setTimeout(hideOverlay,2000)
 }
 function hideOverlay() {
     overlay.style.display = 'none';
@@ -61,7 +95,8 @@ class cellClass{
 //      LOCAL
 let total_attempts = 0 ;
 let success_attempts= 0;
-
+let ROUNDS_PLAYED = 0;
+let WIN_STREAK = 0;
 
 let cell_selection =[]; //animals that exists in the select section
 let cell_highlight =[]; //animals that exists in the highlight section
@@ -139,7 +174,7 @@ function createCells() {
  */
 function addImage(name, side){
     let img = document.createElement("img");
-    img.src = "../../png/" + name + side + ".png" ;
+    img.src = IMG_PATH + name + side + ".png" ;
     img.classList.add('anim_img1')
 
     // img = imageResize(name, side, img);
@@ -306,17 +341,27 @@ function guess_helper(){
 function findHighlightIndex(array) {
     for (let i = 0; i < array.length; i++) {
         if (!array[i].displayed) {
-            console.log(i)
             if (i >= 1) {
                 return i - 1;
 
             } else
                 return 0;
         }
+        if (i == array.length - 1) {
+            return i;
+        }
     }
-    console.log("didnt find")
 }
 
+
+function winStreakValidator(){
+    console.log("Win streak: " + WIN_STREAK)
+    console.log("Complexity_inc: " + COMPLEXITY_INC)
+    if (WIN_STREAK > 0 && WIN_STREAK % 3 == 0 && COMPLEXITY_INC){
+        MAX_ANIMALS++;
+        reset()
+    }
+}
 
 /**
  * decides if there will be a new highlight cell or the end of the round
@@ -326,25 +371,26 @@ function control(result){
 
     let index;
     if (result) {
+        console.log("Clicked right")
         success_attempts++;
+        WIN_STREAK = WIN_STREAK + 1;
         index = getValidIndex(cell_highlight);
+        showOverlay("Success! That was " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
+
         setHighlight(index);
         updateSelectSection();
     } else {
-        showOverlay("Try again");
+        WIN_STREAK = 0;
+        MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
+        showOverlay("Missed, let's try again.");
     }
     total_attempts++;
-    if(total_attempts == MAX_ANIMALS){
-        if(success_attempts == MAX_ANIMALS){
+    if (COMPLEXITY_INC && MAX_ROUNDS > 3) {
+        winStreakValidator();
 
-            showOverlay("Success");
-            reset();
-        }
-        else{
-            showOverlay("Failure");
-            reset();
-        }
     }
+
+    endGameValidator()
 }
 
 /**
@@ -420,12 +466,28 @@ function setFirstRound(){
     }
 }
 
+function endGameValidator(){
+    ROUNDS_PLAYED++;
+    console.log("Rounds played: " + ROUNDS_PLAYED)
+    console.log("Max rounds: " + MAX_ROUNDS)
+    console.log("Infinity game: " + INFINITY_GAME)
+    if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
+        console.log("Game is ended")
+        hideOverlay();
+        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        endGame();
+        ROUNDS_PLAYED = 0;
+        WIN_STREAK = 0;
+    }
+}
+
 /**
  * reset is used after each round
  */
 function reset() {
+    closeEndGame();
+
     total_attempts = 0;
-    success_attempts = 0;
     main_section.innerHTML = '';
     select_section.innerHTML = '';
     shuffleArray(animals);
@@ -435,6 +497,7 @@ function reset() {
     createCells();
     setFirstRound();
 }
+createEndGameOverlay();
 createOverlay();
 createCells();
 setFirstRound();
