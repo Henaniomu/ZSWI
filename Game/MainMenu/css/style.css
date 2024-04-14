@@ -1,17 +1,35 @@
 /*TEST*/
+body{
+    background-image: url('../background/bgFullHD.png');
+}
+
+@keyframes sizing {
+    0% {
+        scale: 1; /* Прозрачный фон */
+    }
+    50% {
+        scale: 1.25; /* Белый фон */
+    }
+    100% {
+        scale: 1; /* Снова прозрачный фон */
+    }
+}
+
+/* Применяем анимации к изображению */
+.cheat {
+    animation: sizing 2s infinite; /* Применяем обе анимации */
+}
+
 .game {
     margin-bottom: 20px;
 }
 /*TEST*/
 
-.contain{
-    display: flex;
-    position: relative;
-
+.container{
     width: auto;
     height:auto;
     margin-left: auto;
-    /*display: flex;*/
+    display: flex;
     flex-direction: column;
     /* background-color: rgb(182, 102, 16); */
 
@@ -24,10 +42,51 @@
 }
 
 .anim_img{
-    width: 200px;
+    width: 20vw;
+    max-width: 200px;
+    padding: 10px;
+}
+
+.select_img{
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+}
+
+
+.button-container{
+    width: inherit;
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+}
+
+.in_game_button{
+    cursor: pointer;
+    position: absolute;
+    background-color: lightseagreen;
+    border-radius: 10px;
+    height: 28px;
+    filter: drop-shadow(2px 3px 0.5px grey);
+}
+.end_button{
+    cursor: pointer;
+    background-color: lightseagreen;
+    border-radius: 10px;
+    height: 28px;
+    filter: drop-shadow(2px 3px 0.5px grey);
+}
+
+.guess_button{
+    right: 20px;
+    top: 20px;
+}
+
+.menu_button{
+    left: 20px;
+    top: 20px;
 }
 
 .cell {
+
     display: inline-block;
     margin: 10px;
     text-align: center;
@@ -36,27 +95,27 @@
     cursor: pointer;
     color: transparent;
     line-height: auto;
-    /* height: auto; 
+    /* height: auto;
     width: auto;  */
     overflow: hidden;
-    position: relative; 
-  
+    position: relative;
+
 }
 
 
 .select_section{
+    width: max-content;
     text-align: center;
     grid-gap: 10px;
     min-height: auto;
-    max-height: auto;   
-    position: relative; 
+    position: relative;
 
 }
 
 .main_section{
-  /* background-color: rgb(161, 87, 7); */
+    /* background-color: rgb(161, 87, 7); */
     min-height: auto;
-    max-height: auto;  
+    max-height: auto;
     text-align: center;
     flex:1;
     padding-top: 40px;
@@ -66,20 +125,20 @@
 }
 
 .background-image {
-  position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../pictures/bgFullHD.png');
+    background-image: url('../background/bgFullHD.png');
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1; 
+    z-index: -1;
 }
 
 
 .overlay {
-    display: none; 
+    display: none;
     position: fixed;
     margin-top: 15%;
     margin-left: 35%;
@@ -87,24 +146,24 @@
     left: 0;
     width: 400px;
     height: 300px;
-    background-color: #ccc; 
+    background-color: #ccc;
     box-shadow: 0px 20px 20px 40px #ccc;
-    z-index: 999; 
-  }
-  
-  .close-button {
+    z-index: 999;
+}
+
+.close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
     color: rgb(0, 0, 0);
-    z-index: 1000; 
+    z-index: 1000;
     font-size: 40px;
-  }
+}
 
-  .message{
+.message{
     text-align: center;
     padding-top: 35%;
     font-size: 40px;
 
-  }
+}

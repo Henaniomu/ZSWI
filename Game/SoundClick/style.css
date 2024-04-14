@@ -42,7 +42,8 @@ body{
 }
 
 .anim_img{
-    width: 210px;
+    width: 20vw;
+    max-width: 200px;
     padding: 10px;
 }
 
@@ -103,11 +104,11 @@ body{
 
 
 .select_section{
+    width: max-content;
     text-align: center;
     grid-gap: 10px;
     min-height: auto;
-    max-height: auto;   
-    position: relative; 
+    position: relative;
 
 }
 
