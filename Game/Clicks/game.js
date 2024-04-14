@@ -1,5 +1,5 @@
 //      GLOBAL
-let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey']; //Default array with all the animals
+let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'rooster', 'rat', 'cow', 'dachshund']; //Default array with all the animals
 let IMG_PATH = "../../png/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');

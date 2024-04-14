@@ -1,6 +1,6 @@
 //GLOBAL section
 
-let animals = ['cat', 'duck', 'frog', 'pig', 'dog', 'horse'];
+let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
 let IMG_PATH = "../../png/";
 let SOUND_PATH = "../../sounds/";
 

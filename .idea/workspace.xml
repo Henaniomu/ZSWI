@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Game/png/cock1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/png/cock2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/png/rat1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/png/rat2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/sounds/bunny.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/sounds/cow.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/sounds/goat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/sounds/rat.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/sounds/rooster.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/sounds/turkey.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/frog1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/frog1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/frog2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/frog2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rabbit1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/rabbit1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rabbit2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/rabbit2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Clicks/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Clicks/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/turkey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/cock1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/rooster1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/cock2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/rooster2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/Слой 19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/Слой 20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/Слой 21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/Слой 22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/Слой 23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/Слой 24.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +54,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/png",
+    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/sounds",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +64,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png" />
     </key>
   </component>
@@ -80,7 +90,7 @@
       <workItem from="1712946952077" duration="9307000" />
       <workItem from="1712958429733" duration="180000" />
       <workItem from="1712962447786" duration="2620000" />
-      <workItem from="1713112199154" duration="4170000" />
+      <workItem from="1713112199154" duration="6807000" />
     </task>
     <servers />
   </component>
