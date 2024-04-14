@@ -8,7 +8,6 @@ let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
 const overlay = document.getElementById('overlay');
-const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
 
 
@@ -19,13 +18,8 @@ const menuButtonOv = document.createElement('button');
 const contentDivEnd = document.createElement('div');
 
 function createOverlay(){
-    closeButton.textContent = '×';
-    closeButton.classList.add('close-button');
-    overlay.appendChild(closeButton);
-
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
-    closeButton.addEventListener('click', hideOverlay);
 }
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container');
@@ -264,14 +258,16 @@ function getCellElements() {
     const cellElements = selectSection.querySelectorAll('.cell');
     return Array.from(cellElements);
 }
+
 function activateCheatClass(el) {
     el.classList.toggle('cheat');
 }
+
 function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
-            console.log("found")
+            console.log("Guess helper found")
             setTimeout(function() {
                 activateCheatClass(el);
             }, 4000)
@@ -296,18 +292,7 @@ function findHighlightIndex(array) {
 }
 
 
-function winStreakValidator(){
-    console.log("Win streak: " + WIN_STREAK)
-    if (WIN_STREAK > 0 && (guessedAnimals > 0 && guessedAnimals % MAX_ANIMALS == 0) && COMPLEXITY_INC){
-        if (MAX_ANIMALS  == 7) {
-            reset()
-        } else {
-            MAX_ANIMALS++;
-            console.log("Increasing max animals. Currently: " + MAX_ANIMALS)
-            reset()
-        }
-    }
-}
+
 
 /**
  * decides if there will be a new highlight cell or the end of the round
@@ -344,6 +329,50 @@ function control(result){
     }
 
     endGameValidator()
+}
+function winStreakValidator(){
+    console.log("Win streak: " + WIN_STREAK)
+    if (WIN_STREAK > 0 && (guessedAnimals > 0 && guessedAnimals % MAX_ANIMALS == 0) && COMPLEXITY_INC){
+        if (MAX_ANIMALS  == 7) {
+            reset()
+        } else {
+            MAX_ANIMALS++;
+            console.log("Increasing max animals. Currently: " + MAX_ANIMALS)
+            reset()
+        }
+    }
+}
+
+function endGameValidator(){
+    console.log("Rounds played: " + ROUNDS_PLAYED)
+    console.log("Max rounds: " + MAX_ROUNDS)
+    if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
+        console.log("Game is ended")
+        hideOverlay();
+        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        endGame();
+        ROUNDS_PLAYED = 0;
+        WIN_STREAK = 0;
+    } else if (MAX_ANIMALS < MAX_ROUNDS  && !INFINITY_GAME ) {
+        if (guessedAnimals == MAX_ANIMALS) {
+            reset()
+        }
+        if (ROUNDS_PLAYED == MAX_ROUNDS) {
+            console.log("Game is ended")
+            hideOverlay();
+            contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+            endGame();
+            ROUNDS_PLAYED = 0;
+            WIN_STREAK = 0;
+        }
+    } else if (MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && INFINITY_GAME ) {
+        console.log("Game is ended")
+        reset()
+    } else if (MAX_ANIMALS < MAX_ROUNDS  && INFINITY_GAME ) {
+        if (guessedAnimals == MAX_ANIMALS) {
+            reset()
+        }
+    }
 }
 
 /**
@@ -419,18 +448,7 @@ function setFirstRound(){
     }
 }
 
-function endGameValidator(){
-    console.log("Rounds played: " + ROUNDS_PLAYED)
-    console.log("Max rounds: " + MAX_ROUNDS)
-    if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
-        console.log("Game is ended")
-        hideOverlay();
-        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
-        endGame();
-        ROUNDS_PLAYED = 0;
-        WIN_STREAK = 0;
-    }
-}
+
 
 /**
  * reset is used after each round

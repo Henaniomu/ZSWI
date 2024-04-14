@@ -17,7 +17,6 @@ const restartButton = document.createElement('button');
 const menuButtonOv = document.createElement('button');
 const contentDivEnd = document.createElement('div');
 
-
 function createOverlay(){
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
@@ -60,8 +59,6 @@ function hideOverlay() {
     overlay.style.display = 'none';
 }
 
-
-
 class cellClass{
     constructor(name, side, image){
         this.name = name;
@@ -82,7 +79,6 @@ class cellClass{
         return this.image;
     }
 }
-
 
 //      LOCAL
 let total_attempts = 0;
@@ -159,6 +155,7 @@ function getCellElements() {
 function activateCheatClass(el) {
     el.classList.toggle('cheat');
 }
+
 function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
@@ -171,6 +168,7 @@ function guessHelper(){
         }
     });
 }
+
 function findHighlightIndex(array) {
     for (let i = 0; i < array.length; i++) {
         if (!array[i].displayed) {
@@ -253,6 +251,13 @@ function endGameValidator(){
             endGame();
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
+        }
+    } else if (MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && INFINITY_GAME ) {
+        console.log("Game is ended")
+        reset()
+    } else if (MAX_ANIMALS < MAX_ROUNDS  && INFINITY_GAME ) {
+        if (guessedAnimals == MAX_ANIMALS) {
+            reset()
         }
     }
 }
