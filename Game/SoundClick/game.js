@@ -22,10 +22,6 @@ const contentDivEnd = document.createElement('div');
 
 
 function createOverlay(){
-    closeButton.textContent = '×';
-    closeButton.classList.add('close-button');
-    overlay.appendChild(closeButton);
-
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
     closeButton.addEventListener('click', hideOverlay);
