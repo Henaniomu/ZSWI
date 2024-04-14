@@ -254,6 +254,13 @@ function endGameValidator(){
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
         }
+    } else if (MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && INFINITY_GAME ) {
+        console.log("Game is ended")
+        reset()
+    } else if (MAX_ANIMALS < MAX_ROUNDS  && INFINITY_GAME ) {
+        if (guessedAnimals == MAX_ANIMALS) {
+            reset()
+        }
     }
 }
 
