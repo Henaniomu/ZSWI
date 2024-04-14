@@ -20,5 +20,5 @@
 + Faiz: Fixed background image in SoundClick
 
 
-+TODO Container bug in drag&drop game.
-+TODO Info button for games.
++ TODO Container bug in drag&drop game.
++ TODO Info button for games.
