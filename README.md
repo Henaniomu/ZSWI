@@ -18,3 +18,7 @@
 + Faiz: Styled in-game and end-game buttons. Added boolean var for future developing Infinity-game setting. 
 		by default - true.
 + Faiz: Fixed background image in SoundClick
+
+
++TODO Container bug in drag&drop game.
++TODO Info button for games.
