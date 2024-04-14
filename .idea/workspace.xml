@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script_game2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script_game2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/dachshund1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/dachshund1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/dachshund2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/dachshund2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/goat1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/goat1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/goat2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/goat2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/horse1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/horse1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/horse2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/horse2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/pig1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/pig1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/pig2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/pig2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/turkey1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/turkey1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/turkey2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/turkey2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,20 +40,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/png",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="settings-page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/Game/MainMenu/html/settings-page.html" useBuiltInWebServerPort="true">
       <method v="2" />
@@ -69,6 +82,7 @@
       <workItem from="1712946952077" duration="9307000" />
       <workItem from="1712958429733" duration="180000" />
       <workItem from="1712962447786" duration="2620000" />
+      <workItem from="1713112199154" duration="2877000" />
     </task>
     <servers />
   </component>
