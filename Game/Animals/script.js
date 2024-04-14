@@ -479,6 +479,9 @@ function endGameValidator(){
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
     }
+    if (ROUNDS_PLAYED > 0 && ROUNDS_PLAYED % MAX_ANIMALS == 0) {
+        reset()
+    }
 }
 
 /**
@@ -486,8 +489,6 @@ function endGameValidator(){
  */
 function reset() {
     closeEndGame();
-
-    total_attempts = 0;
     main_section.innerHTML = '';
     select_section.innerHTML = '';
     shuffleArray(animals);
