@@ -1,14 +1,22 @@
 //      GLOBAL
 let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey']; //Default array with all the animals
-let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')  ?? 3;
-let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS') ?? -1;
-let INFINITY_GAME = localStorage.getItem('INFINITY_GAME') ?? true;
-let COMPLEXITY_INC = localStorage.getItem('COMPLEXITY_INC') ?? false;
+let IMG_PATH = "../../png/";
+let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
+let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
+let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
+let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
 const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
+
+
+const overlayEnd = document.getElementById('overlayEnd');
+const buttonContainer = document.createElement('div');
+const restartButton = document.createElement('button');
+const menuButtonOv = document.createElement('button');
+const contentDivEnd = document.createElement('div');
 
 
 function createOverlay(){
@@ -20,6 +28,32 @@ function createOverlay(){
     overlay.appendChild(contentDiv);
     closeButton.addEventListener('click', hideOverlay);
 }
+function createEndGameOverlay(){
+    buttonContainer.classList.add('button-container');
+    menuButtonOv.textContent = 'Return to Menu';
+    restartButton.textContent = 'Play Again!';
+
+    menuButtonOv.classList.add('end_button');
+    restartButton.classList.add('end_button');
+
+    buttonContainer.appendChild(menuButtonOv);
+    buttonContainer.appendChild(restartButton);
+
+    contentDivEnd.classList.add('message');
+    overlayEnd.appendChild(contentDivEnd)
+
+    overlayEnd.appendChild(buttonContainer);
+
+    //listeners
+    menuButtonOv.addEventListener('click', returnMenu);
+    restartButton.addEventListener("click", reset)
+}
+function endGame(){
+    overlayEnd.style.display = 'block';
+}
+function closeEndGame(){
+    overlayEnd.style.display = 'none';
+}
 function returnMenu(){
     location.reload();
 }
@@ -30,7 +64,6 @@ function showOverlay(text) {
 function hideOverlay() {
     overlay.style.display = 'none';
 }
-
 
 
 
@@ -129,15 +162,13 @@ function imageResize(name,side , img){
 
 
 function click(name) {
-    console.log(name)
-    console.log(highlightCell.textContent.trim())
+
     control(name === highlightCell.textContent.trim());
 }
 
 function getCellElements() {
     const selectSection = document.getElementById('select_section');
     const cellElements = selectSection.querySelectorAll('.cell');
-    console.log(Array.from(cellElements))
     return Array.from(cellElements);
 }
 
@@ -148,7 +179,7 @@ function guess_helper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
-            console.log("found")
+            console.log("Guess helper found")
             setTimeout(function() {
                 activateCheatClass(el);
             }, 4000)
@@ -159,15 +190,16 @@ function guess_helper(){
 function findHighlightIndex(array) {
     for (let i = 0; i < array.length; i++) {
         if (!array[i].displayed) {
-            console.log(i)
             if (i >= 1) {
                 return i - 1;
 
             } else
                 return 0;
         }
+        if (i == array.length - 1) {
+            return i;
+        }
     }
-    console.log("didnt find")
 }
 
 
@@ -176,34 +208,46 @@ function findHighlightIndex(array) {
  * @param result is the compare of the highlighted and the selected after the drop
  */
 function control(result){
-    console.log("control")
 
     let index;
     if (result) {
+        console.log("Clicked right")
         success_attempts++;
-        cell_highlight
+        WIN_STREAK = WIN_STREAK + 1;
         index = getValidIndex(cell_highlight);
+        showOverlay("Success! That was " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
+
         setHighlight(index);
         updateSelectSection();
     } else {
-        showOverlay("Try again");
+        WIN_STREAK = 0;
+        MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
+        showOverlay("Missed, let's try again.");
     }
     total_attempts++;
-    console.log(success_attempts)
-    console.log(total_attempts)
-    console.log(MAX_ANIMALS)
-    if(total_attempts == MAX_ANIMALS){
-        console.log(total_attempts)
-        if(success_attempts == MAX_ANIMALS){
-            console.log(success_attempts)
+    winStreakValidator();
 
-            showOverlay("Success");
-            reset();
-        }
-        else{
-            showOverlay("Failure");
-            reset();
-        }
+    endGameValidator()
+
+    // if(total_attempts == MAX_ANIMALS){
+    //     console.log(total_attempts)
+    //     if(success_attempts == MAX_ANIMALS){
+    //         console.log(success_attempts)
+    //         reset();
+    //     }
+    //     else{
+    //         showOverlay("Failure");
+    //         reset();
+    //     }
+    // }
+}
+function winStreakValidator(){
+    console.log("Win streak: " + WIN_STREAK)
+    console.log("Complexity_inc: " + COMPLEXITY_INC)
+    if (WIN_STREAK > 0 && WIN_STREAK % 3 == 0 && COMPLEXITY_INC){
+
+        MAX_ANIMALS++;
+        reset()
     }
 }
 
@@ -280,11 +324,26 @@ function setFirstRound(){
         cell_selection[i].element = cell;
     }
 }
+function endGameValidator(){
+    ROUNDS_PLAYED++;
+    console.log("Rounds played: " + ROUNDS_PLAYED)
+    console.log("Max rounds: " + MAX_ROUNDS)
+    console.log("Infinity game: " + INFINITY_GAME)
+    if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
+        console.log("Game is ended")
+        hideOverlay();
+        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        endGame();
+        ROUNDS_PLAYED = 0;
+        WIN_STREAK = 0;
+    }
+}
 
 /**
  * reset is used after each round
  */
 function reset() {
+    closeEndGame();
     total_attempts = 0;
     success_attempts = 0;
     main_section.innerHTML = '';
@@ -296,6 +355,7 @@ function reset() {
     createCells();
     setFirstRound();
 }
+createEndGameOverlay();
 createOverlay();
 createCells();
 setFirstRound();
