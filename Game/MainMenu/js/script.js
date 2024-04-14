@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.menu').innerHTML = `
             <div id="icons">
                 <img src="../pictures/icons/home.png" name="home" onclick="location.reload();">
-                <img src="../pictures/icons/tip.png" name="tip" onclick="guess_helper()">
+                <img src="../pictures/icons/tip.png" name="tip" onclick="guessHelper()">
                 <img src="../pictures/icons/warn.png" name="warn">
             </div>
             <div class="contain">

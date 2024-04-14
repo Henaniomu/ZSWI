@@ -8,7 +8,6 @@ let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
 const overlay = document.getElementById('overlay');
-const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
 
 
@@ -20,13 +19,8 @@ const contentDivEnd = document.createElement('div');
 
 
 function createOverlay(){
-    closeButton.textContent = '×';
-    closeButton.classList.add('close-button');
-    overlay.appendChild(closeButton);
-
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
-    closeButton.addEventListener('click', hideOverlay);
 }
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container');
@@ -61,7 +55,6 @@ function showOverlay(text) {
     overlay.style.display = 'block';
     contentDiv.innerHTML = text;
     setTimeout(hideOverlay,2000)
-
 }
 function hideOverlay() {
     overlay.style.display = 'none';
@@ -149,11 +142,7 @@ function addImage(name, side){
     return img;
 }
 
-function imageResize(name,side , img){
-    img.style.width = 250 + "px";
-    img.style.height = 250 + "px";
-    return img;
-}
+
 
 
 function click(name) {
@@ -246,13 +235,25 @@ function winStreakValidator(){
 function endGameValidator(){
     console.log("Rounds played: " + ROUNDS_PLAYED)
     console.log("Max rounds: " + MAX_ROUNDS)
-    if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
+    if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
         contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
+    } else if (MAX_ANIMALS < MAX_ROUNDS  && !INFINITY_GAME ) {
+        if (guessedAnimals == MAX_ANIMALS) {
+            reset()
+        }
+        if (ROUNDS_PLAYED == MAX_ROUNDS) {
+            console.log("Game is ended")
+            hideOverlay();
+            contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+            endGame();
+            ROUNDS_PLAYED = 0;
+            WIN_STREAK = 0;
+        }
     }
 }
 

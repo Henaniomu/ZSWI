@@ -11,6 +11,7 @@ const overlay = document.getElementById('overlay');
 const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
 
+
 const overlayEnd = document.getElementById('overlayEnd');
 const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
@@ -93,10 +94,11 @@ class cellClass{
 }
 
 //      LOCAL
-let total_attempts = 0 ;
+let total_attempts = 0;
 let success_attempts= 0;
 let ROUNDS_PLAYED = 0;
 let WIN_STREAK = 0;
+let guessedAnimals = 0;
 
 let cell_selection =[]; //animals that exists in the select section
 let cell_highlight =[]; //animals that exists in the highlight section
@@ -148,14 +150,14 @@ function shuffleArray(array) {
  * creates an instance of cellClass for each cell and stores it in cell_highlight or cell_selection
  */
 function createCells() {
-
-    i = 0;
+    cell_highlight = []
+    let i = 0;
     cell1.forEach((cellName) => {
         const image = addImage(cellName, 1);
         cell_highlight[i] = new cellClass(cellName, 1, image);
         i++;
     });
-
+    cell_selection = []
     i = 0;
     cell2.forEach((cellName) => {
         const image = addImage(cellName, 2);
@@ -178,65 +180,6 @@ function addImage(name, side){
     img.classList.add('anim_img1')
 
     // img = imageResize(name, side, img);
-    return img;
-}
-
-function imageResize(name,side , img){
-    switch(name+side){
-        case 'horse1':
-            img.style.width = 200 + "px";
-            img.style.height = 300 + "px";
-            break;
-        case 'horse2':
-            img.style.width = 200 + "px";
-            img.style.height = 200 + "px";
-            break;
-        case 'pig1':
-            img.style.width = 200 + "px";
-            img.style.height = 300 + "px";
-            break;
-        case 'pig2':
-            img.style.width = 200 + "px";
-            img.style.height = 235 + "px";
-            break;
-        case 'rabbit1':
-            img.style.width = 200 + "px";
-            img.style.height = 250 + "px";
-            break;
-        case 'rabbit2':
-            img.style.width = 200 + "px";
-            img.style.height = 250 + "px";
-            break;
-        case 'dachshund1':
-            img.style.width = 200 + "px";
-            img.style.height = 250 + "px";
-            break;
-        case 'dachshund2':
-            img.style.width = 200 + "px";
-            img.style.height = 170 + "px";
-            break;
-        case 'goat1':
-            img.style.width = 200 + "px";
-            img.style.height = 300 + "px";
-            break;
-        case 'goat2':
-            img.style.width = 200 + "px";
-            img.style.height = 190 + "px";
-            break;
-        case 'turkey1':
-            img.style.width = 200 + "px";
-            img.style.height = 300 + "px";
-            break;
-        case 'turkey2':
-            img.style.width = 200 + "px";
-            img.style.height = 200 + "px";
-            break;
-
-        case 'duck2':
-            img.style.height = 195 + "px";
-            break;
-
-    }
     return img;
 }
 
@@ -319,13 +262,12 @@ function drop(event) {
 function getCellElements() {
     const selectSection = document.getElementById('select_section');
     const cellElements = selectSection.querySelectorAll('.cell');
-    console.log(Array.from(cellElements))
     return Array.from(cellElements);
 }
 function activateCheatClass(el) {
     el.classList.toggle('cheat');
 }
-function guess_helper(){
+function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
@@ -356,10 +298,14 @@ function findHighlightIndex(array) {
 
 function winStreakValidator(){
     console.log("Win streak: " + WIN_STREAK)
-    console.log("Complexity_inc: " + COMPLEXITY_INC)
-    if (WIN_STREAK > 0 && WIN_STREAK % 3 == 0 && COMPLEXITY_INC){
-        MAX_ANIMALS++;
-        reset()
+    if (WIN_STREAK > 0 && (guessedAnimals > 0 && guessedAnimals % MAX_ANIMALS == 0) && COMPLEXITY_INC){
+        if (MAX_ANIMALS  == 7) {
+            reset()
+        } else {
+            MAX_ANIMALS++;
+            console.log("Increasing max animals. Currently: " + MAX_ANIMALS)
+            reset()
+        }
     }
 }
 
@@ -368,11 +314,13 @@ function winStreakValidator(){
  * @param result is the compare of the highlighted and the selected after the drop
  */
 function control(result){
-
+    ROUNDS_PLAYED++;
+    total_attempts++;
     let index;
     if (result) {
         console.log("Clicked right")
         success_attempts++;
+        guessedAnimals++;
         WIN_STREAK = WIN_STREAK + 1;
         index = getValidIndex(cell_highlight);
         showOverlay("Success! That was " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
@@ -380,12 +328,17 @@ function control(result){
         setHighlight(index);
         updateSelectSection();
     } else {
+        if (COMPLEXITY_INC && ROUNDS_PLAYED > 3) {
+            MAX_ANIMALS = parseInt(localStorage.getItem('MAX_ANIMALS'))
+            reset()
+            WIN_STREAK = 0;
+            showOverlay("Missed, let's try again.");
+            return
+        }
         WIN_STREAK = 0;
-        MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
         showOverlay("Missed, let's try again.");
     }
-    total_attempts++;
-    if (COMPLEXITY_INC && MAX_ROUNDS > 3) {
+    if (MAX_ROUNDS > 3) {
         winStreakValidator();
 
     }
@@ -467,10 +420,8 @@ function setFirstRound(){
 }
 
 function endGameValidator(){
-    ROUNDS_PLAYED++;
     console.log("Rounds played: " + ROUNDS_PLAYED)
     console.log("Max rounds: " + MAX_ROUNDS)
-    console.log("Infinity game: " + INFINITY_GAME)
     if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
@@ -479,24 +430,28 @@ function endGameValidator(){
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
     }
-    if (ROUNDS_PLAYED > 0 && ROUNDS_PLAYED % MAX_ANIMALS == 0) {
-        reset()
-    }
 }
 
 /**
  * reset is used after each round
  */
 function reset() {
+    guessedAnimals = 0;
     closeEndGame();
     main_section.innerHTML = '';
     select_section.innerHTML = '';
+    console.log("MAX_ANIMALS = " + MAX_ANIMALS)
+    console.log("local storage max animals = " + localStorage.getItem('MAX_ANIMALS'))
     shuffleArray(animals);
     cell1 = animals.slice(0, MAX_ANIMALS);
+    console.log(cell1)
     cell2 = animals.slice(0, MAX_ANIMALS);
-
     createCells();
     setFirstRound();
+    console.log("cell_highlight")
+    for (let i = 0; i < cell_highlight.length; i++) {
+        console.log(cell_highlight[i])
+    }
 }
 createEndGameOverlay();
 createOverlay();

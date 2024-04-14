@@ -62,6 +62,7 @@ function returnMenu(){
 function showOverlay(text) {
     overlay.style.display = 'block';
     contentDiv.innerHTML = text;
+    setTimeout(hideOverlay,2000)
 }
 function hideOverlay() {
     overlay.style.display = 'none';
