@@ -198,7 +198,7 @@ function getCellElements() {
 function activateCheatClass(el) {
     el.classList.toggle('cheat');
 }
-function guess_helper(){
+function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight.getName()){
