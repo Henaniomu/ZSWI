@@ -309,7 +309,7 @@ function control(result){
         guessedAnimals++;
         WIN_STREAK = WIN_STREAK + 1;
         index = getValidIndex(cell_highlight);
-        showOverlay("Success! That was " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
+        showOverlay("Ano! Je to " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
 
         setHighlight(index);
         updateSelectSection();
@@ -318,11 +318,11 @@ function control(result){
             MAX_ANIMALS = parseInt(localStorage.getItem('MAX_ANIMALS'))
             reset()
             WIN_STREAK = 0;
-            showOverlay("Missed, let's try again.");
+            showOverlay("Ne, zkus' ještě jednou.");
             return
         }
         WIN_STREAK = 0;
-        showOverlay("Missed, let's try again.");
+        showOverlay("Ne, zkus' ještě jednou.");
     }
     if (MAX_ROUNDS > 3) {
         winStreakValidator();

@@ -3,21 +3,26 @@ body{
     /*background-image: url('../background/bgFullHD.png');*/
 }
 
-@keyframes sizing {
+@keyframes goUp {
     0% {
-        scale: 1; /* Прозрачный фон */
+        /*scale: 1; !* Прозрачный фон *!*/
+        bottom: 0px;
     }
     50% {
-        scale: 1.25; /* Белый фон */
+        /*scale: 1.25; !* Белый фон *!*/
+        bottom: 50px;
     }
     100% {
-        scale: 1; /* Снова прозрачный фон */
+        /*scale: 1; !* Снова прозрачный фон *!*/
+        bottom: 0px;
     }
 }
 
 /* Применяем анимации к изображению */
-.cheat {
-    animation: sizing 2s infinite; /* Применяем обе анимации */
+.cheats {
+    /*animation: example 2s infinite; !* Применяем обе анимации *!*/
+    animation-name: goUp;
+    animation-duration: 2s;
 }
 
 .game {
@@ -43,7 +48,7 @@ body{
 
 .anim_img{
     width: 20vw;
-    max-width: 200px;
+    max-width: 250px;
     padding: 10px;
 }
 

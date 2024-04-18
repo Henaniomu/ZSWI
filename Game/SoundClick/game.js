@@ -1,7 +1,8 @@
 //GLOBAL section
 
-let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
-let IMG_PATH = "../../png/";
+// let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
+let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík','kačka','kozel','kočka', 'pes', 'žába'];
+let IMG_PATH = "../../png/realy_new/";
 let SOUND_PATH = "../../sounds/";
 
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
@@ -28,8 +29,8 @@ function createOverlay(){
 }
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container');
-    menuButtonOv.textContent = 'Return to Menu';
-    restartButton.textContent = 'Play Again!';
+    menuButtonOv.textContent = 'Zpět do menu';
+    restartButton.textContent = 'Hrát znovu';
 
     menuButtonOv.classList.add('end_button');
     restartButton.classList.add('end_button');
@@ -173,18 +174,18 @@ function playSoundGame() {
             if(cell_selection[i].getName() === cell_highlight.getName()){
                 success_attempts++;
                 WIN_STREAK++
-                showOverlay("Success! That was " + cell_selection[i].getName() + "!");
+                showOverlay("Ano! Je to " + cell_selection[i].getName() + "!");
                 endGameValidator();
             } else {
                 WIN_STREAK = 0;
                 MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
-                showOverlay("Missed, let's try again.");
+                showOverlay("Ne, zkus' ještě jednou.");
             }
         });
     }
 }
 function winStreakValidator(){
-    if (WIN_STREAK % 3 == 0 && COMPLEXITY_INC && MAX_ANIMALS < 6){
+    if (WIN_STREAK % 3 == 0 && COMPLEXITY_INC && MAX_ANIMALS < 5){
         MAX_ANIMALS++;
     }
     play_animals = animals.slice(0,MAX_ANIMALS);
@@ -196,7 +197,7 @@ function getCellElements() {
     return Array.from(cellElements);
 }
 function activateCheatClass(el) {
-    el.classList.toggle('cheat');
+    el.classList.toggle('cheats');
 }
 function guessHelper(){
     let cells = getCellElements();
