@@ -178,7 +178,8 @@ function playSoundGame() {
                 endGameValidator();
             } else {
                 WIN_STREAK = 0;
-                MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
+                // MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
+                MAX_ANIMALS = MAX_ANIMALS-1;
                 showOverlay("Ne, zkus' ještě jednou.");
             }
         });
