@@ -3,19 +3,19 @@
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
-    font-size: 22px;
+    /*font-size: 22px;*/
     user-select: none;
     border: 10px #007bff;
 }
 
-/* Hide the browser's default radio button */
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
+/*!* Hide the browser's default radio button *!*/
+/*.container input {*/
+/*    position: absolute;*/
+/*    opacity: 0;*/
+/*    cursor: pointer;*/
+/*}*/
 
-/* Create a custom radio button */
+/*!* Create a custom radio button *!*/
 .checkmark {
     position: absolute;
     top: 0;
@@ -69,6 +69,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: "Comic Sans MS", sans-serif;
+    font-size: 24px;
 
     background-image: url('../pictures/bgmillBLURE15.png');
     background-size: cover;
@@ -76,15 +77,14 @@ body {
 }
 
 .settings-form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*align-items: center;*/
 }
 .settings-group {
-    margin-bottom: 10%;
+    /*margin-bottom: 10%;*/
     /*margin-left: -10%;*/
-    margin-right: 20%;
+    /*margin-right: 20%;*/
 }
 .settings-group label {
     margin-right: 10px;
@@ -146,7 +146,7 @@ button[id="submit_button"]{
     text-align: center;
 
     font-family: "Comic Sans MS", sans-serif;
-    font-size: 35px;
+    /*font-size: 35px;*/
 }
 
 div[class="container"]{
@@ -220,7 +220,6 @@ img[name="game3"] {
     background-color: #ccc;
     transition: .4s;
     border-radius: 20px; /* Удаляем скругление углов */
-
 }
 
 .slider:before {
@@ -260,4 +259,82 @@ input:focus + .slider {
 #icons img {
     width: 120px;
     margin-right: 20px;
+}
+/* --------------------------- new improvements -------------------*/
+.forFakeSlider{
+    /*margin-top: 20px;*/
+    top: 15%;
+}
+.divideR{
+    margin-right: 50px;
+}
+/* --------------------------- sliders ----------------------------*/
+datalist {
+    display: flex;
+    flex-direction: column; /* Отображаем маркеры в столбец */
+    justify-content: space-between;
+    /*height: 200px; !* Устанавливаем высоту соответствующую ширине слайдера *!*/
+    /*margin-top: 10px;*/
+}
+
+datalist option {
+    text-align: right; /* Выравниваем текст по правому краю */
+}
+
+.horizontal{
+    display: flex;
+    flex-direction: row;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+/*.vertical {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    height: 200px;*/
+/*}*/
+
+.input-range {
+    height: 200px;
+    margin-right: 30px;
+}
+
+.input-range,
+datalist {
+    display: flex;
+}
+
+input::-webkit-slider-thumb {
+    width: 35px; /* Увеличиваем ширину ползунка до 30px */
+    height: 20px;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+input::-webkit-slider-runnable-track {
+    height: 10px; /* Высота полосы слайдера */
+    background: #ddd; /* Цвет полосы слайдера */
+    border: none; /* Убираем границы полосы слайдера */
+}
+
+datalist option {
+    height: 50px; /* Высота каждого элемента списка */
+    line-height: 50px; /* Выравнивание текста по вертикали */
+}
+
+input::-webkit-slider-thumb {
+    width: 35px;
+    height: 20px;
+    margin-top: -10px;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+input::-webkit-slider-runnable-track {
+    height: 10px;
+    background: linear-gradient(to right, #4CAF50 0%, #4CAF50 calc((var(--fill-bg) - var(--min)) * 100 / (var(--max) - var(--min))), #ccc calc((var(--fill-bg) - var(--min)) * 100 / (var(--max) - var(--min))), #ccc 100%);
+    border: none;
 }

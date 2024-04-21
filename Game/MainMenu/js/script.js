@@ -1,6 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
     parseSettings();
 
+    // Измененный обработчик изменений для первого слайдера
+    document.getElementById('ir1').addEventListener('input', function(event) {
+        const maxAnimals = event.target.value;
+        localStorage.setItem('MAX_ANIMALS', maxAnimals);
+    });
+
+    // Измененный обработчик изменений для второго слайдера
+    document.getElementById('ir2').addEventListener('input', function(event) {
+        const maxRounds = event.target.value;
+        localStorage.setItem('MAX_ROUNDS', maxRounds);
+    });
+
     document.querySelector('.settings-group.horizontal').addEventListener('change', function(event) {
         if (event.target.matches('input[type="checkbox"]')) {
             const switchId = event.target.id;
@@ -13,18 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    let radioButtons = document.querySelectorAll('.settings-group input[type="radio"]');
-
-    radioButtons.forEach(radioButton => {
-        radioButton.addEventListener('change', () => {
-            if (radioButton.checked) {
-                const maxAnimals = document.querySelector('input[name="radio1"]:checked').value;
-                const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
-                localStorage.setItem('MAX_ANIMALS', maxAnimals);
-                localStorage.setItem('MAX_ROUNDS', max_rounds);
-            }
-        });
-    });
+    // let radioButtons = document.querySelectorAll('.settings-group input[type="radio"]');
+    // radioButtons.forEach(radioButton => {
+    //     radioButton.addEventListener('change', () => {
+    //         if (radioButton.checked) {
+    //             const maxAnimals = document.querySelector('input[name="radio1"]:checked').value;
+    //             const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
+    //             localStorage.setItem('MAX_ANIMALS', maxAnimals);
+    //             localStorage.setItem('MAX_ROUNDS', max_rounds);
+    //         }
+    //     });
+    // });
 
 
 
@@ -47,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (gamePath) {
             loadGameScript(gamePath);
         } else {
-            console.error("Неизвестный ID кнопки:", gameId);
+            console.error("unknown game ID: ", gameId);
         }
     }
 
@@ -80,17 +91,17 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(scriptElement);
     }
 
-    function restoreRadioState() {
+    function restoreSliderState() {
         const maxAnimals = localStorage.getItem('MAX_ANIMALS');
         const maxRounds = localStorage.getItem('MAX_ROUNDS');
         if (maxAnimals && maxRounds) {
-            document.querySelector(`input[name="radio1"][value="${maxAnimals}"]`).checked = true;
-            document.querySelector(`input[name="radio2"][value="${maxRounds}"]`).checked = true;
+            document.getElementById('ir1').value = maxAnimals;
+            document.getElementById('ir2').value = maxRounds;
         }
     }
 
     // Вызов функции восстановления состояния радиокнопок при загрузке страницы
-    restoreRadioState();
+    restoreSliderState();
 
 });
 
@@ -115,8 +126,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function parseSettings(){
-    let max_animals = Number(JSON.parse(localStorage.getItem('MAX_ANIMALS'))) ? localStorage.getItem('MAX_ANIMALS') : 3;
-    let max_rounds = Number(JSON.parse(localStorage.getItem('MAX_ROUNDS'))) ? localStorage.getItem('MAX_ROUNDS') : 2;
+    let max_animals = Number(JSON.parse(localStorage.getItem('MAX_ANIMALS'))) ? localStorage.getItem('MAX_ANIMALS') : 2;
+    let max_rounds = Number(JSON.parse(localStorage.getItem('MAX_ROUNDS'))) ? localStorage.getItem('MAX_ROUNDS') : 3;
     let infinity_game = Boolean(JSON.parse(localStorage.getItem('INFINITY_GAME'))) ? localStorage.getItem('INFINITY_GAME') : false;
     let complexity_game = Boolean(JSON.parse(localStorage.getItem('COMPLEXITY_INC'))) ? localStorage.getItem('COMPLEXITY_INC') : false;
 
@@ -124,7 +135,6 @@ function parseSettings(){
     localStorage.setItem('MAX_ROUNDS',max_rounds);
     localStorage.setItem('INFINITY_GAME',infinity_game);
     localStorage.setItem('COMPLEXITY_INC',complexity_game);
-
 }
 
 function saveCheckboxState(checkboxId, localStorageKey) {
