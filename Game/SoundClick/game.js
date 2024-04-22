@@ -61,6 +61,7 @@ function showOverlay(text) {
     contentDiv.innerHTML = text;
     setTimeout(hideOverlay,2000)
 }
+
 function hideOverlay() {
     overlay.style.display = 'none';
 }

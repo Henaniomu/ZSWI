@@ -1,3 +1,4 @@
+let gameId = 0;
 document.addEventListener("DOMContentLoaded", () => {
     parseSettings();
 
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Обработчик нажатия кнопок старта игры
     document.querySelectorAll('img').forEach(button => {
         button.addEventListener('click', () => {
-            const gameId = button.id;
+             gameId = button.id;
             startGame(gameId);
         });
     });
@@ -77,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="overlay" id="overlay"></div>
                 <div class="overlay" id="overlayEnd"></div>
             </div>
+            
                 <style>
                     body{
                         background-image: url('../../background/bgFullHD.png');
@@ -166,4 +168,8 @@ function setSliderStateFromLocalStorage(sliderId, localStorageKey) {
             }
         }
     }
+}
+
+function showInfo(){
+
 }

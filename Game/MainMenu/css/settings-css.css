@@ -236,6 +236,7 @@ img[name="game3"] {
 
 .slider.checked {
     background-color: #2196F3;
+
 }
 
 .slider.checked:before {
@@ -272,7 +273,6 @@ input:focus + .slider {
 datalist {
     display: flex;
     flex-direction: column; /* Отображаем маркеры в столбец */
-    justify-content: space-between;
     /*height: 200px; !* Устанавливаем высоту соответствующую ширине слайдера *!*/
     /*margin-top: 10px;*/
 }
