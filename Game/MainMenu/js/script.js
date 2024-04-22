@@ -51,15 +51,22 @@ document.addEventListener("DOMContentLoaded", () => {
 // Функция запуска игры
     function startGame(gameId) {
         overrideMenu();
-        const gamePath = gameId === 'button3' ? "../../SoundClick/game.js" :
-                gameId === 'button2' ? "../../Animals/script.js" :
-                // gameId === 'button2' ? "../js/script_game2.js" :
-                gameId === 'button1' ? "../../Clicks/game.js" :
-                null; // Обработка неизвестного ID кнопки
+        let gamePath;
+        if (gameId === 'button3') {
+            gamePath = "../../SoundClick/game.js";
+        } else if (gameId === 'button2') {
+            gamePath = "../../Animals/script.js";
+        } else if (gameId === 'button1') {
+            gamePath = "../../Clicks/game.js";
+        } else {
+            // Обработка неизвестного ID кнопки
+            console.error("Unknown game ID: ", gameId);
+            return;
+        }
+
+        // Загрузка скрипта игры, если путь определен
         if (gamePath) {
             loadGameScript(gamePath);
-        } else {
-            console.error("unknown game ID: ", gameId);
         }
     }
 
@@ -70,13 +77,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="icons">
                 <img src="../pictures/icons/home.png" name="home" onclick="location.reload();">
                 <img src="../pictures/icons/tip.png" name="tip" onclick="guessHelper()">
-                <img src="../pictures/icons/warn.png" name="warn" onclick="showInfo()">
+                <img src="../pictures/icons/warn.png" name="warn" onclick="showModal()">
             </div>
             <div class="contain">
                 <div class="main_section" id="main_section"></div>
                 <div class="select_section" id="select_section"></div>
                 <div class="overlay" id="overlay"></div>
                 <div class="overlay" id="overlayEnd"></div>
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <p id="modalText">Текст модального окна</p>
+                    </div>
+                </div>
             </div>
             
                 <style>
@@ -170,6 +183,36 @@ function setSliderStateFromLocalStorage(sliderId, localStorageKey) {
     }
 }
 
-function showInfo(){
 
+function showModal() {
+    let text = "text not found";
+    if (gameId === 'button3') {
+        text = "Kliknutím na stín zvířete uslyšíte jeho zvuky a " +
+            "na základě tohoto zvuku hádejte zvíře níže kliknutím na něj!";
+    } else if (gameId === 'button2') {
+        text = "Hádejte, která polovina zvířete zespodu odpovídá druhé polovině shora. Klikněte a přetáhněte požadované zvíře zespodu nahoru!";
+    } else if (gameId === 'button1') {
+        text = "Hádejte, která polovina zvířete zespodu odpovídá druhé polovině shora. Klikněte na požadovanou polovinu níže";
+    } else {
+        // Обработка неизвестного ID кнопки
+        console.error("Unknown game ID: ", gameId);
+        return;
+    }
+    showModaltext(text);
 }
+
+// Функция для закрытия модального окна
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+if(gameId == "game3"){
+    dynamicText = "Это динамический текст!";
+}
+
+function showModaltext(text){
+    var modalText = document.getElementById("modalText");
+    modalText.textContent = text; // Устанавливаем текст модального окн
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+};
