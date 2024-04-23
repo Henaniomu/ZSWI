@@ -5,24 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Game/MainMenu/pictures/icons/info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game/sounds/králík.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/png/realy_new/unknown.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/bunny.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/cat.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kočka.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/cow.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kráva.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/dog.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/pes.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/duck.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kačka.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/frog.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/žaba.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/goat.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kozel.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/horse.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kůň'.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/pig.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/prasátko.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/rat.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/krysa.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/rooster.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kohoutek.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/turkey.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/krocan.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/sounds/králík.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/králík.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/sounds/kůň'.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kůň.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/sounds/žaba.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/žába.mp3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +55,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/MainMenu/pictures/icons",
+    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/svg",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,8 +65,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\pictures\icons" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\svg" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\realy_new" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\pictures\icons" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
     </key>
@@ -116,7 +108,7 @@
       <workItem from="1713733286800" duration="7020000" />
       <workItem from="1713798872183" duration="704000" />
       <workItem from="1713814222903" duration="6706000" />
-      <workItem from="1713886490156" duration="9716000" />
+      <workItem from="1713886490156" duration="12857000" />
     </task>
     <servers />
   </component>

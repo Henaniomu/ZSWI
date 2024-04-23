@@ -98,6 +98,7 @@ class cellClass{
 //LOCAL section
 let ROUNDS_PLAYED = 0;
 let WIN_STREAK = 0;
+let LOOSE_STREAK = 0;
 let play_animals = animals.slice(0,MAX_ANIMALS);
 let total_attempts = 0;
 let success_attempts= 0;
@@ -119,7 +120,8 @@ function createHighlight(){
     cell_highlight = null;
     shuffleArray(animals);
     let randomIndex = Math.floor(Math.random() * play_animals.length);
-    const image = addImage(play_animals[randomIndex]);
+    // const image = addImage(play_animals[randomIndex]);
+    const image = addImage("unknown");
     cell_highlight = new cellClass(play_animals[randomIndex],  image, SOUND_PATH + play_animals[randomIndex] + ".mp3");
 }
 function createSelection(){
@@ -175,13 +177,18 @@ function playSoundGame() {
             total_attempts++;
             if(cell_selection[i].getName() === cell_highlight.getName()){
                 success_attempts++;
+                LOOSE_STREAK = 0;
                 WIN_STREAK++
                 showOverlay("Ano! Je to " + cell_selection[i].getName() + "!");
                 endGameValidator();
             } else {
                 WIN_STREAK = 0;
-                // MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS')
-                MAX_ANIMALS = MAX_ANIMALS-1;
+                LOOSE_STREAK++;
+
+
+                if(LOOSE_STREAK % 3 == 0 && LOOSE_STREAK != 0){
+                    MAX_ANIMALS--;
+                }
                 showOverlay("Ne, zkus' ještě jednou.");
             }
         });
@@ -191,6 +198,9 @@ function winStreakValidator(){
     if (WIN_STREAK % 3 == 0 && COMPLEXITY_INC && MAX_ANIMALS < 5){
         MAX_ANIMALS++;
     }
+    // if (LOOSE_STREAK % 3 == 0 && COMPLEXITY_INC && MAX_ANIMALS < 5){
+    //     MAX_ANIMALS--;
+    // }
     play_animals = animals.slice(0,MAX_ANIMALS);
 }
 
@@ -221,6 +231,7 @@ function endGameValidator(){
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
+        LOOSE_STREAK = 0;
     }else{
         continueGame();
     }
@@ -238,6 +249,7 @@ function restartGame(){
     total_attempts = 0;
     success_attempts = 0;
     WIN_STREAK = 0;
+    LOOSE_STREAK = 0;
     ROUNDS_PLAYED = 0;
     MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
     play_animals = animals.slice(0,MAX_ANIMALS);
@@ -257,7 +269,10 @@ function restartGame(){
 
 function continueGame(){
     //returning styles of guessing animal
-    const image = cell_highlight.getImage();
+    // const image = cell_highlight.getImage();
+    // image.classList.toggle('blackout');
+
+    const image = addImage("unknown");
     image.classList.toggle('blackout');
 
     // clearing sections
@@ -266,6 +281,7 @@ function continueGame(){
 
     //check player's win streak
     winStreakValidator();
+
 
     // shuffle arr cells
     shuffleArray(cell_selection);

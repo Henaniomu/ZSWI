@@ -87,7 +87,7 @@ body {
     /*margin-right: 20%;*/
 }
 .settings-group label {
-    margin-right: 10px;
+    margin-right: 5%;
 }
 .settings-group select,
 .settings-group input[type="range"] {
