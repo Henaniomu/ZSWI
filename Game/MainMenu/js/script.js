@@ -156,6 +156,7 @@ function saveCheckboxState(checkboxId, localStorageKey) {
     const checkbox = document.getElementById(checkboxId);
     if (checkbox) {
         localStorage.setItem(localStorageKey, checkbox.checked);
+
     }
 }
 
@@ -206,13 +207,30 @@ function closeModal() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
-if(gameId == "game3"){
-    dynamicText = "Это динамический текст!";
-}
+
 
 function showModaltext(text){
     var modalText = document.getElementById("modalText");
     modalText.textContent = text; // Устанавливаем текст модального окн
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
-};
+}
+
+document.getElementById("switch1").addEventListener("change", function() {
+    checkSwitchStateAndToggleSlider("switch1", "ir1");
+});
+
+document.getElementById("switch2").addEventListener("change", function() {
+    checkSwitchStateAndToggleSlider("switch2", "ir2");
+});
+
+window.addEventListener("load", function() {
+    checkSwitchStateAndToggleSlider("switch1", "ir1");
+    checkSwitchStateAndToggleSlider("switch2", "ir2");
+});
+
+function checkSwitchStateAndToggleSlider(switchId, sliderId) {
+    var switchElement = document.getElementById(switchId);
+    var sliderElement = document.getElementById(sliderId);
+    sliderElement.disabled = switchElement.checked;
+}
