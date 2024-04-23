@@ -26,18 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // let radioButtons = document.querySelectorAll('.settings-group input[type="radio"]');
-    // radioButtons.forEach(radioButton => {
-    //     radioButton.addEventListener('change', () => {
-    //         if (radioButton.checked) {
-    //             const maxAnimals = document.querySelector('input[name="radio1"]:checked').value;
-    //             const max_rounds = document.querySelector('input[name="radio2"]:checked').value;
-    //             localStorage.setItem('MAX_ANIMALS', maxAnimals);
-    //             localStorage.setItem('MAX_ROUNDS', max_rounds);
-    //         }
-    //     });
-    // });
-
 
 
     // Обработчик нажатия кнопок старта игры
@@ -77,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="icons">
                 <img src="../pictures/icons/home.png" name="home" onclick="location.reload();">
                 <img src="../pictures/icons/tip.png" name="tip" onclick="guessHelper()">
-                <img src="../pictures/icons/warn.png" name="warn" onclick="showModal()">
+                <img src="../pictures/icons/info.png" name="warn" onclick="showModal()">
             </div>
             <div class="contain">
                 <div class="main_section" id="main_section"></div>
@@ -188,8 +176,7 @@ function setSliderStateFromLocalStorage(sliderId, localStorageKey) {
 function showModal() {
     let text = "text not found";
     if (gameId === 'button3') {
-        text = "Kliknutím na stín zvířete uslyšíte jeho zvuky a " +
-            "na základě tohoto zvuku hádejte zvíře níže kliknutím na něj!";
+        text = "Kliknutím na stín zvířete uslyšíte jeho zvuky a na základě tohoto zvuku hádejte zvíře níže kliknutím na něj!";
     } else if (gameId === 'button2') {
         text = "Hádejte, která polovina zvířete zespodu odpovídá druhé polovině shora. Klikněte a přetáhněte požadované zvíře zespodu nahoru!";
     } else if (gameId === 'button1') {

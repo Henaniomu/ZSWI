@@ -1,7 +1,7 @@
 //GLOBAL section
 
 // let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
-let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík','kačka','kozel','kočka', 'pes', 'žába'];
+let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "../../png/realy_new/";
 let SOUND_PATH = "../../sounds/";
 
@@ -27,6 +27,7 @@ function createOverlay(){
     overlay.appendChild(contentDiv);
     closeButton.addEventListener('click', hideOverlay);
 }
+
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container');
     menuButtonOv.textContent = 'Zpět do menu';
