@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Game/png/realy_new/unknown.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/SoundClick/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/králík.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/králík.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/kůň'.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/kůň.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/sounds/žaba.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Game/sounds/žába.mp3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +54,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -108,7 +103,8 @@
       <workItem from="1713733286800" duration="7020000" />
       <workItem from="1713798872183" duration="704000" />
       <workItem from="1713814222903" duration="6706000" />
-      <workItem from="1713886490156" duration="12857000" />
+      <workItem from="1713886490156" duration="13432000" />
+      <workItem from="1713975728101" duration="3597000" />
     </task>
     <servers />
   </component>

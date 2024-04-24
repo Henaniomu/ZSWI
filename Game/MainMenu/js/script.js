@@ -4,14 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Измененный обработчик изменений для первого слайдера
     document.getElementById('ir1').addEventListener('input', function(event) {
-        const maxAnimals = event.target.value;
+        let maxAnimals = event.target.value;
+        if(document.getElementById("switch1").checked){
+            maxAnimals = 2;
+        }
+
         localStorage.setItem('MAX_ANIMALS', maxAnimals);
+
+
     });
 
     // Измененный обработчик изменений для второго слайдера
     document.getElementById('ir2').addEventListener('input', function(event) {
         const maxRounds = event.target.value;
         localStorage.setItem('MAX_ROUNDS', maxRounds);
+
     });
 
     document.querySelector('.settings-group.horizontal').addEventListener('change', function(event) {
@@ -22,6 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem(switchId.toUpperCase(), switchValue);
                 const slider = event.target.parentNode.querySelector('.slider');
                 slider.classList.toggle('checked', switchValue);
+                // if (document.getElementById("switch1").checked){
+                //     localStorage.setItem('MAX_ANIMALS', '2');
+                // }
             }
         }
     });
@@ -57,8 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
             loadGameScript(gamePath);
         }
     }
-
-
 
     function overrideMenu() {
         document.querySelector('.menu').innerHTML = `

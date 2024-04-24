@@ -165,7 +165,8 @@ function playSoundGame() {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.classList.add('select_img');
-        cell.textContent = cell_selection[i].getName();
+        cell.setAttribute("data-animal",cell_selection[i].getName());
+        // cell.textContent = cell_selection[i].getName();
         cell.appendChild(cell_selection[i].getImage());
         select_section.appendChild(cell);
         cell_selection[i].setDisplayed(true);
@@ -215,7 +216,7 @@ function activateCheatClass(el) {
 function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
-        if (el.textContent === cell_highlight.getName()){
+        if (el.getAttribute("data-animal") === cell_highlight.getName()){
             setTimeout(function() {
                 activateCheatClass(el);
             }, 4000)
