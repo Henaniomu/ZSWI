@@ -29,9 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem(switchId.toUpperCase(), switchValue);
                 const slider = event.target.parentNode.querySelector('.slider');
                 slider.classList.toggle('checked', switchValue);
-                // if (document.getElementById("switch1").checked){
-                //     localStorage.setItem('MAX_ANIMALS', '2');
-                // }
+
+                if (document.getElementById("switch1").checked){
+                    localStorage.setItem('MAX_ANIMALS', '2');
+                }else if(!document.getElementById("switch1").checked){
+                    localStorage.setItem('MAX_ANIMALS',document.getElementById("ir1").value);
+                }
             }
         }
     });
