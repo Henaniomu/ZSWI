@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
                 <style>
                     body{
-                        background-image: url('../../background/bgFullHD.png');
+                        background-image: url('../pictures/backdround/bgFullHD.png');
                     }
                 </style>
             </div>`;
