@@ -54,13 +54,18 @@ function returnMenu(){
 }
 function showOverlay(text) {
     var modalText = document.getElementById("modalText");
-    modalText.textContent = text; // Устанавливаем текст модального окн
+    modalText.textContent = text; // Устанавливаем текст модального окно
+
     overlay.style.display = "block";
+    var closeElement = document.querySelector('.close');
+    if (closeElement) {
+        closeElement.parentNode.removeChild(closeElement);
+        console.log('zxc');
+    }
     setTimeout(hideOverlay,2000);
 }
 function hideOverlay() {
     overlay.style.display = 'none';
-
 }
 
 class cellClass{
