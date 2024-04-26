@@ -10,7 +10,6 @@ let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 //show result on screen
 const contentDiv = document.createElement('div');
 
-
 const overlayEnd = document.getElementById('modalEndGame');
 const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
@@ -26,8 +25,8 @@ function createOverlay(){
 }
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container-modal');
-    menuButtonOv.textContent = 'Return to Menu';
-    restartButton.textContent = 'Play Again!';
+    menuButtonOv.textContent = 'Zpět do menu';
+    restartButton.textContent = 'Hrát znovu';
 
     menuButtonOv.classList.add('modal-button'); // Добавляем класс для стилизации
     restartButton.classList.add('modal-button'); // Добавляем класс для стилизации

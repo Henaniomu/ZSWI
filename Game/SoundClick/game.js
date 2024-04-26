@@ -15,11 +15,12 @@ const overlay = document.getElementById('myModal');
 const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
 
-const overlayEnd = document.getElementById('overlayEnd');
+const overlayEnd = document.getElementById('modalEndGame');
 const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
 const menuButtonOv = document.createElement('button');
-const contentDivEnd = document.createElement('div');
+const contentDivEnd = document.getElementById('modalEndGameContent');
+const textPEndGameModal = document.getElementById('modalText123');
 
 
 function createOverlay(){
@@ -29,20 +30,18 @@ function createOverlay(){
 }
 
 function createEndGameOverlay(){
-    buttonContainer.classList.add('button-container');
+    buttonContainer.classList.add('button-container-modal');
     menuButtonOv.textContent = 'Zpět do menu';
     restartButton.textContent = 'Hrát znovu';
 
-    menuButtonOv.classList.add('end_button');
-    restartButton.classList.add('end_button');
+    menuButtonOv.classList.add('modal-button'); // Добавляем класс для стилизации
+    restartButton.classList.add('modal-button'); // Добавляем класс для стилизации
 
     buttonContainer.appendChild(menuButtonOv);
     buttonContainer.appendChild(restartButton);
 
-    contentDivEnd.classList.add('message');
-    overlayEnd.appendChild(contentDivEnd)
+    contentDivEnd.appendChild(buttonContainer);
 
-    overlayEnd.appendChild(buttonContainer);
 
     //listeners
     menuButtonOv.addEventListener('click', returnMenu);
@@ -68,7 +67,6 @@ function showOverlay(text) {
     var closeElement = document.querySelector('.close');
     if (closeElement) {
         closeElement.parentNode.removeChild(closeElement);
-        console.log('zxc');
     }
     setTimeout(hideOverlay,2000);
 }
@@ -237,7 +235,7 @@ function endGameValidator(){
     ROUNDS_PLAYED++;
     if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
         hideOverlay();
-        contentDivEnd.innerHTML = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
+        textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
