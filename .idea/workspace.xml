@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Animals/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/miniGames/gameHalves.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Clicks/game.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/miniGames/gameSounds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/SoundClick/menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/SoundClick/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/SoundClick/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameForWordpress/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/miniGames/gameHalves.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/miniGames/gameHalves.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/miniGames/gameSounds.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/miniGames/gameSounds.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

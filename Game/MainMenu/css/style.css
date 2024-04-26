@@ -54,9 +54,9 @@
 }
 
 .button-container{
-  width: inherit;
+  /*width: inherit;*/
   display: flex;
-  height: 40px;
+  /*height: 40px;*/
   justify-content: space-around;
 }
 

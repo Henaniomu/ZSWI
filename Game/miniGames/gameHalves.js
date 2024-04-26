@@ -272,7 +272,6 @@ function activateCheatClass(el) {
 function click(name) {
     control(name === highlightCell.textContent.trim());
     // control(name === highlightCell.getAttribute("data-animal").trim());
-    //fix123
 }
 
 function guessHelper(){
@@ -302,9 +301,6 @@ function findHighlightIndex(array) {
         }
     }
 }
-
-
-
 
 /**
  * decides if there will be a new highlight cell or the end of the round
