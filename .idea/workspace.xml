@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Animals/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Animals/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Clicks/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Clicks/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Animals/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/miniGames/gameHalves.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Clicks/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/miniGames/gameSounds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,34 +56,34 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/WPversion",
+    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/miniGames/game3.js",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "two.files.diff.last.used.file": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/Clicks/game.js",
+    "two.files.diff.last.used.file": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/miniGames/game3.js",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\miniGames" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\pictures\icons" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\svg" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\realy_new" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png" />
-      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\animalHalfs" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\SoundClick" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\animalsPNG" />
-      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\animalsHalfs" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/GameForWordpress/index.html" useBuiltInWebServerPort="true">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/Game/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="settings-page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/Game/MainMenu/html/settings-page.html" useBuiltInWebServerPort="true">

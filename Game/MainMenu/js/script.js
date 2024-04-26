@@ -39,26 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
-
-    // Обработчик нажатия кнопок старта игры
     document.querySelectorAll('img').forEach(button => {
         button.addEventListener('click', () => {
              gameId = button.id;
+             localStorage.setItem('GAME_ID',gameId);
             startGame(gameId);
         });
     });
 
-// Функция запуска игры
     function startGame(gameId) {
         overrideMenu();
-        let gamePath;
+        let gamePath = "miniGames/";
         if (gameId === 'button3') {
-            gamePath = "../../SoundClick/game.js";
-        } else if (gameId === 'button2') {
-            gamePath = "../../Animals/script.js";
-        } else if (gameId === 'button1') {
-            gamePath = "../../Clicks/game.js";
+            gamePath += "gameSounds.js";
+        } else if (gameId === 'button2' || gameId === 'button1') {
+            gamePath += "gameHalves.js";
         } else {
             // Обработка неизвестного ID кнопки
             console.error("Unknown game ID: ", gameId);
@@ -74,9 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function overrideMenu() {
         document.querySelector('.menu').innerHTML = `
             <div id="icons">
-                <img src="../pictures/icons/home.png" name="home" onclick="location.reload();">
-                <img src="../pictures/icons/tip.png" name="tip" onclick="guessHelper()">
-                <img src="../pictures/icons/info.png" name="warn" onclick="showModal()">
+                <img src="MainMenu/pictures/icons/home.png" name="home" onclick="location.reload();" alt="">
+                <img src="MainMenu/pictures/icons/tip.png" name="tip" onclick="guessHelper()" alt="">
+                <img src="MainMenu/pictures/icons/info.png" name="warn" onclick="showModal()" alt="">
             </div>
                 <div class="main_section" id="main_section"></div>
                 <div class="select_section" id="select_section"></div>
@@ -95,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 
                 <style>
-                    body{ background-image: url('../pictures/backdround/bgFullHD.png');}
+                    body{background-image: url('MainMenu/pictures/backdround/bgFullHD.png');}
                 </style>
             </div>`;
     }
@@ -115,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Вызов функции восстановления состояния радиокнопок при загрузке страницы
     restoreSliderState();
 
 });
@@ -137,8 +131,6 @@ document.addEventListener("DOMContentLoaded", function() {
     setSliderStateFromLocalStorage("slider1", "COMPLEXITY_INC");
     setSliderStateFromLocalStorage("slider2", "INFINITY_GAME");
 });
-
-
 
 function parseSettings(){
     let max_animals = Number(JSON.parse(localStorage.getItem('MAX_ANIMALS'))) ? localStorage.getItem('MAX_ANIMALS') : 2;
@@ -184,7 +176,6 @@ function setSliderStateFromLocalStorage(sliderId, localStorageKey) {
     }
 }
 
-
 function showModal() {
     let text = "text not found";
     if (gameId === 'button3') {
@@ -206,7 +197,6 @@ function closeModal() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
-
 
 function showModaltext(text){
     var modalText = document.getElementById("modalText");
