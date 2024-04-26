@@ -247,7 +247,7 @@ function endGameValidator(){
     if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
-        textPEndGameModal.textContent = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
@@ -258,7 +258,7 @@ function endGameValidator(){
         if (ROUNDS_PLAYED == MAX_ROUNDS) {
             console.log("Game is ended")
             hideOverlay();
-            textPEndGameModal.textContent = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+            textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
             endGame();
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
