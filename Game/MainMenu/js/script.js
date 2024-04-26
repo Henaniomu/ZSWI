@@ -85,7 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="modal" id="myModal">
                     <div class="modal-content">
                         <span class="close" onclick="closeModal()">&times;</span>
-                        <p id="modalText">Текст модального окна</p>
+                        <p id="modalText"></p>
+                    </div>
+                </div>
+                <div class="modal" id="modalEndGame">
+                    <div class="modal-content" id="modalEndGameContent">
+                        <p id="modalText123"></p>
                     </div>
                 </div>
                 

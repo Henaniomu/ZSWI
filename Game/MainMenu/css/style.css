@@ -166,5 +166,20 @@
   text-align: center;
   padding-top: 35%;
   font-size: 40px;
+}
 
+.modal-button {
+  background-color: #8db580; /* Зеленый цвет */
+  color: #fff; /* Белый цвет текста */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+}
+
+/* Добавим стили для наведения */
+.modal-button:hover {
+  background-color: #6a925c; /* Темный зеленый цвет при наведении */
 }
