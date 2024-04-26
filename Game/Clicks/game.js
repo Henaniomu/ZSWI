@@ -1,5 +1,4 @@
 //      GLOBAL
-// let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'rooster', 'rat', 'cow', 'dachshund']; //Default array with all the animals
 let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
 // let IMG_PATH = "../../png/Halfs/";
 let IMG_PATH = "../../png/animalHalfs/";
@@ -9,7 +8,6 @@ let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
 let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
-// const overlay = document.getElementById('overlay');
 const contentDiv = document.createElement('div');
 
 
@@ -351,7 +349,6 @@ function reset() {
         console.log(cell_highlight[i])
     }
 }
-
 createEndGameOverlay();
 createOverlay();
 createCells();
