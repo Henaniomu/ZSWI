@@ -8,49 +8,127 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Animals/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Animals/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Clicks/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Clicks/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script_game2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/icons/warn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/bunny.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/cat1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kočka1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/cat2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kočka2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/cow1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kráva1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/cow2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kráva2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/dachshund1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/pes1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/dachshund2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/pes2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/duck1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kačka1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/duck2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kačka2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/frog1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/žába1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/frog2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/žába2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/goat1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kozel1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/goat2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kozel2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/horse1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kůň1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/horse2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kůň2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/pig1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/prasátko1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/pig2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/prasátko2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/question.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/pictures/icons/question.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rabbit1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/králík1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rabbit2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/králík2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rat1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/krysa1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rat2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/krysa2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/kačka.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/kačka.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/kohoutek.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/kohoutek.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/kozel.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/kozel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/kočka.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/kočka.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/krocan.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/krocan.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/krysa.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/krysa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/králík.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/králík.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/kráva.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/kráva.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/kůň.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/kůň.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/pes.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/pes.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/prasátko.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/prasátko.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/unknown.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/unknown.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/realy_new/žába.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/soundClickGameAssets/žába.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rooster1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kohoutek1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rooster2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/kohoutek2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/turkey1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/krocan1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/turkey2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/krocan2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameForWordpress/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/GameForWordpress/SoundClick/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kačka1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kačka1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kačka2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kačka2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kohoutek1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kohoutek1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kohoutek2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kohoutek2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kozel1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kozel1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kozel2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kozel2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kočka1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kočka1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kočka2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kočka2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/krocan1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/krocan1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/krocan2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/krocan2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/krysa1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/krysa1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/krysa2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/krysa2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/králík1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/králík1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/králík2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/králík2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kráva1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kráva1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kráva2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kráva2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kůň1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kůň1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/kůň2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/kůň2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/pes1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/pes1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/pes2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/pes2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/prasátko1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/prasátko1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/prasátko2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/prasátko2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/žába1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/žába1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/png/žába2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/png/animalHalfs/žába2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Animals/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Animals/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Animals/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Clicks/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Clicks/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/css/settings-css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/js/script_game2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/backdround/bgFullHD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/backdround/bgFullHD_Gaussian_blur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/backdround/bgMILLblur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/backdround/bg_gauss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/backdround/bgmillBLURE15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/icon1.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/icon2.2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/icon3.3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/icons/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/icons/info.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/icons/tip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/icons/warn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/cat1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/cat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/dachshund1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/dachshund2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/duck1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/duck2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/frog1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/frog2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/goat1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/goat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/horse1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/horse2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/pig1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/pig2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/rabbit1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/rabbit2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/turkey1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/MainMenu/pictures/testpic/turkey2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/SoundClick/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/SoundClick/menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/SoundClick/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/SoundClick/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/bunny.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/cat1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/cat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/cow1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/cow2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/dachshund1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/dachshund2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/duck1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/duck2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/frog1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/frog2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/goat1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/goat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/horse1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/horse2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/pig1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/pig2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/question.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/rabbit1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/rabbit2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/rat1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/rat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/kačka.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/kohoutek.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/kozel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/kočka.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/krocan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/krysa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/králík.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/kráva.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/kůň.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/pes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/prasátko.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/unknown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/realy_new/žába.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/rooster1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/rooster2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/turkey1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/png/turkey2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/kačka.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/kohoutek.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/kozel.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/kočka.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/krocan.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/krysa.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/králík.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/kráva.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/kůň.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/pes.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/prasátko.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/sounds/žába.mp3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +170,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/MainMenu/pictures/icons",
+    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/WPversion",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -111,9 +189,11 @@
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\css" />
-      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\pictures\backdround" />
-      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\animalHalfs" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\SoundClick" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\animalsPNG" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\animalsHalfs" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">

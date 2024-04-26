@@ -1,15 +1,14 @@
-//      GLOBAL 
-// let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey']; //Default array with all the animals
+//      GLOBAL
 // let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'rooster', 'rat', 'cow', 'dachshund'];
 let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
-let IMG_PATH = "../../png/";
+let IMG_PATH = "../../png/animalHalfs/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
 let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
 let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
-const overlay = document.getElementById('overlay');
+const overlay = document.getElementById('myModal');
 const contentDiv = document.createElement('div');
 
 
@@ -53,9 +52,16 @@ function returnMenu(){
     location.reload();
 }
 function showOverlay(text) {
-    overlay.style.display = 'block';
-    contentDiv.innerHTML = text;
-    setTimeout(hideOverlay,2000)
+    var modalText = document.getElementById("modalText");
+    modalText.textContent = text; // Устанавливаем текст модального окно
+
+    overlay.style.display = "block";
+    var closeElement = document.querySelector('.close');
+    if (closeElement) {
+        closeElement.parentNode.removeChild(closeElement);
+        console.log('zxc');
+    }
+    setTimeout(hideOverlay,2000);
 }
 function hideOverlay() {
     overlay.style.display = 'none';

@@ -2,7 +2,7 @@
 
 // let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
 let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
-let IMG_PATH = "../../png/soundClickGameAssets/";
+let IMG_PATH = "../../png/SoundClickGameAssets/";
 let SOUND_PATH = "../../sounds/";
 
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
@@ -11,7 +11,7 @@ let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
 //pokrok obtiznosti/win streak complexity [true/false]
 let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
-const overlay = document.getElementById('overlay');
+const overlay = document.getElementById('myModal');
 const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
 
@@ -58,9 +58,19 @@ function returnMenu(){
     location.reload();
 }
 function showOverlay(text) {
-    overlay.style.display = 'block';
-    contentDiv.innerHTML = text;
-    setTimeout(hideOverlay,2000)
+    // overlay.style.display = 'block';
+    // contentDiv.innerHTML = text;
+    // setTimeout(hideOverlay,2000)
+    var modalText = document.getElementById("modalText");
+    modalText.textContent = text; // Устанавливаем текст модального окно
+
+    overlay.style.display = "block";
+    var closeElement = document.querySelector('.close');
+    if (closeElement) {
+        closeElement.parentNode.removeChild(closeElement);
+        console.log('zxc');
+    }
+    setTimeout(hideOverlay,2000);
 }
 
 function hideOverlay() {
@@ -135,7 +145,6 @@ function createSelection(){
 }
 function createCells() {
     createHighlight();
-
     createSelection();
 }
 function addImage(name){
@@ -228,7 +237,7 @@ function endGameValidator(){
     ROUNDS_PLAYED++;
     if(ROUNDS_PLAYED == MAX_ROUNDS && !INFINITY_GAME ){
         hideOverlay();
-        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        contentDivEnd.innerHTML = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
