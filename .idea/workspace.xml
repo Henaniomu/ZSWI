@@ -6,75 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Drag&amp;drop/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Drag&amp;drop/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Drag&amp;drop/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/css/settings-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Animals/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Animals/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Clicks/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Clicks/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Clicks/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Clicks/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/4.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/4.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/5.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/5.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/6.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/6.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/7.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/7.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/8.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/8.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/9.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/9.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/bgFullHD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/bgFullHD_Gaussian_blur.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/pictures/backdround/bgFullHD_Gaussian_blur.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/bgMILLblur.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/pictures/backdround/bgMILLblur.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/bg_gauss.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/pictures/backdround/bg_gauss.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/bgmillBLURE15.png" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/pictures/backdround/bgmillBLURE15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/bunny.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/cat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/cat1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/cat2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/dog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/duck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/duck1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/duck2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/frog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/frog1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/frog2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/goat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/horse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/horseRadio1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/horseRadio1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/icon1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/icon2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/icon3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/MainMenu/pictures/pig.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/SoundClick/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/background/backgroundOriginal.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/background/bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/background/bgFullHD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/cat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/cow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/dog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/duck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/frog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/goat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/horse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/pig.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/rooster.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/png/turkey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/4.1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/4.2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/5.1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/5.2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/6.1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/6.2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/7.1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/7.2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/8.1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/8.2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/9.1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/svg/9.2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/game.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,23 +45,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/svg",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dan/Desktop/Game_done_reserved&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\svg" />
@@ -172,7 +109,10 @@
       <workItem from="1713798872183" duration="704000" />
       <workItem from="1713814222903" duration="6706000" />
       <workItem from="1713886490156" duration="13432000" />
-      <workItem from="1713975728101" duration="5138000" />
+      <workItem from="1713975728101" duration="5430000" />
+      <workItem from="1713986354227" duration="697000" />
+      <workItem from="1713987098527" duration="236000" />
+      <workItem from="1714137421155" duration="1566000" />
     </task>
     <servers />
   </component>

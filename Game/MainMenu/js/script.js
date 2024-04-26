@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="../pictures/icons/tip.png" name="tip" onclick="guessHelper()">
                 <img src="../pictures/icons/info.png" name="warn" onclick="showModal()">
             </div>
-            <div class="contain">
+<!--            <div class="contain">-->
                 <div class="main_section" id="main_section"></div>
                 <div class="select_section" id="select_section"></div>
                 <div class="overlay" id="overlay"></div>
@@ -89,8 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p id="modalText">Текст модального окна</p>
                     </div>
                 </div>
-            </div>
-            
+<!--            </div>-->
                 <style>
                     body{
                         background-image: url('../pictures/backdround/bgFullHD.png');

@@ -25,7 +25,7 @@ const contentDivEnd = document.createElement('div');
 function createOverlay(){
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
-    closeButton.addEventListener('click', hideOverlay);
+    // closeButton.addEventListener('click', hideOverlay);
 }
 
 function createEndGameOverlay(){

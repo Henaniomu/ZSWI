@@ -7,7 +7,7 @@ let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
 let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
-const overlay = document.getElementById('overlay');
+// const overlay = document.getElementById('overlay');
 const contentDiv = document.createElement('div');
 
 
@@ -16,6 +16,8 @@ const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
 const menuButtonOv = document.createElement('button');
 const contentDivEnd = document.createElement('div');
+
+let overlay = document.getElementById("myModal");
 
 function createOverlay(){
     contentDiv.classList.add('message');
@@ -51,12 +53,14 @@ function returnMenu(){
     location.reload();
 }
 function showOverlay(text) {
-    overlay.style.display = 'block';
-    contentDiv.innerHTML = text;
-    setTimeout(hideOverlay,2000)
+    var modalText = document.getElementById("modalText");
+    modalText.textContent = text; // Устанавливаем текст модального окн
+    overlay.style.display = "block";
+    setTimeout(hideOverlay,2000);
 }
 function hideOverlay() {
     overlay.style.display = 'none';
+
 }
 
 class cellClass{
