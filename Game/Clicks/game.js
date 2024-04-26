@@ -12,11 +12,12 @@ let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 const contentDiv = document.createElement('div');
 
 
-const overlayEnd = document.getElementById('overlayEnd');
+const overlayEnd = document.getElementById('modalEndGame');
 const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
 const menuButtonOv = document.createElement('button');
-const contentDivEnd = document.createElement('div');
+const contentDivEnd = document.getElementById('modalEndGameContent');
+const textPEndGameModal = document.getElementById('modalText123');
 
 let overlay = document.getElementById("myModal");
 
@@ -25,24 +26,24 @@ function createOverlay(){
     overlay.appendChild(contentDiv);
 }
 function createEndGameOverlay(){
-    buttonContainer.classList.add('button-container');
+    buttonContainer.classList.add('button-container-modal');
     menuButtonOv.textContent = 'Return to Menu';
     restartButton.textContent = 'Play Again!';
 
-    menuButtonOv.classList.add('end_button');
-    restartButton.classList.add('end_button');
+    menuButtonOv.classList.add('modal-button'); // Добавляем класс для стилизации
+    restartButton.classList.add('modal-button'); // Добавляем класс для стилизации
 
     buttonContainer.appendChild(menuButtonOv);
     buttonContainer.appendChild(restartButton);
 
-    contentDivEnd.classList.add('message');
-    overlayEnd.appendChild(contentDivEnd)
+    contentDivEnd.appendChild(buttonContainer);
 
-    overlayEnd.appendChild(buttonContainer);
 
     //listeners
     menuButtonOv.addEventListener('click', returnMenu);
-    restartButton.addEventListener("click", reset)
+    restartButton.addEventListener('click', () => {
+        reset()
+    });
 }
 function endGame(){
     overlayEnd.style.display = 'block';
@@ -61,7 +62,6 @@ function showOverlay(text) {
     var closeElement = document.querySelector('.close');
     if (closeElement) {
         closeElement.parentNode.removeChild(closeElement);
-        console.log('zxc');
     }
     setTimeout(hideOverlay,2000);
 }
@@ -248,7 +248,7 @@ function endGameValidator(){
     if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
-        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        textPEndGameModal.textContent = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
@@ -259,7 +259,7 @@ function endGameValidator(){
         if (ROUNDS_PLAYED == MAX_ROUNDS) {
             console.log("Game is ended")
             hideOverlay();
-            contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+            textPEndGameModal.textContent = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
             endGame();
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
