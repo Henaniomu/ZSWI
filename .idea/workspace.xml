@@ -6,8 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Animals/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Animals/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Clicks/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Clicks/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Clicks/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/html/settings-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainMenu/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainMenu/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/SoundClick/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Game/SoundClick/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Animals/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/GameForWordpress/Animals/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Animals/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/GameForWordpress/Animals/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/Clicks/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/GameForWordpress/Clicks/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/SoundClick/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/GameForWordpress/SoundClick/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameForWordpress/settings-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/GameForWordpress/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,23 +52,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dan/Desktop/Game_done_reserved&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/Clicks/game.js",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "two.files.diff.last.used.file": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/Clicks/game.js",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\svg" />
@@ -67,16 +79,21 @@
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\css" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\pictures\backdround" />
       <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/GameForWordpress/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="settings-page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/Game/MainMenu/html/settings-page.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.settings-page.html" />
       </list>
     </recent_temporary>
@@ -114,5 +131,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

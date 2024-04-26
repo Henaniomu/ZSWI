@@ -151,8 +151,9 @@ function addImage(name, side){
 
 
 function click(name) {
-
     control(name === highlightCell.textContent.trim());
+    // control(name === highlightCell.getAttribute("data-animal").trim());
+    //fix123
 }
 
 function getCellElements() {
@@ -169,6 +170,7 @@ function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
+            //fix123
             console.log("Guess helper found")
             setTimeout(function() {
                 activateCheatClass(el);
@@ -295,6 +297,7 @@ function getValidIndex(array) {
 function setHighlight(index){
     if (index >= 0 && index < cell_highlight.length) {
         highlightCell.textContent = cell_highlight[index].getName();
+        //fix123
         highlightCell.appendChild(cell_highlight[index].getImage());
         cell_highlight[index].setDisplayed(true);
         cell_highlight[index].displayed = true;
@@ -305,6 +308,7 @@ function setFirstRound(){
 
     highlightCell.classList.add('cell');
     highlightCell.textContent = cell_highlight[0].getName();
+    //fix123
     highlightCell.appendChild(cell_highlight[0].getImage());
     main_section.appendChild(highlightCell);
     cell_highlight[0].setDisplayed(true);
@@ -315,6 +319,7 @@ function setFirstRound(){
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.textContent = cell_selection[i].getName();
+        //fix123
         cell.appendChild(cell_selection[i].getImage());
         cell.addEventListener('click', () => {
             click(cell.textContent);
