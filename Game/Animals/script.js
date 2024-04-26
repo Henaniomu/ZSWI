@@ -1,6 +1,4 @@
 //      GLOBAL 
-// let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey']; //Default array with all the animals
-// let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'rooster', 'rat', 'cow', 'dachshund'];
 let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "../../png/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
@@ -9,35 +7,35 @@ let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
 let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
-const overlay = document.getElementById('overlay');
 const contentDiv = document.createElement('div');
 
 
-const overlayEnd = document.getElementById('overlayEnd');
+const overlayEnd = document.getElementById('modalEndGame');
 const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
 const menuButtonOv = document.createElement('button');
-const contentDivEnd = document.createElement('div');
+const contentDivEnd = document.getElementById('modalEndGameContent');
+const textPEndGameModal = document.getElementById('modalText123');
+
+let overlay = document.getElementById("myModal");
 
 function createOverlay(){
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
 }
 function createEndGameOverlay(){
-    buttonContainer.classList.add('button-container');
+    buttonContainer.classList.add('button-container-modal');
     menuButtonOv.textContent = 'Return to Menu';
     restartButton.textContent = 'Play Again!';
 
-    menuButtonOv.classList.add('end_button');
-    restartButton.classList.add('end_button');
+    menuButtonOv.classList.add('modal-button'); // Добавляем класс для стилизации
+    restartButton.classList.add('modal-button'); // Добавляем класс для стилизации
 
     buttonContainer.appendChild(menuButtonOv);
     buttonContainer.appendChild(restartButton);
 
-    contentDivEnd.classList.add('message');
-    overlayEnd.appendChild(contentDivEnd)
+    contentDivEnd.appendChild(buttonContainer);
 
-    overlayEnd.appendChild(buttonContainer);
 
     //listeners
     menuButtonOv.addEventListener('click', returnMenu);
@@ -53,9 +51,15 @@ function returnMenu(){
     location.reload();
 }
 function showOverlay(text) {
-    overlay.style.display = 'block';
-    contentDiv.innerHTML = text;
-    setTimeout(hideOverlay,2000)
+    var modalText = document.getElementById("modalText");
+    modalText.textContent = text; // Устанавливаем текст модального окно
+
+    overlay.style.display = "block";
+    var closeElement = document.querySelector('.close');
+    if (closeElement) {
+        closeElement.parentNode.removeChild(closeElement);
+    }
+    setTimeout(hideOverlay,2000);
 }
 function hideOverlay() {
     overlay.style.display = 'none';
@@ -351,7 +355,7 @@ function endGameValidator(){
     if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
-        contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+        textPEndGameModal.textContent = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
@@ -362,7 +366,7 @@ function endGameValidator(){
         if (ROUNDS_PLAYED == MAX_ROUNDS) {
             console.log("Game is ended")
             hideOverlay();
-            contentDivEnd.innerHTML = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
+            textPEndGameModal.textContent = 'Great Play, Dear!\n' + "Your Score is: " + success_attempts + "/" + total_attempts;
             endGame();
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
