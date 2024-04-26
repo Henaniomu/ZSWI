@@ -1,5 +1,6 @@
 //      GLOBAL
-let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'rooster', 'rat', 'cow', 'dachshund']; //Default array with all the animals
+// let animals = ['cat', 'duck', 'frog', 'goat', 'horse', 'pig', 'rabbit', 'turkey', 'rooster', 'rat', 'cow', 'dachshund']; //Default array with all the animals
+let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "../../png/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
@@ -206,7 +207,7 @@ function control(result){
         guessedAnimals++;
         WIN_STREAK = WIN_STREAK + 1;
         index = getValidIndex(cell_highlight);
-        showOverlay("Ano! Je to správně " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
+        showOverlay("Ano! Je to " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
 
         setHighlight(index);
         updateSelectSection();
