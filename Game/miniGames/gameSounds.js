@@ -1,7 +1,7 @@
 //GLOBAL section
 
 // let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
-let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
+let animals = ['krocan', 'myš', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "png/SoundClickGameAssets/";
 let SOUND_PATH = "sounds/";
 
@@ -79,6 +79,7 @@ function showOverlay(text) {
     parent = closeElement.parentNode;
     if (closeElement) {
         parent.removeChild(closeElement);
+        // parent.style.display = 'none'
     }
     setTimeout(hideOverlay,2000);
     setTimeout(() => {parent.insertBefore(closeElement, modalText)}, 2000);

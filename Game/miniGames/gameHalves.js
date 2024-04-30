@@ -1,5 +1,5 @@
 let dragNdrop = (localStorage.getItem('GAME_ID') == 'button2');
-let animals = ['krocan', 'krysa', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
+let animals = ['krocan', 'myš', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "png/animalHalfs/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
@@ -8,7 +8,6 @@ let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 //show result on screen
 const contentDiv = document.createElement('div');
-
 
 const overlayEnd = document.getElementById('modalEndGame');
 const buttonContainer = document.createElement('div');
@@ -28,8 +27,8 @@ function createEndGameOverlay(){
     menuButtonOv.textContent = 'Return to Menu';
     restartButton.textContent = 'Play Again!';
 
-    menuButtonOv.classList.add('modal-button'); // Добавляем класс для стилизации
-    restartButton.classList.add('modal-button'); // Добавляем класс для стилизации
+    menuButtonOv.classList.add('modal-button');
+    restartButton.classList.add('modal-button');
 
     buttonContainer.appendChild(menuButtonOv);
     buttonContainer.appendChild(restartButton);
@@ -51,13 +50,13 @@ function returnMenu(){
     location.reload();
 }
 function showOverlay(text) {
-    var modalText = document.getElementById("modalText");
+    let modalText = document.getElementById("modalText");
     let parent;
 
     modalText.textContent = text; // Устанавливаем текст модального окно
 
     overlay.style.display = "block";
-    var closeElement = document.querySelector('.close');
+    let closeElement = document.querySelector('.close');
     parent = closeElement.parentNode;
     if (closeElement) {
         parent.removeChild(closeElement);

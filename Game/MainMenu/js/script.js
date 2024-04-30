@@ -179,11 +179,11 @@ function setSliderStateFromLocalStorage(sliderId, localStorageKey) {
 function showModal() {
     let text = "text not found";
     if (gameId === 'button3') {
-        text = "Kliknutím na stín zvířete uslyšíte jeho zvuky a na základě tohoto zvuku hádejte zvíře níže kliknutím na něj!";
+        text = " Klikni na otazník a uslyšíš zvuk zvířete. Poznáš, o jaké zvíře se jedná? Vyber zvíře z výběru dole.";
     } else if (gameId === 'button2') {
-        text = "Hádejte, která polovina zvířete zespodu odpovídá druhé polovině shora. Klikněte a přetáhněte požadované zvíře zespodu nahoru!";
+        text = "Uhádneš, která polovina zvířete patří zvířátku nahoře? Vyber z možností dole a potáhni danou polovinu zespodu nahoru. Spoj tak dvě poloviny a vytvoř zvířátko.";
     } else if (gameId === 'button1') {
-        text = "Hádejte, která polovina zvířete zespodu odpovídá druhé polovině shora. Klikněte na požadovanou polovinu níže";
+        text = "Hádej, která polovina zvířátku chybí. Vyber si z možností dole a klikni na správnou odpověď.";
     } else {
         // Обработка неизвестного ID кнопки
         console.error("Unknown game ID: ", gameId);
@@ -194,14 +194,14 @@ function showModal() {
 
 // Функция для закрытия модального окна
 function closeModal() {
-    var modal = document.getElementById("myModal");
+    let modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
 
 function showModaltext(text){
-    var modalText = document.getElementById("modalText");
+    let modalText = document.getElementById("modalText");
     modalText.textContent = text; // Устанавливаем текст модального окн
-    var modal = document.getElementById("myModal");
+    let modal = document.getElementById("myModal");
     modal.style.display = "block";
 }
 
@@ -219,7 +219,7 @@ window.addEventListener("load", function() {
 });
 
 function checkSwitchStateAndToggleSlider(switchId, sliderId) {
-    var switchElement = document.getElementById(switchId);
-    var sliderElement = document.getElementById(sliderId);
+    let switchElement = document.getElementById(switchId);
+    let sliderElement = document.getElementById(sliderId);
     sliderElement.disabled = switchElement.checked;
 }
