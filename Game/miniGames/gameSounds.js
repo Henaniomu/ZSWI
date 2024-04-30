@@ -71,14 +71,17 @@ function showOverlay(text) {
     // contentDiv.innerHTML = text;
     // setTimeout(hideOverlay,2000)
     var modalText = document.getElementById("modalText");
+    let parent;
     modalText.textContent = text; // Устанавливаем текст модального окно
 
     overlay.style.display = "block";
     var closeElement = document.querySelector('.close');
+    parent = closeElement.parentNode;
     if (closeElement) {
-        closeElement.parentNode.removeChild(closeElement);
+        parent.removeChild(closeElement);
     }
     setTimeout(hideOverlay,2000);
+    setTimeout(() => {parent.insertBefore(closeElement, modalText)}, 2000);
 }
 
 function hideOverlay() {
