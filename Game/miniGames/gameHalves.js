@@ -1,6 +1,6 @@
 let dragNdrop = (localStorage.getItem('GAME_ID') == 'button2');
-let animals = ['krocan', 'myš', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
-let IMG_PATH = "png/animalHalfs/";
+let animals = ['krocan', 'myš', 'kohoutek', 'kráva', 'kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
+let IMG_PATH = "../png/animalHalfs/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
 let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
@@ -118,7 +118,6 @@ let tempName; //stores the name of the highlightCell
 let selectedCellName; //stores the name of selected cell
 let select_section = document.getElementById('select_section');
 let main_section = document.getElementById('main_section');
-
 leftInnerDiv = document.createElement('div'); // leftInnerDiv contains the image of the highlightCell
 leftInnerDiv.classList.add('cell');
 
@@ -191,12 +190,14 @@ function addImage(name, side){
  * @param event
  */
 function dragStart(event) {
+
     const cellDiv = event.target.closest('.cell');
     if (cellDiv) {
         event.dataTransfer.setData('text/plain', cellDiv.textContent.trim());
+        
         selectedCellName = cellDiv.textContent.trim();
-    }
 
+    }
 }
 
 function dragOver(event) {
@@ -211,6 +212,8 @@ added = false;
  */
 function dragEnter(event) {
     event.preventDefault();
+
+    if(selectedCellName == null || selectedCellName=="") return;
 
      if (!added) {
         tempName = highlightCell.textContent;
@@ -234,12 +237,14 @@ function dragEnter(event) {
  */
 newDiv.addEventListener('dragleave', (event) => {
     if (event.target !== newDiv) return;
+        
         main_section.removeChild(newDiv);
         highlightCell.textContent = tempName;
         highlightCell.appendChild(addImage(tempName, 1));
         highlightCell.addEventListener('drop', drop);
         main_section.appendChild(highlightCell);
         added = false;
+
 });
 
 /**
@@ -250,6 +255,7 @@ newDiv.addEventListener('dragleave', (event) => {
  */
 function drop(event) {
     event.preventDefault();
+
         main_section.removeChild(newDiv);
         highlightCell.textContent = tempName;
         highlightCell.appendChild(addImage(tempName, 1));
@@ -258,8 +264,12 @@ function drop(event) {
         added = false;
 
     const dropTarget = tempName;
+    if(selectedCellName =="")   return;
+
     if (!dropTarget) return;
     control(dropTarget === selectedCellName);
+    selectedCellName=""; // !!!
+
 
 }
 function getCellElements() {
@@ -323,6 +333,8 @@ function control(result){
 
         setHighlight(index);
         updateSelectSection();
+        selectedCellName=""; // !!!
+
     } else {
         if (COMPLEXITY_INC && ROUNDS_PLAYED > 3) {
             MAX_ANIMALS = parseInt(localStorage.getItem('MAX_ANIMALS'))
@@ -384,6 +396,9 @@ function endGameValidator(){
             reset()
         }
     }
+    else if(ROUNDS_PLAYED % MAX_ROUNDS == 0){
+        reset();
+    }
 }
 
 /**
@@ -403,6 +418,7 @@ function updateSelectSection() {
             cell_selection[i].element.style.display = "inline-block";
         }
     }
+
 }
 
 /**
