@@ -444,7 +444,7 @@ function winStreakValidator(){
     console.log("Win streak: " + WIN_STREAK)
     console.log("Loose streak: " + LOOSE_STREAK)
     if (WIN_STREAK > 0 && (guessedAnimals > 0 && WIN_STREAK % 3 == 0)){
-        if (MAX_ANIMALS  == 6) {
+        if (MAX_ANIMALS  == 7) {
             reset()
         } else {
             MAX_ANIMALS++;
