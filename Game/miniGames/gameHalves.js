@@ -137,6 +137,7 @@ let total_attempts = 0;
 let success_attempts= 0;
 let ROUNDS_PLAYED = 0;
 let WIN_STREAK = 0;
+let LOOSE_STREAK = 0;
 let guessedAnimals = 0;
 
 let cell_selection =[]; //animals that exists in the select section
@@ -398,7 +399,8 @@ function control(result){
         console.log("Clicked right")
         success_attempts++;
         guessedAnimals++;
-        WIN_STREAK = WIN_STREAK + 1;
+        WIN_STREAK++;
+        LOOSE_STREAK = 0;
         index = getValidIndex(cell_highlight);
         showOverlay("Ano! Tohle je " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
 
@@ -407,19 +409,29 @@ function control(result){
         selectedCellName=""; // !!!
 
     } else {
-        if (COMPLEXITY_INC && ROUNDS_PLAYED > 3) {
-            MAX_ANIMALS = parseInt(localStorage.getItem('MAX_ANIMALS'))
-            reset()
+        console.log("Wrong guess")
+        if (COMPLEXITY_INC) {
+            LOOSE_STREAK++;
+            console.log("Loose streak: " + LOOSE_STREAK)
             WIN_STREAK = 0;
+            if (LOOSE_STREAK > 0 && (LOOSE_STREAK % 3 == 0)) {
+                if (MAX_ANIMALS  == 2) {
+                    console.log("Reset because of loose streak")
+                    reset()
+                } else {
+                    MAX_ANIMALS--;
+                    console.log("Decreasing max animals. Currently: " + MAX_ANIMALS)
+                    reset()
+                }
+            }
             showOverlay("Ne, zkus' ještě jednou.");
             return
+        } else {
+            showOverlay("Ne, zkus' ještě jednou.");
         }
-        WIN_STREAK = 0;
-        showOverlay("Ne, zkus' ještě jednou.");
     }
-    if (MAX_ROUNDS > 3) {
+    if (COMPLEXITY_INC) {
         winStreakValidator();
-
     }
 
     endGameValidator()
@@ -430,8 +442,9 @@ function control(result){
  */
 function winStreakValidator(){
     console.log("Win streak: " + WIN_STREAK)
-    if (WIN_STREAK > 0 && (guessedAnimals > 0 && guessedAnimals % MAX_ANIMALS == 0) && COMPLEXITY_INC){
-        if (MAX_ANIMALS  == 7) {
+    console.log("Loose streak: " + LOOSE_STREAK)
+    if (WIN_STREAK > 0 && (guessedAnimals > 0 && WIN_STREAK % 3 == 0)){
+        if (MAX_ANIMALS  == 6) {
             reset()
         } else {
             MAX_ANIMALS++;
