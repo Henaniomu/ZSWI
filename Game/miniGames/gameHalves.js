@@ -1,6 +1,6 @@
 let dragNdrop = (localStorage.getItem('GAME_ID') == 'button2');
 let animals = ['krocan', 'myš', 'kohoutek', 'kráva', 'kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
-let IMG_PATH = "../png/animalHalfs/";
+let IMG_PATH = "png/animalHalfs/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
 let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
@@ -329,7 +329,7 @@ function control(result){
         guessedAnimals++;
         WIN_STREAK = WIN_STREAK + 1;
         index = getValidIndex(cell_highlight);
-        showOverlay("Ano! Je to " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
+        showOverlay("Ano! Tohle je " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
 
         setHighlight(index);
         updateSelectSection();
@@ -396,7 +396,7 @@ function endGameValidator(){
             reset()
         }
     }
-    else if(ROUNDS_PLAYED % MAX_ROUNDS == 0){
+    else if(ROUNDS_PLAYED % MAX_ROUNDS == 0){ // ???????????????????????
         reset();
     }
 }
