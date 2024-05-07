@@ -1,6 +1,6 @@
 let dragNdrop = (localStorage.getItem('GAME_ID') == 'button2');
 let animals = ['krocan', 'myš', 'kohoutek', 'kráva', 'kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
-let IMG_PATH = "../png/animalHalfs/";
+let IMG_PATH = "png/animalHalfs/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
 let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
@@ -253,7 +253,7 @@ let added = false;
 function dragEnter(event) {
     event.preventDefault();
 
-    if(selectedCellName == null || selectedCellName==="") return;
+    if(selectedCellName == null || selectedCellName=="") return;
 
      if (!added) {
         tempName = highlightCell.textContent;
@@ -304,7 +304,7 @@ function drop(event) {
         added = false;
 
     const dropTarget = tempName;
-    if(selectedCellName ==="")   return;
+    if(selectedCellName =="")   return;
 
     if (!dropTarget) return;
     control(dropTarget === selectedCellName);
@@ -366,7 +366,7 @@ function findHighlightIndex(array) {
             } else
                 return 0;
         }
-        if (i === array.length - 1) {
+        if (i == array.length - 1) {
             return i;
         }
     }
@@ -430,8 +430,8 @@ function control(result){
  */
 function winStreakValidator(){
     console.log("Win streak: " + WIN_STREAK)
-    if (WIN_STREAK > 0 && (guessedAnimals > 0 && guessedAnimals % MAX_ANIMALS === 0) && COMPLEXITY_INC){
-        if (MAX_ANIMALS  === 7) {
+    if (WIN_STREAK > 0 && (guessedAnimals > 0 && guessedAnimals % MAX_ANIMALS == 0) && COMPLEXITY_INC){
+        if (MAX_ANIMALS  == 7) {
             reset()
         } else {
             MAX_ANIMALS++;
@@ -448,7 +448,7 @@ function winStreakValidator(){
 function endGameValidator(){
     console.log("Rounds played: " + ROUNDS_PLAYED)
     console.log("Max rounds: " + MAX_ROUNDS)
-    if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED === MAX_ROUNDS  && !INFINITY_GAME ){
+    if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
         textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
@@ -456,10 +456,10 @@ function endGameValidator(){
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
     } else if (MAX_ANIMALS < MAX_ROUNDS  && !INFINITY_GAME ) {
-        if (guessedAnimals === MAX_ANIMALS) {
+        if (guessedAnimals == MAX_ANIMALS) {
             reset()
         }
-        if (ROUNDS_PLAYED === MAX_ROUNDS) {
+        if (ROUNDS_PLAYED == MAX_ROUNDS) {
             console.log("Game is ended")
             hideOverlay();
             textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
@@ -467,17 +467,14 @@ function endGameValidator(){
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
         }
-    } else if (MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED === MAX_ROUNDS  && INFINITY_GAME ) {
-        console.log("Game is ended")
+    } else if (INFINITY_GAME && guessedAnimals == MAX_ANIMALS) {
         reset()
-    } else if (MAX_ANIMALS < MAX_ROUNDS  && INFINITY_GAME ) {
-        if (guessedAnimals === MAX_ANIMALS) {
-            reset()
-        }
+        console.log("Reset because of endGameValidator (INFINITY_GAME)")
+
     }
-    else if(ROUNDS_PLAYED % MAX_ROUNDS === 0){
-        reset();
-    }
+    // else if(ROUNDS_PLAYED % MAX_ROUNDS == 0){ // ???????????????????????
+    //     reset();
+    // }
 }
 
 /**
