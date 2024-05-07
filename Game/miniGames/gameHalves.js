@@ -33,8 +33,8 @@ function createOverlay(){
  */
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container-modal');
-    menuButtonOv.textContent = 'Return to Menu';
-    restartButton.textContent = 'Play Again!';
+    menuButtonOv.textContent = 'Zpět do Menu';
+    restartButton.textContent = 'Zahrat znovu!';
 
     menuButtonOv.classList.add('modal-button');
     restartButton.classList.add('modal-button');
@@ -451,7 +451,7 @@ function endGameValidator(){
     if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
-        textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
+        textPEndGameModal.textContent = 'Skvělá hra, šikulo!!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
@@ -462,7 +462,7 @@ function endGameValidator(){
         if (ROUNDS_PLAYED == MAX_ROUNDS) {
             console.log("Game is ended")
             hideOverlay();
-            textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
+            textPEndGameModal.textContent = 'Skvělá hra, šikulo!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
             endGame();
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
