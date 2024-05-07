@@ -267,7 +267,7 @@ function playSoundGame() {
                 success_attempts++;
                 LOOSE_STREAK = 0;
                 WIN_STREAK++
-                showOverlay("Ano! Je to " + cell_selection[i].getName() + "!");
+                showOverlay("Ano! Tohle je " + cell_selection[i].getName() + "!");
                 endGameValidator();
             } else {
                 WIN_STREAK = 0;

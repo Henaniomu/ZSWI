@@ -400,7 +400,7 @@ function control(result){
         guessedAnimals++;
         WIN_STREAK = WIN_STREAK + 1;
         index = getValidIndex(cell_highlight);
-        showOverlay("Ano! Je to " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
+        showOverlay("Ano! Tohle je " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
 
         setHighlight(index);
         updateSelectSection();
