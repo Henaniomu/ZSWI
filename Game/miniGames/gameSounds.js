@@ -206,9 +206,7 @@ function playSoundGame() {
             } else {
                 WIN_STREAK = 0;
                 LOOSE_STREAK++;
-
-
-                if(LOOSE_STREAK % 3 == 0 && LOOSE_STREAK != 0){
+                if(LOOSE_STREAK % 3 == 0 && LOOSE_STREAK != 0 && MAX_ANIMALS > 1){
                     MAX_ANIMALS--;
                 }
                 showOverlay("Ne, zkus' ještě jednou.");
