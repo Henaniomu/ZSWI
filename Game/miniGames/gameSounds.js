@@ -201,7 +201,7 @@ function createCells() {
  */
 function addImage(name){
     let img = document.createElement("img");
-    img.src = IMG_PATH + deus_deus0name + ".png";
+    img.src = IMG_PATH + name + ".png";
     return img;
 }
 
@@ -382,7 +382,6 @@ function continueGame(){
 
     const image = addImage("unknown");
     image.classList.toggle('blackout');
-    image.id = '123';
 
     // clearing sections
     main_section.innerHTML = '';
