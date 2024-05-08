@@ -278,7 +278,7 @@ function playSoundGame() {
  * updates the play_animals array
  */
 function winStreakValidator(){
-    if (WIN_STREAK % 3 === 0 && COMPLEXITY_INC && MAX_ANIMALS < 5){
+    if (WIN_STREAK % 3 === 0 && COMPLEXITY_INC && MAX_ANIMALS < 6){
         MAX_ANIMALS++;
     }
     play_animals = animals.slice(0,MAX_ANIMALS);
