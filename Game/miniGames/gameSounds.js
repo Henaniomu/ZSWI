@@ -1,7 +1,7 @@
 //GLOBAL section
 
 // let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
-let animals = ['krocan', 'myš', 'kohoutek', 'kráva','kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
+let animals = ['krocan', 'myš', 'kohout', 'kráva','kůň', 'prase', 'králík', 'kachna', 'koza', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "png/SoundClickGameAssets/";
 let SOUND_PATH = "sounds/";
 

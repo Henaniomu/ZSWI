@@ -273,8 +273,6 @@ input:focus + .slider {
 datalist {
     display: flex;
     flex-direction: column; /* Отображаем маркеры в столбец */
-    /*height: 200px; !* Устанавливаем высоту соответствующую ширине слайдера *!*/
-    /*margin-top: 10px;*/
 }
 
 datalist option {
@@ -290,12 +288,6 @@ datalist option {
     display: flex;
     justify-content: center;
 }
-
-/*.vertical {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    height: 200px;*/
-/*}*/
 
 .input-range {
     height: 200px;
@@ -324,6 +316,7 @@ datalist option {
     height: 50px; /* Высота каждого элемента списка */
     line-height: 50px; /* Выравнивание текста по вертикали */
 }
+
 
 input::-webkit-slider-thumb {
     width: 35px;
