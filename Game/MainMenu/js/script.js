@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('ir1').addEventListener('input', function(event) {
         let maxAnimals = event.target.value;
         if(document.getElementById("switch1").checked){
-            maxAnimals = 2;
+            maxAnimals = 3;
         }
 
         localStorage.setItem('MAX_ANIMALS', maxAnimals);
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 slider.classList.toggle('checked', switchValue);
 
                 if (document.getElementById("switch1").checked){
-                    localStorage.setItem('MAX_ANIMALS', '2');
+                    localStorage.setItem('MAX_ANIMALS', '3');
                 }else if(!document.getElementById("switch1").checked){
                     localStorage.setItem('MAX_ANIMALS',document.getElementById("ir1").value);
                 }
@@ -133,8 +133,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function parseSettings(){
-    let max_animals = Number(JSON.parse(localStorage.getItem('MAX_ANIMALS'))) ? localStorage.getItem('MAX_ANIMALS') : 2;
-    let max_rounds = Number(JSON.parse(localStorage.getItem('MAX_ROUNDS'))) ? localStorage.getItem('MAX_ROUNDS') : 3;
+    let max_animals = Number(JSON.parse(localStorage.getItem('MAX_ANIMALS'))) ? localStorage.getItem('MAX_ANIMALS') : 3;
+    let max_rounds = Number(JSON.parse(localStorage.getItem('MAX_ROUNDS'))) ? localStorage.getItem('MAX_ROUNDS') : 6;
     let infinity_game = Boolean(JSON.parse(localStorage.getItem('INFINITY_GAME'))) ? localStorage.getItem('INFINITY_GAME') : false;
     let complexity_game = Boolean(JSON.parse(localStorage.getItem('COMPLEXITY_INC'))) ? localStorage.getItem('COMPLEXITY_INC') : false;
 

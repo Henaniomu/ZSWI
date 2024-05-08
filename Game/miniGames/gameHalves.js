@@ -424,10 +424,10 @@ function control(result){
                     reset()
                 }
             }
-            showOverlay("Ne, zkus' ještě jednou.");
+            showOverlay("Ne, zkus ještě jednou.");
             return
         } else {
-            showOverlay("Ne, zkus' ještě jednou.");
+            showOverlay("Ne, zkus ještě jednou.");
         }
     }
     if (COMPLEXITY_INC) {
@@ -460,7 +460,7 @@ function winStreakValidator(){
  */
 function endGameValidator(){
     console.log("Rounds played: " + ROUNDS_PLAYED)
-    console.log("Max rounds: " + MAX_ROUNDS)
+    console.log("Guessed animals: " + guessedAnimals)
     if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
         console.log("Game is ended")
         hideOverlay();
@@ -572,6 +572,9 @@ function setFirstRound(){
         cell_selection[i].selected = false;
         cell_selection[i].element = cell;
     }
+    console.log("MAX_ANIMALS = " + MAX_ANIMALS)
+    console.log("Max rounds: " + MAX_ROUNDS)
+
 }
 
 
