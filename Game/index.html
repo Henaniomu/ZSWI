@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 height=device-height">
     <link rel="stylesheet" href="MainMenu/css/settings-css.css">
     <link rel="stylesheet" href="MainMenu/css/style.css">
+    <link rel="stylesheet" href="MainMenu/css/adaptivity.css">
     <title>MysLis</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
             <div class="settings-group class-hover horizontal " id="swtch">
                 <div class="vertical center">
                     <label for="switch1" >Pokrok v obtížnosti:</label>
-                    <label class="switch horizontal-switches fakeSlider">
+                    <label class="switch fakeSlider">
                         <input type="checkbox" id="switch1">
                         <span class="slider" id="slider1"></span>
                     </label>
@@ -23,7 +24,7 @@
 
                 <div class="vertical center">
                     <label for="switch2" >Nekonečná hra:</label>
-                    <label class="switch horizontal-switches fakeSlider">
+                    <label class="switch fakeSlider">
                         <input type="checkbox" id="switch2">
                         <span class="slider" id="slider2"></span>
                     </label>
@@ -38,11 +39,8 @@
                 </div>
                 <datalist id="values1" class="divideR" style=" transform: translate(-300%,10%);">
                     <option value="7" label="7" >4</option>
-<!--                    <option value="6" label="6">3</option>-->
                     <option value="5" label="5">2</option>
-<!--                    <option value="4" label="4" >4</option>-->
                     <option value="3" label="3" style="margin-top: 10px">3</option>
-<!--                    <option value="2" label="2" style="margin-top: 10px">2</option>-->
                     <option value="1" label="1" style="margin-right: 2px; margin-top: 10px">1</option>
                 </datalist>
 
@@ -61,15 +59,15 @@
     </div>
 
     <div class="game">
-        <div class="games">
-            <img src="MainMenu/pictures/icon2.2.png" name="game1" id="button1">
-        </div>
-        <div class="games" >
-            <img src="MainMenu/pictures/icon1.1.png" name="game2" id="button2">
-        </div>
-        <div class="games">
-            <img src="MainMenu/pictures/icon3.3.png" name="game3" id="button3">
-        </div>
+<!--        <div class="games">-->
+            <img src="MainMenu/pictures/icon2.2.png" name="game1" id="button1" class="gamepic">
+<!--        </div>-->
+<!--        <div class="games" >-->
+            <img src="MainMenu/pictures/icon1.1.png" name="game2" id="button2" class="gamepic">
+<!--        </div>-->
+<!--        <div class="games">-->
+            <img src="MainMenu/pictures/icon3.3.png" name="game3" id="button3" class="gamepic">
+<!--        </div>-->
     </div>
 
 </div>

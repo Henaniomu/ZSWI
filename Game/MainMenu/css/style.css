@@ -41,15 +41,15 @@
   filter: brightness(0);
 }
 
-.anim_img1{
-  padding: 10px;
-  max-height: 250px;
-}
+            .anim_img1{
+              padding: 10px;
+              max-height: 250px;
+            }
 
-.anim_img{
-  max-width: 220px;
-  padding: 10px;
-}
+            .anim_img{
+              max-width: 220px;
+              padding: 10px;
+            }
 
 .button-container{
   display: flex;
@@ -85,7 +85,7 @@
 .cell{
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
   display: inline-block;
-  margin: 10px;
+  /*margin-right: 100px;*/
   text-align: center;
   max-height: auto;
   max-width: auto;
