@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function overrideMenu() {
         document.querySelector('.menu').innerHTML = `
             <div id="icons">
-                <img src="MainMenu/pictures/icons/home.png" name="home" onclick="location.reload();" alt="">
+                <img src="MainMenu/pictures/icons/home.png" name="home" onclick="goToStart()" alt="">
                 <img src="MainMenu/pictures/icons/tip.png" name="tip" onclick="guessHelper()" alt="">
                 <img src="MainMenu/pictures/icons/info.png" name="warn" onclick="showModal()" alt="">
             </div>
@@ -221,6 +221,11 @@ function setSliderStateFromLocalStorage(sliderId, localStorageKey) {
     }
 }
 
+function goToStart(){
+    location.reload();
+    window.speechSynthesis.cancel();
+}
+
 /**
  * Shows a modal based on the current gameId.
  */
@@ -229,11 +234,11 @@ function showModal() {
     let text = "Text not found";
     // Set text based on gameId
     if (gameId === 'button3') {
-        text = "Click on the question mark to hear the animal sound. Can you identify the animal? Choose the correct animal from the options below.";
+        text = " Klikni na otazník a uslyšíš zvuk zvířete. Poznáš, o jaké zvíře se jedná? Vyber zvíře z výběru dole.";
     } else if (gameId === 'button2') {
-        text = "Can you guess which half of the animal belongs to the animal above? Choose from the options below and drag the corresponding half from the bottom to the top. Connect the two halves to create the animal.";
+        text = "Uhádneš, která polovina zvířete patří zvířátku nahoře? Vyber z možností dole a potáhni danou polovinu zespodu nahoru. Spoj tak dvě poloviny a vytvoř zvířátko.";
     } else if (gameId === 'button1') {
-        text = "Guess which half of the animal is missing. Choose from the options below and click on the correct answer.";
+        text = "Hádej, která polovina zvířátku chybí. Vyber si z možností dole a klikni na správnou odpověď.";
     } else {
         return;
     }
@@ -245,6 +250,7 @@ function showModal() {
  * Closes the modal.
  */
 function closeModal() {
+    window.speechSynthesis.cancel();
     let modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
@@ -258,6 +264,10 @@ function showModaltext(text){
     modalText.textContent = text;
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
+    var speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = 'cs-CZ';
+    window.speechSynthesis.speak(speech);
 }
 
 /**
