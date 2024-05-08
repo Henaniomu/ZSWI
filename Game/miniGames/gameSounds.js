@@ -102,7 +102,27 @@ function showOverlay(text) {
     var speech = new SpeechSynthesisUtterance();
     speech.text = text;
     speech.lang = 'cs-CZ'; // Устанавливаем чешский язык
-    window.speechSynthesis.speak(speech);
+
+    speechSynthesis.onvoiceschanged = function() {
+        var voices = speechSynthesis.getVoices();
+
+        // Проверяем наличие голоса на чешском языке
+        var czechVoice = voices.find(function(voice) {
+            return voice.lang === 'cs-CZ';
+        });
+
+        // Если голос на чешском языке не найден, выводим сообщение об ошибке
+        if (!czechVoice) {
+            console.error('Нет доступного голоса на чешском языке.');
+            return;
+        }
+
+        // Устанавливаем голос на чешском языке
+        speech.voice = czechVoice;
+
+        // Производим озвучивание текста
+        window.speechSynthesis.speak(speech);
+    };
 }
 /**
  * hides the overlay
