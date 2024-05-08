@@ -89,6 +89,10 @@ function showOverlay(text) {
     if (closeElement) {
         parent.removeChild(closeElement);
     }
+    var speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = 'cs-CZ';
+    window.speechSynthesis.speak(speech);
     setTimeout(hideOverlay,2000);
     setTimeout(() => {parent.insertBefore(closeElement, modalText)}, 2000);
 }

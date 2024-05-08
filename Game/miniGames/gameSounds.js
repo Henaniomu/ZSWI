@@ -99,6 +99,10 @@ function showOverlay(text) {
     }
     setTimeout(hideOverlay,2000);
     setTimeout(() => {parent.insertBefore(closeElement, modalText)}, 2000);
+    var speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = 'cs-CZ'; // Устанавливаем чешский язык
+    window.speechSynthesis.speak(speech);
 }
 /**
  * hides the overlay
