@@ -1,6 +1,4 @@
 //GLOBAL section
-
-// let animals = ['cat', 'duck', 'frog', 'pig', 'bunny', 'horse', 'goat', 'turkey', 'dog', 'cow', 'rat', 'rooster'];
 let animals = ['krocan', 'myš', 'kohout', 'kráva','kůň', 'prase', 'králík', 'kachna', 'koza', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "png/SoundClickGameAssets/";
 let SOUND_PATH = "sounds/";
@@ -8,19 +6,18 @@ let SOUND_PATH = "sounds/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
 let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
-//pokrok obtiznosti/win streak complexity [true/false]
+
+//win streak complexity [true/false]
 let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 const overlay = document.getElementById('myModal');
 const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
 
-// const overlayEnd = document.getElementById('overlayEnd');
 const overlayEnd = document.getElementById('modalEndGame');
 const buttonContainer = document.createElement('div');
 const restartButton = document.createElement('button');
 const menuButtonOv = document.createElement('button');
-// const contentDivEnd = document.createElement('div');
 const contentDivEnd = document.getElementById('modalEndGameContent');
 const textPEndGameModal = document.getElementById('modalText123');
 
@@ -31,7 +28,6 @@ const textPEndGameModal = document.getElementById('modalText123');
 function createOverlay(){
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
-    // closeButton.addEventListener('click', hideOverlay);
 }
 /**
  * displays on the screen options for reset or return to menu
@@ -45,19 +41,13 @@ function createEndGameOverlay(){
     menuButtonOv.textContent = 'Zpět do menu';
     restartButton.textContent = 'Hrát znovu';
 
-    // menuButtonOv.classList.add('end_button');
-    // restartButton.classList.add('end_button');
-    menuButtonOv.classList.add('modal-button'); // Добавляем класс для стилизации
-    restartButton.classList.add('modal-button'); // Добавляем класс для стилизации
+    menuButtonOv.classList.add('modal-button');
+    restartButton.classList.add('modal-button');
 
     buttonContainer.appendChild(menuButtonOv);
     buttonContainer.appendChild(restartButton);
 
-    // contentDivEnd.classList.add('message');
-    // overlayEnd.appendChild(contentDivEnd)
     contentDivEnd.appendChild(buttonContainer);
-
-    // overlayEnd.appendChild(buttonContainer);
 
     //listeners
     menuButtonOv.addEventListener('click', returnMenu);
@@ -91,6 +81,8 @@ function showOverlay(text) {
     let parent;
     modalText.textContent = text; // Устанавливаем текст модального окно
 
+    document.body.style.overflow = 'hidden';
+
     overlay.style.display = "block";
     var closeElement = document.querySelector('.close');
     parent = closeElement.parentNode;
@@ -101,28 +93,8 @@ function showOverlay(text) {
     setTimeout(() => {parent.insertBefore(closeElement, modalText)}, 2000);
     var speech = new SpeechSynthesisUtterance();
     speech.text = text;
-    speech.lang = 'cs-CZ'; // Устанавливаем чешский язык
-
-    speechSynthesis.onvoiceschanged = function() {
-        var voices = speechSynthesis.getVoices();
-
-        // Проверяем наличие голоса на чешском языке
-        var czechVoice = voices.find(function(voice) {
-            return voice.lang === 'cs-CZ';
-        });
-
-        // Если голос на чешском языке не найден, выводим сообщение об ошибке
-        if (!czechVoice) {
-            console.error('Нет доступного голоса на чешском языке.');
-            return;
-        }
-
-        // Устанавливаем голос на чешском языке
-        speech.voice = czechVoice;
-
-        // Производим озвучивание текста
-        window.speechSynthesis.speak(speech);
-    };
+    speech.lang = 'cs-CZ';
+    window.speechSynthesis.speak(speech);
 }
 /**
  * hides the overlay
@@ -133,8 +105,8 @@ function hideOverlay() {
 /**
  * Class that contains the name, side, image, displayed for each animal and half animal
  * and methods setDisplayed, getName, getImage, getSound, playSound
+ * class representing animal cell
  */
-//class representing animal cell
 class cellClass{
     constructor(name, image, sound){
         this.name = name;
@@ -272,7 +244,6 @@ function playSoundGame() {
         cell.classList.add('cell');
         cell.classList.add('select_img');
         cell.setAttribute("data-animal",cell_selection[i].getName());
-        // cell.textContent = cell_selection[i].getName();
         cell.appendChild(cell_selection[i].getImage());
         select_section.appendChild(cell);
         cell_selection[i].setDisplayed(true);
@@ -408,8 +379,6 @@ function restartGame(){
  */
 function continueGame(){
     //returning styles of guessing animal
-    // const image = cell_highlight.getImage();
-    // image.classList.toggle('blackout');
 
     const image = addImage("unknown");
     image.classList.toggle('blackout');

@@ -96,27 +96,7 @@ function showOverlay(text) {
     var speech = new SpeechSynthesisUtterance();
     speech.text = text;
     speech.lang = 'cs-CZ';
-
-    speechSynthesis.onvoiceschanged = function() {
-        var voices = speechSynthesis.getVoices();
-
-        // Проверяем наличие голоса на чешском языке
-        var czechVoice = voices.find(function(voice) {
-            return voice.lang === 'cs-CZ';
-        });
-
-        // Если голос на чешском языке не найден, выводим сообщение об ошибке
-        if (!czechVoice) {
-            console.error('Нет доступного голоса на чешском языке.');
-            return;
-        }
-
-        // Устанавливаем голос на чешском языке
-        speech.voice = czechVoice;
-
-        // Производим озвучивание текста
-        window.speechSynthesis.speak(speech);
-    };
+    window.speechSynthesis.speak(speech);
 }
 
 /**
@@ -360,7 +340,6 @@ function activateCheatClass(el) {
  */
 function click(name) {
     control(name === highlightCell.textContent.trim());
-    // control(name === highlightCell.getAttribute("data-animal").trim());
 }
 
 /**
@@ -370,7 +349,6 @@ function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
-            console.log("Guess helper found")
             setTimeout(function() {
                 activateCheatClass(el);
             }, 4000)
@@ -422,7 +400,6 @@ function control(result){
     total_attempts++;
     let index;
     if (result) {
-        console.log("Clicked right")
         success_attempts++;
         guessedAnimals++;
         WIN_STREAK++;
@@ -435,18 +412,14 @@ function control(result){
         selectedCellName=""; // !!!
 
     } else {
-        console.log("Wrong guess")
         if (COMPLEXITY_INC) {
             LOOSE_STREAK++;
-            console.log("Loose streak: " + LOOSE_STREAK)
             WIN_STREAK = 0;
             if (LOOSE_STREAK > 0 && (LOOSE_STREAK % 3 == 0)) {
                 if (MAX_ANIMALS  == 2) {
-                    console.log("Reset because of loose streak")
                     reset()
                 } else {
                     MAX_ANIMALS--;
-                    console.log("Decreasing max animals. Currently: " + MAX_ANIMALS)
                     reset()
                 }
             }
@@ -467,14 +440,11 @@ function control(result){
  * resets the game and increases the MAX_ANIMALS whenever the animal is guessed right and the COMPLEXITY_INC is selected
  */
 function winStreakValidator(){
-    console.log("Win streak: " + WIN_STREAK)
-    console.log("Loose streak: " + LOOSE_STREAK)
     if (WIN_STREAK > 0 && (guessedAnimals > 0 && WIN_STREAK % 3 == 0)){
         if (MAX_ANIMALS  == 7) {
             reset()
         } else {
             MAX_ANIMALS++;
-            console.log("Increasing max animals. Currently: " + MAX_ANIMALS)
             reset()
         }
     }
@@ -485,10 +455,7 @@ function winStreakValidator(){
  * handles textPEndGameModal with messages
  */
 function endGameValidator(){
-    console.log("Rounds played: " + ROUNDS_PLAYED)
-    console.log("Guessed animals: " + guessedAnimals)
     if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
-        console.log("Game is ended")
         hideOverlay();
         textPEndGameModal.textContent = 'Skvělá hra, šikulo!!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
@@ -499,7 +466,6 @@ function endGameValidator(){
             reset()
         }
         if (ROUNDS_PLAYED == MAX_ROUNDS) {
-            console.log("Game is ended")
             hideOverlay();
             textPEndGameModal.textContent = 'Skvělá hra, šikulo!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
             endGame();
@@ -508,12 +474,8 @@ function endGameValidator(){
         }
     } else if (INFINITY_GAME && guessedAnimals == MAX_ANIMALS) {
         reset()
-        console.log("Reset because of endGameValidator (INFINITY_GAME)")
 
     }
-    // else if(ROUNDS_PLAYED % MAX_ROUNDS == 0){ // ???????????????????????
-    //     reset();
-    // }
 }
 
 /**
@@ -598,8 +560,6 @@ function setFirstRound(){
         cell_selection[i].selected = false;
         cell_selection[i].element = cell;
     }
-    console.log("MAX_ANIMALS = " + MAX_ANIMALS)
-    console.log("Max rounds: " + MAX_ROUNDS)
 
 }
 
@@ -616,18 +576,11 @@ function reset() {
     closeEndGame();
     main_section.innerHTML = '';
     select_section.innerHTML = '';
-    console.log("MAX_ANIMALS = " + MAX_ANIMALS)
-    console.log("local storage max animals = " + localStorage.getItem('MAX_ANIMALS'))
     shuffleArray(animals);
     cell1 = animals.slice(0, MAX_ANIMALS);
-    console.log(cell1)
     cell2 = animals.slice(0, MAX_ANIMALS);
     createCells();
     setFirstRound();
-    console.log("cell_highlight")
-    for (let i = 0; i < cell_highlight.length; i++) {
-        console.log(cell_highlight[i])
-    }
 }
 createEndGameOverlay();
 createOverlay();
