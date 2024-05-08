@@ -87,9 +87,6 @@ function returnMenu(){
  * @param text is the given text to be displayed on the screen
  */
 function showOverlay(text) {
-    // overlay.style.display = 'block';
-    // contentDiv.innerHTML = text;
-    // setTimeout(hideOverlay,2000)
     var modalText = document.getElementById("modalText");
     let parent;
     modalText.textContent = text; // Устанавливаем текст модального окно
@@ -99,7 +96,6 @@ function showOverlay(text) {
     parent = closeElement.parentNode;
     if (closeElement) {
         parent.removeChild(closeElement);
-        // parent.style.display = 'none'
     }
     setTimeout(hideOverlay,2000);
     setTimeout(() => {parent.insertBefore(closeElement, modalText)}, 2000);
@@ -177,7 +173,6 @@ function createHighlight(){
     cell_highlight = null;
     shuffleArray(animals);
     let randomIndex = Math.floor(Math.random() * play_animals.length);
-    // const image = addImage(play_animals[randomIndex]);
     const image = addImage("unknown");
     cell_highlight = new cellClass(play_animals[randomIndex],  image, SOUND_PATH + play_animals[randomIndex] + ".mp3");
 }
@@ -291,9 +286,6 @@ function winStreakValidator(){
     if (WIN_STREAK % 3 === 0 && COMPLEXITY_INC && MAX_ANIMALS < 5){
         MAX_ANIMALS++;
     }
-    // if (LOOSE_STREAK % 3 == 0 && COMPLEXITY_INC && MAX_ANIMALS < 5){
-    //     MAX_ANIMALS--;
-    // }
     play_animals = animals.slice(0,MAX_ANIMALS);
 }
 
@@ -334,7 +326,6 @@ function endGameValidator(){
     ROUNDS_PLAYED++;
     if(ROUNDS_PLAYED === MAX_ROUNDS && !INFINITY_GAME ){
         hideOverlay();
-        // contentDivEnd.innerHTML = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
