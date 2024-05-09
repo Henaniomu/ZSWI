@@ -173,9 +173,15 @@ input:focus + .slider {
     margin-right: 50px;
 }
 /* --------------------------- sliders ----------------------------*/
-datalist {
+.range-slider{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+datalist {
+    max-width: 200px; /* Максимальная ширина даталиста */
+    overflow: hidden; /* Скрытие лишнего содержимого */
 }
 
 datalist option {
@@ -195,6 +201,7 @@ datalist option {
 .input-range,
 datalist {
     display: flex;
+    flex-direction: column;
 }
 
 input::-webkit-slider-thumb {
