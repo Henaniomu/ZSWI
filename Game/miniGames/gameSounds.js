@@ -79,7 +79,7 @@ function returnMenu(){
 function showOverlay(text) {
     var modalText = document.getElementById("modalText");
     let parent;
-    modalText.textContent = text; // Устанавливаем текст модального окно
+    modalText.textContent = text;
 
     document.body.style.overflow = 'hidden';
 

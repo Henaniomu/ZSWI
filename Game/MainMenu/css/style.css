@@ -1,13 +1,11 @@
-/* Мерцание белым цветом */
 @keyframes sizing {
   0% {scale: 1;}
   50% {scale: 1.25;}
   100% {scale: 1; }
 }
 
-/* Применяем анимации к изображению */
 .cheat{
-  animation: sizing 2s infinite; /* Применяем обе анимации */
+  animation: sizing 2s infinite;
 }
 
 @keyframes goUp {

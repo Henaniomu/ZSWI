@@ -180,8 +180,8 @@ input:focus + .slider {
 }
 
 datalist {
-    max-width: 200px; /* Максимальная ширина даталиста */
-    overflow: hidden; /* Скрытие лишнего содержимого */
+    max-width: 200px;
+    overflow: hidden;
 }
 
 datalist option {
@@ -221,7 +221,6 @@ datalist option {
     height: 50px;
     line-height: 50px;
 }
-
 
 input::-webkit-slider-thumb {
     width: 35px;
