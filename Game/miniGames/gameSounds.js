@@ -267,7 +267,7 @@ function playSoundGame() {
                 if(LOOSE_STREAK % 3 === 0 && LOOSE_STREAK !== 0){
                     MAX_ANIMALS--;
                 }
-                showOverlay("Ne, zkus' ještě jednou.");
+                showOverlay("Ne, zkus ještě jednou.");
             }
         });
     }
