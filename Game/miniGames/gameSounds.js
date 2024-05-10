@@ -11,7 +11,6 @@ let INFINITY_GAME = JSON.parse(localStorage.getItem('INFINITY_GAME'));
 let COMPLEXITY_INC = JSON.parse(localStorage.getItem('COMPLEXITY_INC'));
 
 const overlay = document.getElementById('myModal');
-const closeButton = document.createElement('span');
 const contentDiv = document.createElement('div');
 
 const overlayEnd = document.getElementById('modalEndGame');
