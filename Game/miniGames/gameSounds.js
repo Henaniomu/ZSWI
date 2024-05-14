@@ -320,7 +320,7 @@ function endGameValidator(){
     ROUNDS_PLAYED++;
     if(ROUNDS_PLAYED === MAX_ROUNDS && !INFINITY_GAME ){
         hideOverlay();
-        textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
+        textPEndGameModal.textContent = 'Skvělá hra, šikulo!!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
