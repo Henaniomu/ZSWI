@@ -81,7 +81,7 @@ function showOverlay(text) {
     let modalText = document.getElementById("modalText");
     let parent;
 
-    modalText.textContent = text; // Устанавливаем текст модального окно
+    modalText.textContent = text;
 
     overlay.style.display = "block";
     let closeElement = document.querySelector('.close');
@@ -114,10 +114,6 @@ class cellClass{
         this.displayed = false;
         this.image = image;
     }
-
-    // displayed variable for
-    // cell_highlight is used to declare if the cell is displayed at least once
-    // cell_selection is used to declare if the cell should be displayed on the screen
     setDisplayed(flag){
         this.displayed = flag;
     }
@@ -137,8 +133,8 @@ let WIN_STREAK = 0;
 let LOOSE_STREAK = 0;
 let guessedAnimals = 0;
 
-let cell_selection =[]; //animals that exists in the select section
-let cell_highlight =[]; //animals that exists in the highlight section
+let cell_selection =[];
+let cell_highlight =[];
 shuffleArray(animals);
 let cell1 = animals.slice(0, MAX_ANIMALS); //cell_selection
 let cell2 = animals.slice(0, MAX_ANIMALS); //cell_highlight
@@ -219,7 +215,6 @@ function addImage(name, side){
     img.src = IMG_PATH + name + side + ".png" ;
     img.classList.add('anim_img1')
 
-    // img = imageResize(name, side, img);
     return img;
 }
 
@@ -331,7 +326,6 @@ function activateCheatClass(el) {
  */
 function click(name) {
     control(name === highlightCell.textContent.trim());
-    // control(name === highlightCell.getAttribute("data-animal").trim());
 }
 
 /**
@@ -401,7 +395,7 @@ function control(result){
 
         setHighlight(index);
         updateSelectSection();
-        selectedCellName=""; // !!!
+        selectedCellName="";
 
     } else {
         if (COMPLEXITY_INC) {
